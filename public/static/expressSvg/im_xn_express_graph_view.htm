@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>性能计算过程图解</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <style>
+        .container{
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding-top:15px;
+            overflow:hidden;
+            background: #fff;
+            .form_input{
+                width: @width;
+            }
+        }
+        svg {
+            cursor: all-scroll;
+        }
+        
+        .centralText {
+            font: 23spx sans-serif;
+            fill: #222;
+        }
+
+        text {
+            text-anchor: middle;
+            /* 文本水平居中 */
+            dominant-baseline: middle;
+            /* 文本垂直居中 */
+        }
+        
+        .downwardNode text,
+        .upwardNode text {
+            font: 10px sans-serif;
+        }
+        
+        .downwardLink {
+            fill: none;
+            stroke: #8b4513;
+            stroke-width: 1px;
+            opacity: 0.5;
+        }
+        
+        .upwardLink {
+            fill: none;
+            stroke: #3AC2FB;
+            stroke-width: 1px;
+            opacity: 0.5;
+        }
+
+        .tooltip{
+            position:absolute;
+            padding:5px;
+            min-width:250px;
+            max-width:525px;
+            height:auto;
+            font-family:simsun;
+            font-size:14px;
+            color:black;
+            z-index:1;
+            border-width: 2px solid rgb(255,255,255);
+            border-radius:5px;
+        }
+
+        .tip{
+        font-weight:bold;
+        font-size:12px;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        background: url(calc_arrow.png) left no-repeat;
+        background-size:18px 18px
+        }
+
+        .popover-title{
+            padding: 4px 7px;
+            margin: 0;
+            font-size: 14px;
+            background-color: #f7f7f7;
+            border-bottom: 1px outset #ebebeb;
+            border-radius: 5px 5px 0 0;
+            background: url(calc_title.png) left no-repeat;
+            background-size:20px 20px
+        }
+        .popover-title span{padding-bottom:5px;}
+
+        .arrow{
+            border:1px outset #fff;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            border-radius: 3px;
+            background-color: #FAFAFA;
+            color : #393939;
+            border : solid 1px #968212;
+            font-Size : 12;
+            position : "absolute";
+            text-Shadow : "none";
+            border-Radius : 3;
+            padding : 6;
+        }
+
+        #arrow_toggle,#export_svg_id{cursor:pointer;}
+
+        .arrow_up_class{
+            background: url(arrow_up.png) center no-repeat #EAFCFC;
+
+        }
+        .arrow_down_class{
+            background: url(arrow_down.png) center no-repeat #EAFCFC;
+        }
+        .export_svg_class{
+            background: url(export_svg.png) center no-repeat #EAFCFC;
+        }
+
+        .contextMenuPlugin img{
+        border:0px!important;
+        }
+   
+    </style>
+ 
+    <script src="../baidumap/jquery.js"></script>
+    <script src="im_xn_express_graph_view.js"></script>
+    <script src="d3.v3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="contextmenu/jquery.contextmenu.css"/>
+    <script src="contextmenu/jquery.contextmenu.js"></script>
+    <script src="MiniDialog-es5.min.js"></script>
+</head>
+<body>
+
+    <!-- <iframe id="iframe_graph" name="iframe_graph"  width="100%" frameborder="no" border="0" marginwidth="0" marginheight="0"  allowtransparency="yes"></iframe> 
+<iframe id="iframe_graph" name="iframe_graph" src="/DMS/forms/IndicatorItem_Id/IM_XN_EXPRESS_LIST/im_xn_express_graph_show.htm" width="100%" height="250" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+-->
+<div id="arrow_toggle" title="伸缩" style="border:1px dotted #FACBFA;height:30px;width:49.5%;text-align:left;float:left; display: none;" class="arrow_down_class"></div>
+<div id="export_svg_id" title="导出图片" class="export_svg_class" style="border:1px dotted #FAFACB;width:100%;height:30px;float:right;"></div>
+<div class="container" id="treecontainer" style="width:100%">
+   <div class="menu">
+	   <div id="product_tree" style=" height: calc(100vh - 70px);overflow: hidden;"></div>
+   </div>
+</div>
+
+	 
+</body>
+</html>
+<script type="text/javascript">
+    var container;
+    var zoom;
+    var rootData;
+    var depthInfo;
+	var rootName;//根节点名称
+	var id_str = "";
+	var nowpoint;
+	var toggle_flag = false;
+	var express_name_str="";
+	var picName = "";
+	$(function(){
+		// var urlParam = getURLParams(window.location.href);
+	    // id_str = urlParam["_pkValue"];
+	    // express_name_str = urlParam["express_name"];
+	    // nowpoint = urlParam["point_code"];
+        // nowpoint = 'CL_XN01_FHHTL_K_C_FH';
+        // id_str='2b9f3b3f69811bb9017c3ffeHCFX0007';
+	   // $("#iframe_graph").attr("src","../../../trend/index.html?nowpoint="+nowpoint+"&startTime="+startTime+"&endTime"+endTime);
+	   // $("#iframe_graph").attr("src","/DMS/forms/IndicatorItem_Id/IM_XN_EXPRESS_LIST/im_xn_express_graph_show.htm?nowpoint="+nowpoint);
+	    //初始化树状图
+		// drawGraphSvgView(id_str);
+		$("#arrow_toggle").click(function(){
+			if($(this).hasClass("arrow_up_class")){
+			  	$(this).removeClass("arrow_up_class").addClass("arrow_down_class");
+			  	$("g.gbox").attr("transform","translate(0,0)");
+			  }else{
+			  	$(this).removeClass("arrow_down_class").addClass("arrow_up_class");
+			  	$("g.gbox").attr("transform","translate(0,-200)");
+			  }
+		 		 $("#iframe_graph").slideToggle(200,function(){
+		 		 	if(!toggle_flag)$("#iframe_graph").contents().find("#img_refersh").click();
+		 		 		toggle_flag = true;
+		 		 		//$("g.gbox").attr("transform","translate(0,-200)");
+		 		 });
+		});
+		
+	    $("#iframe_graph").slideToggle();
+		//导出svg
+		$("#export_svg_id").click(function(){
+		 	downloadfun();
+		});
+		
+		$("#iframe_graph").load(function(){
+		   $(this).attr("height","300px");
+		});
+		
+	  });
+   
+function drawGraphSvgView(data){
+    var root_str = eval("("+data+")");
+    console.log('root_str',root_str);
+    var calc_node_obj = {};
+    calc_node_obj["calcNode"] = root_str;
+
+    drawTreeGraph(calc_node_obj,300);
+}	 
+</script>

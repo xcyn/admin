@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:100%;}
+		#r-result{width:100%;margin-top:5px;}
+		p{margin:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="./baidumap_offline_v2_load.js"></script>
+	<script type="text/javascript" src="./tools/DrawingManager_min.js"></script> 
+	<script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="./js/showAreaMap.js"></script>
+	
+ 	<link rel="stylesheet" href="./css/DrawingManager_min.css" />
+	<title>添加/删除工具条、比例尺控件</title>
+	<style>
+	.layui-inline{position: fixed;top: 20px;left:10px;z-index: 1000;}
+	.layui-input-inline select{border: 1px solid #1863c3; height: 30px;width: 100px;}
+	.BMap_cpyCtrl{display:none;}
+	.anchorBL{display: none;}
+	#zoomBtn {
+		position: absolute;
+		left: 10px;
+		top: 20px;
+		z-index: 4;
+		padding: 5px;
+		width: 28px;
+		background-color: #999d9c;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 15px;
+		border-radius: 5px;
+		padding-top: 5px;
+	}
+	
+	#zoomBtn>div:nth-child(-n + 2) {
+		border-bottom: 1px solid #ccc;
+	}
+	
+	#zoomBtn>div:nth-child(odd) {
+		cursor: pointer;
+		user-select: none;
+	}
+	</style>
+</head>
+<body>
+	<div id="allmap"></div>
+	<div id="zoomBtn">
+		<div onclick="addZoom()">+</div>
+		<div class="wrap_show">6</div>
+		<div onclick="delZoom()">-</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	 
+</script>

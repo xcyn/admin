@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+<head>
+    <meta charset="UTF-8" />
+    <title>过程趋势</title>
+    <link href="plugins/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.3/themes/default/easyui.css" />
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.3/themes/icon.css" />
+	<link rel="stylesheet" type="text/css" href="./css/basic-grey.css" />
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/extendjQuery.js"></script>
+	<script type="text/javascript" src="js/highstock.js"></script>
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.5.3/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<script type="text/javascript" src="point.js"></script>
+	<script type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>
+	<script type="text/javascript" src="plugins/layui/layui.js"></script>
+	<style type="text/css">
+	.bls{
+		background-color:red;
+	}
+	li:active{
+		background-color:blue;
+	}
+	.btd{
+		border:solid 1px;text-align:center;width:10%;position:relative;height:30px;
+	}
+	.std{
+	border:solid 1px;text-align:center;width:10%;
+	}
+	.ltd{
+		border:solid 1px;text-align:center;height:30px;background-color:#DDDDEE;
+	}
+	
+	#dtab{
+	width:100%;
+	font-family:'微软雅黑','黑体','文泉驿正黑';
+	text-align:center;
+}
+
+#tab_real_time{
+	width:100%;
+	margin:10px auto;
+	border-collapse:collapse;
+}
+#tr_title{
+	background-color:#fafafa;	
+	height:30px;
+}
+	
+	</style>
+</head>
+<body class="easyui-layout" style="height:100%;">
+		
+		<DIV style="display:none;text-align:center;padding-top:5px;padding-bottom:5px;BORDER-BOTTOM: #e5e5e5 1px solid; BORDER-LEFT: #e5e5e5 1px solid;  margin: 5 auto; PADDING-RIGHT: 18px; BACKGROUND: #fafafa; HEIGHT: 23px; BORDER-TOP: #e5e5e5 1px solid; BORDER-RIGHT: #e5e5e5 1px solid">
+			<FONT color=#0080ff><STRONG>过程趋势</STRONG></FONT>
+		</DIV>
+		<!--  
+		<div data-options="region:'east',title:'测点信息'" style="width:200px;">
+		</div>  
+		-->
+		<div id="center" data-options="region:'center'">
+			<div style="margin-left: 5px;margin-top: 5px;margin-bottom:5px;">
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td style="width:30%">
+							<!--时间：<input id="startTime" type="text" class="Wdate" style="width:40%" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'%y-%M-{%d-15} %H:%m:%s', maxDate:'#F{$dp.$D(\'endTime\')}', readOnly:true, isShowClear:false, onpicked:function(){onebeclick();getAjax();}})"/>
+							&nbsp;至&nbsp;<input id="endTime" type="text" class="Wdate" style="width:40%" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss', minDate:'#F{$dp.$D(\'startTime\')}', maxDate:'%y-%M-%d %HH:%mm:%ss', readOnly:true, isShowClear:false, onpicked:function(){onebeclick();getAjax();}})"/>-->
+							时间：<input id="startTime" type="text" class="Wdate" style="width:38%" onClick="startTimeSelect()"/>
+							&nbsp;至&nbsp;<input id="endTime" type="text" class="Wdate" style="width:38%" onClick="endTimeSelect()"/>
+							&nbsp;  
+						</td>
+						<td style="width:18%">
+							<STRONG>&nbsp;
+				            <IMG 
+				            style="VERTICAL-ALIGN: middle" id=img_1 onmouseover="img_1mouseover()" 
+				            onmouseout="img_1mouseout()" onclick="img_1click()" 
+				            src="images/10m.gif" 
+				            width=15% height=19 runat="server"><IMG 
+				            style="VERTICAL-ALIGN: middle" id=img_2 onmouseover="img_2mouseover()" 
+				            onmouseout="img_2mouseout()" onclick="img_2click()" 
+				            src="images/30m.gif" 
+				            width=15% height=19 runat="server"><IMG 
+				            style="VERTICAL-ALIGN: middle" id=img_3 onmouseover="img_3mouseover()" 
+				            onmouseout="img_3mouseout()" onclick="img_3click()" 
+				            src="images/1h.gif" 
+				            width=15% height=19 runat="server"><IMG 
+				            style="VERTICAL-ALIGN: middle" id=img_4 onmouseover="img_4mouseover()" 
+				            onmouseout="img_4mouseout()" onclick="img_4click()" 
+				            src="images/2h.gif" 
+				            width=15% height=19 runat="server"><IMG 
+				            style="VERTICAL-ALIGN: middle" id=img_5 onmouseover="img_5mouseover()" 
+				            onmouseout="img_5mouseout()" onclick="img_5click()" 
+				            src="images/1d.gif" 
+				            width=15% height=19 ></STRONG>
+						</td>
+						<td style="width:25%;">
+							<div id="pointTool" style="margin-left:1px;">
+								<span style="width:25%;">
+									<button   class="layui-btn layui-btn-normal layui-btn-mini" onclick="reFresh()">刷新数据</button>
+								</span>
+								<!-- <span style="width:30%;">
+									<button  class="layui-btn layui-btn-mini" onclick="loadSelectedPoint()"><i class="layui-icon">&#xe61f;</i>加载选取测点 </button>
+								</span>
+								<span style="width:30%;">
+									<button  class="layui-btn layui-btn-danger layui-btn-mini" onclick="clearSelectedPoint()"><i class="layui-icon">&#xe640;</i>清除选取测点 </button>
+								</span> -->
+								<!-- <input type="button" onclick="loadSelectedPoint()" value="加载选取测点" />							
+								<input type="button" onclick="clearSelectedPoint()" value="清除选取测点" />							
+						 		-->	
+						 	</div>
+
+						</td>
+						<td style="width:6%">
+						<button style="width:100%;margin-left:10%;border-radius:5px;out-style:none;border:1px solid #ccc;height:30px;" onclick="showDialog()">添加测点</button>
+						</td>
+						<!--  暂时注释掉，用处不大 <td style="width:6%;">
+						<button style="width:100%;margin-left:10%;border-radius:5px;out-style:none;border:1px solid #ccc;height:30px;" onclick="trendChartGroup()">保存趋势组</button>
+						</td>
+						<td style="width:7%;">
+						<button onclick="myTrendDlg()" style="width:90%;margin-left:15%;border-radius:5px;position:relative;out-style:none;border:1px solid #ccc;height:30px;">我的趋势组</button>
+						</td>  -->
+						<td style="width:3%;">
+						<button id="bt" onclick="queryPointData()" style="width:90%;margin-left:25%;border-radius:5px;out-style:none;border:1px solid #ccc;height:30px;">数据</button>
+						</td> 
+						<td style="width:3%;">
+						<button onclick="getChart()" style="width:90%;margin-left:25%;border-radius:5px;out-style:none;border:1px solid #ccc;height:30px;">曲线</button>
+						</td>
+						<td>
+							<span style="color:red;font-size:11px;margin-left:15px;margin_right:0px;" id="loadTip"></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div>
+			<div id="container" onmousedown="mousedown()" onmouseup="mouseup()" class="easyui-layout" style="min-width:400px; min-height: 100px;position:relative; margin: 5 auto;">
+			</div>
+			<div id="tabledata_real_time">
+					<table id="tab_real_time" border="1">
+						<tr id="tr_title">
+							<td style="width:4%"></td>
+							<td style="width:8%">点名</td>
+							<td style="width:8%">描述</td>
+							<td style="width:8%">单位</td>
+							<td style="width:8%">当前值</td>
+							<td style="width:8%">最小值</td>
+							<td style="width:14%">最小值时间</td>
+							<td style="width:8%">最大值</td>
+							<td style="width:14%">最大值时间</td>
+							<td style="width:8%">平均值</td>
+						</tr>
+						<tbody id="tbody_real_time">	
+						</tbody>
+						</table>
+			</div>
+			</div>
+		</div>
+		<div id="dlg" >
+		<div id="tst" style="display:none;width:100%;">
+		<div style='text-align:center;line-height:35px;border:1px solid #C2C2C2;margin:5px;'>
+		<div>
+		<input name="rad" value=1 type="radio" onclick="selRadio(1)"/><span style="font-size:20px;">&nbsp;&nbsp;新增趋势组&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		</div>
+		<div>
+		<input id='updateTrend' name="rad" value=2 type="radio" onclick="selRadio(2)"/><span style="font-size:20px;">&nbsp;&nbsp;存至已有趋势组</span>
+		</div>
+		</div>
+		<div style='border:1px solid #C2C2C2;margin:5px;'>
+		<div style='text-align:center;'>
+		<span id='inpTrendText' style="font-size:20px;">请输入新趋势组名称</span>
+		<span id='selTrendText' style="font-size:20px;display:none;">请选择趋势组</span>
+		</div>
+		<div id='selTrend' style='width:100%;margin-top:10px;display:none;text-align:center;'>
+		<input id='selCom' style='height:28px;' class="easyui-combobox"/>
+		</div>
+		<div id='inpTrend' style='text-align:center;'>
+		<input style="margin-top:10px;width:180px;outline-style:none;border:1px solid #ADD8E6;border-radius:3px;padding:5px 8px;font-size:14px;font-weight:700;font-family:'Microsoft soft';" type="text" id="in" name="trendName"></input><br/>
+		</div>
+		<div  style='text-align:center;'>
+		<input id="check"  style="width:15px;height:15px;margin-top:10px;" type="checkbox"/><span style="font-size:20px;">&nbsp;&nbsp;保存当前时间</span>
+		</div>
+		</div>
+		<div  style='text-align:center;'>
+		<input onclick="saveTrendChart()" style="width:80px;height:30px;margin-top:10px;border-radius:3px;out-style:none;border:1px solid #ccc;" type="button" value="确定"/>
+		<input style="width:80px;height:30px;margin-top:10px;margin-left:10px;border-radius:3px;outline-style:none;border:1px solid #ccc;" onclick="winClose()" type="button" value="取消"/>
+		</div>
+		</div>
+		<!-- <form class="basic-grey">
+		<h1>Contact Form
+			<span>Please fill all the texts in the fields.</span>
+		</h1>
+		<label>
+			<span>Themplate :</span>
+			<select id="template" name="themplate" onchange="changeStyle();">
+				<option value="basic-grey">basic-grey</option>
+				<option value="elegant-aero">elegant-aero</option>
+				<option value="smart-green">smart-green</option>
+				<option value="white-pink">white-pink</option>
+				<option value="bootstrap-frm">bootstrap-frm</option>
+				<option value="dark-matter">dark-matter</option>
+			</select>
+		</label>
+		<label>
+			<span>Your Name :</span>
+			<input id="name" type="text" name="name" placeholder="Your Full Name" />
+		</label>
+		<label>
+			<span>Your Email :</span>
+			<input id="email" type="email" name="email" placeholder="Valid Email Address" />
+		</label>
+
+		<label>
+			<span>Message :</span>
+			<textarea id="message" name="message" placeholder="Your Message to Us"></textarea>
+		</label>
+		<label>
+			<span>Subject :</span><select name="selection">
+				<option value="Job Inquiry">Job Inquiry</option>
+				<option value="General Question">General Question</option>
+			</select>
+		</label>
+		<label>
+			<span>&nbsp;</span>
+			<input type="button" class="button" value="Send" />
+		</label>
+	</form> -->
+		</div>
+		<div id="myDlg">
+		<!-- <div id="trendDlg" style="display:none;background-color:#efeff4;">
+		<div style="margin-left:0px;margin-top:0px;width:100%;height:100%;background-color:#efeff4;position:relative;">
+		<div style="height:10%;background-color:#efeff4;position:relative;">
+		 <input style="margin-left:18px;margin-top:10px;height:70%;background-color:#F0F8FF;" type="button" value="我的趋势组"></input>
+		</div>
+		<div style="margin-left:15px;width:90%;height:80%;background-color:white;position:relative;">
+		<ul id="bkList">
+		</ul>
+		</div>
+		<div style="height:10%;background-color:#efeff4;position:relative;">
+		<table style="width:100%;">
+		<tr style="width:100%;">
+		<td style="width:50%;"><input onclick="searchTrend()" style="width:40%;margin-left:50px;" type="button" value="查看趋势"></input></td>
+		<td style="width:50%;"><input  onclick="delGroup()" style="width:40%;margin-left:-0px;" type="button" value="删除"></input></td>
+		</tr>
+		</table>
+		</div>
+		</div>
+		</div> -->
+		<table id="trendDlg" class="easyui-datagrid">
+		
+		</table>
+		</div>
+		<div id='dd'>
+	<div class='easyui-layout' style='width:100%;height:100%;'>
+	<div data-options="region:'north',title:'查询条件',split:true" style='height:100px;'>
+	<div style='margin-top:10px;'>
+	<span style='margin-left:10px;'>测点编码:</span><input id='pcode' class="easyui-textbox"  style="width:200px">
+	<span style='margin-left:10px;'>测点描述:</span><input id='pname' class="easyui-textbox" style="width:200px">
+	<!-- <a id="sbtn" href="#" class="easyui-linkbutton" style='margin-left:10px;' onclick='initPGrid()' data-options="iconCls:'icon-search'">查询</a>
+	<a id="cbtn" href="#" class="easyui-linkbutton" style='margin-left:10px;' onclick='clearData()' data-options="iconCls:'icon-clear'">清空</a> -->
+	<button id="sbtn" onclick='initPGrid()'>查询</button>
+	<button id="cbtn" onclick='clearData()'>清空</button>
+	</div>
+	</div>
+<!-- 	<div data-options="region:'west',title:'换热站列表',split:true" style='width:200px;'>
+	<div id="menuContent" class="menuContent" style="position: absolute;width:10px;height:50px;">  
+    	<ul id="tree" class="ztree" style="margin-top:0; width:200px;"></ul>  
+	</div>   
+	</div> -->
+	<div data-options="region:'center',title:'测点信息',split:true" style='width:700px;'>
+	<table id='ptab' class='easyui-datagrid'>
+	</table>
+	</div>
+	<div data-options="region:'east',title:'选中列表',split:true" style='width:700px;'>
+	<table id='stab' class='easyui-datagrid'>
+	</table>
+	</div>
+	</div>
+	</div>
+	</body>
+</html>

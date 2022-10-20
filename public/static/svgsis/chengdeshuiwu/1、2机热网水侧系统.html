@@ -1,0 +1,3091 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>	
+		<link rel="stylesheet" href="../js/layui/css/layui.css" />	
+		<style type="text/css">
+			.layui-input {
+			    height: 22px;
+				width: 152px;
+				margin:0px 0px 0px 0px;
+			}
+			svg{
+			    outline:none;
+			}
+			
+		</style>
+	</head>
+	<body>		
+		<div  style="height:48px;position:fixed;right:20px;padding-top: 10px;" align="right">			
+			<svg class="icon" p-id="1271" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:none" id="optools" viewBox="0.000000 0.000000 188.000000 42.000000" width="188.000000" height="42.000000">			
+			<g id="opzoomin" transform="translate(24.000000,14.000000) " onclick="opZoomin(evt)">
+			<rect id="rect1" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) "/>
+			<path d="M21.153714,13.916116 H3.207934 C2.272485,13.916116 1.514038,13.139350 1.514038,12.180824 1.514038,11.222298 2.272485,10.445532 3.207934,10.445532 H21.153476 C22.088925,10.445532 22.847372,11.222298 22.847372,12.180824 22.847372,13.139350 22.089163,13.916116 21.153714,13.916116Z" fill="#7F8693" transform="translate(-20.180705,-10.180705) " p-id="7054"/>
+			<path d="M12.180824,22.847372 C11.245375,22.847372 10.486928,22.070606 10.486928,21.112080 V3.249330 C10.486928,2.291042 11.245375,1.514038 12.180824,1.514038 13.116273,1.514038 13.874720,2.290804 13.874720,3.249330 V21.112318 C13.874720,22.070606 13.116273,22.847372 12.180824,22.847372Z" fill="#7F8693" transform="translate(-20.180705,-10.180705) " p-id="7055"/>
+			</g>
+			<g id="opzoomout" transform="translate(66.000000,14.000000) " onclick="opZoomout(evt)">
+			<rect id="rect2" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) "/>
+			<path d="M62.725788,296.866666 H44.821116 C43.874234,296.866666 43.106666,296.090644 43.106666,295.133333 43.106666,294.176022 43.874234,293.400000 44.821116,293.400000 H62.725550 C63.672432,293.400000 64.440000,294.176022 64.440000,295.133333 64.440000,296.090644 63.672432,296.866666 62.725788,296.866666Z" fill="#7F8693" transform="translate(-61.773333,-293.133333) " p-id="7873"/>
+			</g>
+			<g id="opadaptive" transform="translate(108.000000,14.000000) " onclick="opAdaptive(evt)">
+			<rect id="rect3" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) "/>
+			<g id="element2" transform="translate(200.666667,217.333333) ">
+			<path d="M25.969604,5.632252 H17.896656 C17.251468,5.632252 16.729483,6.138840 16.729483,6.764996 16.729483,7.391151 17.251468,7.897739 17.896656,7.897739 H23.450456 L17.436271,13.731368 C16.979128,14.175025 16.979128,14.889283 17.436271,15.332940 17.663222,15.553196 17.961499,15.666470 18.263019,15.666470 18.561296,15.666470 18.859574,15.556343 19.086524,15.336087 L24.802431,9.788791 V15.103246 C24.802431,15.729401 25.324417,16.235989 25.969604,16.235989 26.614792,16.235989 27.136778,15.729401 27.136778,15.103246 V6.764996 C27.136778,6.138840 26.614792,5.632252 25.969604,5.632252ZM15.043566,24.700099 H9.489766 L15.503951,18.866470 C15.961094,18.422813 15.961094,17.708555 15.503951,17.264898 15.046808,16.821240 14.310840,16.821240 13.853698,17.264898 L8.137791,22.809047 V17.494592 C8.137791,16.868437 7.615805,16.361849 6.970618,16.361849 6.325430,16.361849 5.803444,16.868437 5.803444,17.494592 V25.832842 C5.803444,26.458998 6.325430,26.965586 6.970618,26.965586 H15.043566 C15.688754,26.965586 16.210739,26.458998 16.210739,25.832842 16.210739,25.206687 15.688754,24.700099 15.043566,24.700099Z" fill="#7F8693" transform="translate(-225.136778,-231.632252) " p-id="1573"/>
+			<line id="line1" x1="-1.52381" y1="-1.16421" x2="1.52381" y2="1.16421" fill="none" stroke="#7F8693#000000" transform="translate(-200.269504,-223.671583) "/>
+			</g>
+			</g>
+			<g id="playback" transform="translate(150.000000,14.000000) "  onclick="opPlayback(evt)">
+			<rect id="rect4" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) "/>
+			<g id="element1" transform="translate(340.812000,361.750353) ">
+			<path d="M5.884020,4.170025 L7.704058,4.108247 C8.263380,4.089248 8.732668,4.513877 8.752244,5.056681 8.771820,5.599485 8.334271,6.054917 7.774950,6.073915 L3.443316,6.219935 C2.884416,6.238878 2.415486,5.814595 2.395854,5.272203 L2.242496,1.031976 C2.222920,0.489171 2.660469,0.033741 3.219790,0.014743 3.779111,-0.004255 4.248400,0.420373 4.267976,0.963177 L4.335974,2.890936 C7.747839,-0.431245 13.103202,-0.950745 17.125152,1.650316 21.147104,4.251377 22.714668,9.248045 20.868664,13.582895 19.022660,17.917743 14.277594,20.382589 9.536941,19.469209 4.796288,18.555828 1.381334,14.518795 1.381666,9.828341 H3.407147 C3.406929,13.566184 6.118313,16.787507 9.892439,17.533343 13.666566,18.279179 17.460065,16.343339 18.966016,12.903056 20.471966,9.462773 19.274044,5.469123 16.100734,3.350745 12.927424,1.232367 8.656000,1.574893 5.884020,4.170025ZM12.498660,5.897005 V9.537703 H14.325932 C14.687783,9.537653 15.022168,9.724970 15.203108,10.029080 15.384048,10.333190 15.384048,10.707883 15.203108,11.011993 15.022168,11.316103 14.687783,11.503420 14.325932,11.503371 H11.485920 C11.217324,11.503371 10.959730,11.399823 10.769804,11.215505 10.579878,11.031188 10.473179,10.781201 10.473179,10.520537 V5.898409 C10.473128,5.547243 10.666145,5.222732 10.979508,5.047135 11.292872,4.871538 11.678966,4.871538 11.992330,5.047135 12.305694,5.222732 12.498710,5.547243 12.498660,5.898409Z" fill="#7F8693" transform="translate(-360.860001,-369.466275) " p-id="2453"/>
+			<line id="line1" x1="-0.553889" y1="-0.479939" x2="0.553889" y2="0.479939" fill="none" stroke="#7F8693" transform="translate(-357.101472,-365.607561) "/>
+			</g>
+			</g>
+			</svg>		    		
+		</div>
+		
+		<div  id="hisplaytoolsdiv" style="height:48px;position:fixed;left:5px;padding-top: 10px;display: none;outline: none;" align="left">			
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:none" id="hisplaytools" viewBox="0.000000 0.000000 430.000000 140.000000" width="430.000000" height="140.000000">
+
+			<defs>
+			<linearGradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-1">
+			<stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
+			<stop offset="1" stop-color="#CCCCCC" stop-opacity="1"/>
+			</linearGradient>
+			<linearGradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-2">
+			<stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
+			<stop offset="1" stop-color="#CCCCCC" stop-opacity="1"/>
+			</linearGradient>
+			<linearGradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-3">
+			<stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
+			<stop offset="1" stop-color="#CCCCCC" stop-opacity="1"/>
+			</linearGradient>
+			<linearGradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-4">
+			<stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
+			<stop offset="1" stop-color="#CCCCCC" stop-opacity="1"/>
+			</linearGradient>
+			</defs>
+			<rect id="rect3" x="-258.701" y="-77.7778" width="430" height="116.918" rx="5" ry="5" fill="#E5F3FE" stroke="none" transform="translate(258.701299,100.860215) "/>
+			<rect id="hisalltime" x="-218.182" y="-2.50896" width="335.299" height="6.02151" rx="3" ry="3" fill="#D3E5F2" stroke="none" transform="translate(236.133112,42.652330) "/>
+			<rect id="hiscurtime" x="-218.182" y="-2.50896" width="116.883" height="6.02151" rx="3" ry="3" fill="#009F95" stroke="none" transform="translate(236.133112,42.652330) "/>
+			<rect id="rect1" x="-192" y="-16.0573" width="430" height="27.5986" fill="#009F95" stroke="none" transform="translate(192.000000,16.057348) "/>
+			<text id="text5" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#FFFFFF" transform="translate(8.215351,8.989964) ">
+			历史回放</text>
+			<text id="hisplaytime" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#FFFFFF" transform="translate(96.215351,8.989964) ">
+			2022-05-15 12:26:39    </text>
+			<ellipse id="circle1" cx="-6" cy="-6.0215" rx="24" ry="12.043" fill="#009F95" stroke="none" transform="translate(391.250000,49.175627) "/>
+			<text id="hisstatetext" x="4.21434" y="5.63441" font-family="SimSun" font-size="12" text-anchor="middle" fill="#FFFFFF" transform="translate(381.035662,40.519713) ">
+			X1</text>
+			<rect id="starttime_his1" x="-99.25" y="-10.2867" width="150" height="20.0717" fill="none" stroke="#CCCCCC" transform="translate(166.359375,68.996416) "/>
+			<foreignObject x="-99.25" y="-10.2867" width="150" height="20.0717" transform="translate(166.359375,68.996416) ">			    
+			    <div xmlns="http://www.w3.org/1999/xhtml">
+			      <input type="text" class="layui-input" id="starttime_his" placeholder="开始时间">
+			    </div>
+			  </foreignObject>
+			<rect id="endtime_his1" x="-99.25" y="-10.2867" width="150" height="20.0717" fill="none" stroke="#CCCCCC" transform="translate(358.359375,68.996416) "/>
+			<foreignObject x="-99.25" y="-10.2867" width="150" height="20.0717" transform="translate(358.359375,68.996416) ">
+			    <div xmlns="http://www.w3.org/1999/xhtml">
+			      <input type="text" class="layui-input" id="endtime_his" placeholder="结束时间">
+			    </div>
+			  </foreignObject>
+			
+			<text id="text7" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(22.715351,63.853047) ">
+			时间</text>
+			<line id="line3" x1="-3.40234" y1="0" x2="8.59766" y2="0" fill="none" stroke="#666666" stroke-width="3" transform="translate(235.511719,68.996416) "/>
+			<text id="text8" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(78.215351,105.000000) ">
+			减速</text>
+			<text id="hisplaysate" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(236.215351,105.000000) ">
+			回放</text>
+			<text id="text10" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(366.715351,105.000000) ">
+			加速</text>
+			<g id="hispause" transform="translate(197.250000,109.892473) " onclick="hisPause(evt)">
+			<g id="element6" transform="translate(5.000000,5.017921) ">
+			<ellipse id="circle2" cx="-0.838709" cy="-0.841715" rx="26" ry="26.0932" fill="url(#gradient-1)" stroke="none" transform="translate(-4.161291,-4.176206) "/>
+			<ellipse id="circle3" cx="-1.67742" cy="-1.68343" rx="25.1613" ry="25.2515" fill="#E5F3FE" stroke="none" transform="translate(-3.322580,-3.334489) "/>
+			</g>
+			<g id="element7">
+			<ellipse id="circle2" cx="-2" cy="-2.00717" rx="12" ry="12.043" fill="none" stroke="#009F95" stroke-width="2" transform="translate(2.000000,2.007169) "/>
+			<g id="element7">
+			<line id="line6" x1="0" y1="-7.22581" x2="0" y2="7.22581" fill="none" stroke="#009F95" stroke-width="2" stroke-linecap="round" transform="translate(-2.900000,0.000000) "/>
+			<line id="line7" x1="0" y1="-7.22581" x2="0" y2="7.22581" fill="none" stroke="#009F95" stroke-width="2" stroke-linecap="round" transform="translate(2.900000,0.000000) "/>
+			</g>
+			</g>
+			</g>
+			<g id="hisplay" transform="translate(197.250000,109.892473) " onclick="hisPlay(evt)">
+			<g id="element5" transform="translate(5.000000,5.017921) ">
+			<ellipse id="circle2" cx="-0.838709" cy="-0.841715" rx="26" ry="26.0932" fill="url(#gradient-2)" stroke="none" transform="translate(-4.161291,-4.176206) "/>
+			<ellipse id="circle3" cx="-1.67742" cy="-1.68343" rx="25.1613" ry="25.2515" fill="#E5F3FE" stroke="none" transform="translate(-3.322580,-3.334489) "/>
+			</g>
+			<polygon id="line4" points="-14.750000,-12.921147 5.250000,-2.885305 -14.750000,7.150537" fill="#009F95" stroke="none" transform="translate(8.750000,2.885305) "/>
+			</g>
+			<g id="hisminus" transform="translate(49.750000,109.892473) " onclick="hisMinus(evt)">
+			<g id="element1" transform="translate(11.000000,11.039427) ">
+			<ellipse id="circle2" cx="-0.645161" cy="-0.647474" rx="20" ry="20.0717" fill="url(#gradient-3)" stroke="none" transform="translate(-10.354839,-10.391953) "/>
+			<ellipse id="circle3" cx="-1.29032" cy="-1.29495" rx="19.3548" ry="19.4242" fill="#E5F3FE" stroke="none" transform="translate(-9.709677,-9.744479) "/>
+			</g>
+			<g id="element2" transform="translate(6.016234,3.387097) ">
+			<polygon id="line5" points="9.850777,-10.336917 -0.245859,-4.315412 9.850777,1.706093" fill="#009F95" stroke="none" transform="translate(-4.867011,0.928315) "/>
+			<polygon id="line6" points="14.505719,-10.336917 -0.245860,-4.315412 14.505719,1.706093" fill="#009F95" stroke="none" transform="translate(-18.770374,0.928315) "/>
+			</g>
+			</g>
+			<g id="hisadd" transform="translate(338.250000,109.892473) " onclick="hisAdd(evt)">
+			<g id="element3" transform="translate(11.000000,11.039427) ">
+			<ellipse id="circle2" cx="-0.645161" cy="-0.647474" rx="20" ry="20.0717" fill="url(#gradient-4)" stroke="none" transform="translate(-10.354839,-10.391953) "/>
+			<ellipse id="circle3" cx="-1.29032" cy="-1.29495" rx="19.3548" ry="19.4242" fill="#E5F3FE" stroke="none" transform="translate(-9.709677,-9.744479) "/>
+			</g>
+			<g id="element4" transform="translate(-4.483766,3.387097) ">
+			<polygon id="line5" points="-9.850777,-10.336917 0.245859,-4.315412 -9.850777,1.706093" fill="#009F95" stroke="none" transform="translate(4.867011,0.928315) "/>
+			<polygon id="line6" points="-14.505719,-10.336917 0.245860,-4.315412 -14.505719,1.706093" fill="#009F95" stroke="none" transform="translate(18.770374,0.928315) "/>
+			</g>
+			</g>
+			<g id="hisclose" transform="translate(413.000000,11.624373) " onclick="hisClose(evt)">
+			<rect id="rect5" x="-6.66417" y="-7.37992" width="14" height="14.0502" fill="#009F95" stroke="none" stroke-width="2" transform="translate(-0.335831,0.354832) "/>
+			<line id="line4" x1="-7" y1="-7.02509" x2="7" y2="7.02509" fill="none" stroke="#FFFFFF" stroke-width="2" transform="translate(0.000000,-0.000001) "/>
+			<line id="line5" x1="6.79" y1="-7.02509" x2="-7.21" y2="7.02509" fill="none" stroke="#FFFFFF" stroke-width="2" transform="translate(0.210000,-0.000001) "/>
+			</g>
+			</svg>			
+		</div>
+		
+		
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:#013057" id="main"  id="main" viewBox="0.000000 0.000000 1600.000000 800.000000" width="1600.000000" height="800.000000">
+<defs>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-1">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-2">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-3">
+<stop offset="0" stop-color="#666666" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</linearGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-4">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-5">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-6">
+<stop offset="0" stop-color="#666666" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</linearGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-7">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-8">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-9">
+<stop offset="0" stop-color="#666666" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</linearGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-10">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-11">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-12">
+<stop offset="0" stop-color="#666666" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</linearGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-13">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-14">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-15">
+<stop offset="0" stop-color="#666666" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</linearGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-16">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<radialGradient r="50.000000%" cx="50.000000%" cy="50.000000%" fx="50.000000%" fy="50.000000%" id="gradient-17">
+<stop offset="0" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</radialGradient>
+<linearGradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-18">
+<stop offset="0" stop-color="#666666" stop-opacity="1"/>
+<stop offset="0.5" stop-color="#CCCCCC" stop-opacity="1"/>
+<stop offset="1" stop-color="#666666" stop-opacity="1"/>
+</linearGradient>
+</defs>
+<text id="text24" x="-1.08887" y="14" font-family="SimSun" font-size="24" text-anchor="start" fill="#FFFFFF" transform="translate(747.088867,17.000000) ">
+热网水侧系统(2229)</text>
+<path id="line1" d="M309.000000,-178.000000 H-313.000000 V184.000000 " fill="none" stroke="#FF0000" stroke-width="3" transform="translate(883.000000,300.000000) "/>
+<path id="line2" d="M68.000000,-106.000000 V112.000000 H-68.000000 " fill="none" stroke="#FF0000" stroke-width="3" transform="translate(582.000000,602.000000) "/>
+<path id="line3" d="M90.000000,24.000000 V-24.000000 H-90.000000 V24.000000 " fill="none" stroke="#FF0000" stroke-width="3" transform="translate(1042.000000,98.000000) "/>
+<line id="line4" x1="0" y1="-31" x2="0" y2="31" fill="none" stroke="#FF0000" stroke-width="3" transform="translate(570.000000,91.000000) "/>
+<path id="line5" d="M-11.000000,-152.000000 V-164.000000 H-85.000000 V94.000000 H83.000000 V166.000000 " fill="none" stroke="#FF0000" stroke-width="3" transform="translate(729.000000,318.000000) "/>
+<line id="line6" x1="0" y1="-52" x2="0" y2="52" fill="none" stroke="#FF0000" stroke-width="3" transform="translate(814.000000,258.000000) "/>
+<path id="line7" d="M5.000000,-73.000000 H75.000000 V73.000000 H-75.000000 V-73.000000 H5.000000 " fill="none" stroke="#FF0000" stroke-width="3" transform="translate(809.000000,383.000000) "/>
+<line id="line8" x1="-101" y1="0" x2="101" y2="0" fill="none" stroke="#00FF00" stroke-width="3" transform="translate(249.000000,82.000000) "/>
+<line id="line9" x1="0" y1="-55" x2="0" y2="55" fill="none" stroke="#00FF00" stroke-width="3" transform="translate(208.000000,137.000000) "/>
+<line id="line10" x1="0" y1="-57" x2="0" y2="57" fill="none" stroke="#00FF00" stroke-width="3" transform="translate(308.000000,139.000000) "/>
+<path id="line11" d="M245.000000,230.000000 H-245.000000 V-230.000000 H111.000000 V0.000000 " fill="none" stroke="#00FF00" stroke-width="3" transform="translate(269.000000,484.000000) "/>
+<line id="line12" x1="0" y1="-113" x2="0" y2="117" fill="none" stroke="#00FF00" stroke-width="3" transform="translate(218.000000,367.000000) "/>
+<path id="line13" d="M-721.000000,-114.000000 H721.000000 V114.000000 H39.000000 " fill="none" stroke="#00FF00" stroke-width="3" transform="translate(745.000000,598.000000) "/>
+<path id="line14" d="M-283.000000,115.000000 V-103.000000 H-93.000000 V115.000000 H87.000000 V-103.000000 H283.000000 V23.000000 " fill="none" stroke="#00FF00" stroke-width="3" transform="translate(429.000000,599.000000) "/>
+<path id="line15" d="M-34.000000,58.000000 V-58.000000 H34.000000 V14.000000 " fill="none" stroke="#00FF00" stroke-width="3" transform="translate(984.000000,654.000000) "/>
+<path id="line16" d="M-175.000000,115.000000 V-115.000000 H175.000000 V115.000000 H5.000000 V-113.000000 " fill="none" stroke="#00FF00" stroke-width="3" transform="translate(1159.000000,369.000000) "/>
+<path id="line17" d="M-82.000000,-114.000000 V114.000000 H82.000000 V-114.000000 " fill="none" stroke="#00FF00" stroke-width="3" transform="translate(1220.000000,598.000000) "/>
+<g id="element3" transform="translate(170.700000,351.300000) ">
+<ellipse id="circle1" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-1)" stroke="none" transform="translate(-103.767315,1.549840) "/>
+<ellipse id="circle2" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-2)" stroke="none" transform="translate(68.020269,1.549840) "/>
+<rect id="rect1" x="-86.0673" y="-26.5" width="172.135" height="53" fill="url(#gradient-3)" stroke="none" transform="translate(-17.786761,-4.800000) "/>
+</g>
+<g id="element1" transform="translate(462.700000,351.300000) ">
+<ellipse id="circle1" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-4)" stroke="none" transform="translate(-103.767315,1.549840) "/>
+<ellipse id="circle2" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-5)" stroke="none" transform="translate(68.020269,1.549840) "/>
+<rect id="rect1" x="-86.0673" y="-26.5" width="172.135" height="53" fill="url(#gradient-6)" stroke="none" transform="translate(-17.786761,-4.800000) "/>
+</g>
+<g id="element2" transform="translate(1120.700000,349.300000) ">
+<ellipse id="circle1" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-7)" stroke="none" transform="translate(-103.767315,1.549840) "/>
+<ellipse id="circle2" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-8)" stroke="none" transform="translate(68.020269,1.549840) "/>
+<rect id="rect1" x="-86.0673" y="-26.5" width="172.135" height="53" fill="url(#gradient-9)" stroke="none" transform="translate(-17.786761,-4.800000) "/>
+</g>
+<g id="element4" transform="translate(1422.700000,349.300000) ">
+<ellipse id="circle1" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-10)" stroke="none" transform="translate(-103.767315,1.549840) "/>
+<ellipse id="circle2" cx="0.173523" cy="-6.34984" rx="30.1062" ry="26.5" fill="url(#gradient-11)" stroke="none" transform="translate(68.020269,1.549840) "/>
+<rect id="rect1" x="-86.0673" y="-26.5" width="172.135" height="53" fill="url(#gradient-12)" stroke="none" transform="translate(-17.786761,-4.800000) "/>
+</g>
+<g id="kgl15" transform="translate(870.114002,775.325536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="13.9263" cy="10.6346" rx="19.75" ry="19.75" fill="#FF0000" stroke="#000000" transform="translate(-738.040284,-172.710151) "/>
+<polygon id="line1" points="-6.785155,3.338990 16.583111,3.216222 16.583111,-3.290382 25.625101,5.303247 16.700538,12.914746 16.700538,7.021972 -6.667727,7.021972" fill="#000000" stroke="none" transform="translate(-728.926185,-152.655563) rotate(270.000000) "/>
+</g>
+<g id="kgl1" transform="translate(1058.114002,776.825536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="13.9263" cy="10.6346" rx="19.75" ry="19.75" fill="#FF0000" stroke="#000000" transform="translate(-738.040284,-172.710151) "/>
+<polygon id="line1" points="-6.785155,3.338990 16.583111,3.216222 16.583111,-3.290382 25.625101,5.303247 16.700538,12.914746 16.700538,7.021972 -6.667727,7.021972" fill="#000000" stroke="none" transform="translate(-728.926185,-152.655563) rotate(270.000000) "/>
+</g>
+<g id="kgl2" transform="translate(1238.114002,774.425536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="13.9263" cy="10.6346" rx="19.75" ry="19.75" fill="#FF0000" stroke="#000000" transform="translate(-738.040284,-172.710151) "/>
+<polygon id="line1" points="-6.785155,3.338990 16.583111,3.216222 16.583111,-3.290382 25.625101,5.303247 16.700538,12.914746 16.700538,7.021972 -6.667727,7.021972" fill="#000000" stroke="none" transform="translate(-728.926185,-152.655563) rotate(270.000000) "/>
+</g>
+<g id="kgl3" transform="translate(1862.114002,772.325536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="13.9263" cy="10.6346" rx="19.75" ry="19.75" fill="#FF0000" stroke="#000000" transform="translate(-738.040284,-172.710151) "/>
+<polygon id="line1" points="-6.785155,3.338990 16.583111,3.216222 16.583111,-3.290382 25.625101,5.303247 16.700538,12.914746 16.700538,7.021972 -6.667727,7.021972" fill="#000000" stroke="none" transform="translate(-728.926185,-152.655563) rotate(270.000000) "/>
+</g>
+<g id="kgl4" transform="translate(2026.114002,774.325536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="13.9263" cy="10.6346" rx="19.75" ry="19.75" fill="#FF0000" stroke="#000000" transform="translate(-738.040284,-172.710151) "/>
+<polygon id="line1" points="-6.785155,3.338990 16.583111,3.216222 16.583111,-3.290382 25.625101,5.303247 16.700538,12.914746 16.700538,7.021972 -6.667727,7.021972" fill="#000000" stroke="none" transform="translate(-728.926185,-152.655563) rotate(270.000000) "/>
+</g>
+<g id="kgl5" transform="translate(2190.114002,773.825536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="13.9263" cy="10.6346" rx="19.75" ry="19.75" fill="#FF0000" stroke="#000000" transform="translate(-738.040284,-172.710151) "/>
+<polygon id="line1" points="-6.785155,3.338990 16.583111,3.216222 16.583111,-3.290382 25.625101,5.303247 16.700538,12.914746 16.700538,7.021972 -6.667727,7.021972" fill="#000000" stroke="none" transform="translate(-728.926185,-152.655563) rotate(270.000000) "/>
+</g>
+<g id="kgl6" transform="translate(939.864002,372.325536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="8.99039" cy="6.86538" rx="12.75" ry="12.75" fill="#FF0000" stroke="#000000" transform="translate(-740.104387,-175.940920) "/>
+<polygon id="line1" points="-4.380290,2.155551 10.705553,2.076296 10.705553,-2.124170 16.542787,3.423616 10.781360,8.337368 10.781360,4.533172 -4.304482,4.533172" fill="#000000" stroke="none" transform="translate(-734.220601,-162.994288) rotate(270.000000) "/>
+</g>
+<g id="kgl7" transform="translate(1039.864002,374.325536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="8.99039" cy="6.86538" rx="12.75" ry="12.75" fill="#FF0000" stroke="#000000" transform="translate(-740.104387,-175.940920) "/>
+<polygon id="line1" points="-4.380290,2.155551 10.705553,2.076296 10.705553,-2.124170 16.542787,3.423616 10.781360,8.337368 10.781360,4.533172 -4.304482,4.533172" fill="#000000" stroke="none" transform="translate(-734.220601,-162.994288) rotate(270.000000) "/>
+</g>
+<g id="kgl49" transform="translate(1460.864002,513.825536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="11.9872" cy="9.15385" rx="17" ry="17" fill="#FF0000" stroke="#000000" transform="translate(-738.851181,-173.979382) "/>
+<polygon id="line1" points="-5.840387,2.874067 14.274070,2.768394 14.274070,-2.832227 22.057049,4.564820 14.375146,11.116491 14.375146,6.044229 -5.739309,6.044229" fill="#000000" stroke="none" transform="translate(-722.721870,-172.933867) rotate(90.000000) "/>
+</g>
+<g id="kgl8" transform="translate(1610.864002,514.825536) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot; );
+if( Value == 1)
+{  
+  fillcolor = &quot;#FF0000&quot;;
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+}
+else{
+  fillcolor = &quot;#00FF00&quot;;  
+  circle1.setAttribute( &quot;fill&quot;, fillcolor );    
+};
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="11.9872" cy="9.15385" rx="17" ry="17" fill="#FF0000" stroke="#000000" transform="translate(-738.851181,-173.979382) "/>
+<polygon id="line1" points="-5.840387,2.874067 14.274070,2.768394 14.274070,-2.832227 22.057049,4.564820 14.375146,11.116491 14.375146,6.044229 -5.739309,6.044229" fill="#000000" stroke="none" transform="translate(-722.721870,-172.933867) rotate(90.000000) "/>
+</g>
+<g id="kgl9" transform="translate(925.312000,600.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl10" transform="translate(1085.312000,601.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl11" transform="translate(852.312000,697.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl12" transform="translate(1039.812000,697.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl13" transform="translate(923.812000,443.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl14" transform="translate(1084.812000,443.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl16" transform="translate(1221.812000,695.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl17" transform="translate(1275.812000,604.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl18" transform="translate(1349.812000,538.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl19" transform="translate(1439.812000,595.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl20" transform="translate(852.312000,852.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl21" transform="translate(1039.312000,852.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl22" transform="translate(1219.312000,851.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl23" transform="translate(1843.312000,842.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl24" transform="translate(2006.812000,842.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl25" transform="translate(2171.312000,842.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl26" transform="translate(2171.812000,664.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl27" transform="translate(2007.312000,664.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl28" transform="translate(1842.812000,664.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl29" transform="translate(1869.812000,578.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl30" transform="translate(2039.312000,579.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl31" transform="translate(1869.312000,442.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl32" transform="translate(2039.312000,442.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl33" transform="translate(1414.812000,390.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl34" transform="translate(1470.312000,389.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl35" transform="translate(1589.312000,593.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl36" transform="translate(913.812000,290.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl37" transform="translate(1013.312000,288.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl38" transform="translate(1723.812000,791.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-706.312000,-152.075000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-731.203113,-165.975000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-712.812000,-158.725000) rotate(270.000000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-705.512000,-158.825000) rotate(270.000000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-705.612000,-158.925000) "/>
+</g>
+<g id="kgl39" transform="translate(1311.512000,256.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<g id="kgl40" transform="translate(1403.012000,256.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<g id="kgl41" transform="translate(1689.512000,256.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<g id="kgl42" transform="translate(1787.512000,257.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<g id="kgl43" transform="translate(1738.512000,209.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<g id="kgl44" transform="translate(765.012000,619.375000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42813" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<g id="kgl45" transform="translate(1738.012000,618.875000) " dbsrc="cprdb" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var fillcolor = &quot;#00FF00&quot;;
+var line1 = GetUnitByName( Sender, &quot;line1&quot; );
+var line2 = GetUnitByName( Sender, &quot;line2&quot; );
+var circle1 = GetUnitByName( Sender, &quot;circle1&quot;);
+var text1 = GetUnitByName( Sender, &quot;text1&quot; );
+var rect1 = GetUnitByName( Sender, &quot;rect1&quot; );
+
+if( Value &gt; 95)
+{  
+  fillcolor = &quot;#FF0000&quot;;     
+}else if(Value &lt; 5){
+  fillcolor = &quot;#00FF00&quot;;    	
+}else{
+  fillcolor = &quot;#FF00FF&quot;;      
+};
+
+line1.setAttribute( &quot;stroke&quot;, fillcolor );
+line2.setAttribute( &quot;fill&quot;, fillcolor );
+circle1.setAttribute( &quot;stroke&quot;, fillcolor );
+text1.setAttribute( &quot;fill&quot;, fillcolor );
+rect1.setAttribute( &quot;stroke&quot;, fillcolor ); 
+
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="" Value="32">
+<ellipse id="circle1" cx="-19.5" cy="-7.5" rx="8" ry="8" fill="none" stroke="#00FF00" transform="translate(-671.612000,-147.875000) "/>
+<text id="text1" x="5.42812" y="11.3" font-family="SimSun" font-size="14" text-anchor="middle" fill="#00FF00" transform="translate(-696.503113,-161.775000) ">
+M</text>
+<line id="line1" x1="-0.05" y1="-4.85" x2="-0.05" y2="7.5" fill="none" stroke="#00FF00" transform="translate(-691.162000,-142.725000) "/>
+<polygon id="line2" points="-15.750000,-8.200000 -15.950000,8.700000 16.050000,-8.550000 15.950000,8.700000" fill="#00FF00" stroke="none" transform="translate(-691.062000,-135.375000) "/>
+<rect id="rect1" x="-8.5" y="-15.95" width="17" height="31.9" fill="none" stroke="#00FF00" transform="translate(-691.012000,-135.300000) rotate(90.000000) "/>
+</g>
+<line id="line18" x1="0" y1="-45.5" x2="0" y2="45.5" fill="none" stroke="#00FF00" stroke-width="3" transform="translate(708.000000,249.500000) "/>
+<g id="element9" transform="translate(708.000000,274.207391) rotate(90.000000) ">
+<polygon id="line57" points="12.140989,0.667131 12.140989,6.381643 0.000000,0.667131 12.140989,-5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(0.433598,0.667132) rotate(180.000000) "/>
+<polygon id="line58" points="12.140989,-0.667132 12.140989,-6.381644 0.000000,-0.667132 12.140989,5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(-0.433597,0.667132) "/>
+</g>
+<g id="element6" transform="translate(763.714512,281.207391) rotate(90.000000) ">
+<polygon id="line57" points="12.140989,0.667131 12.140989,6.381643 0.000000,0.667131 12.140989,-5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(0.433598,0.667132) rotate(180.000000) "/>
+<polygon id="line58" points="12.140989,-0.667132 12.140989,-6.381644 0.000000,-0.667132 12.140989,5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(-0.433597,0.667132) "/>
+</g>
+<g id="element7" transform="translate(814.000000,277.207391) rotate(90.000000) ">
+<polygon id="line57" points="12.140989,0.667131 12.140989,6.381643 0.000000,0.667131 12.140989,-5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(0.433598,0.667132) rotate(180.000000) "/>
+<polygon id="line58" points="12.140989,-0.667132 12.140989,-6.381644 0.000000,-0.667132 12.140989,5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(-0.433597,0.667132) "/>
+</g>
+<g id="element8" transform="translate(712.000000,592.307391) rotate(90.000000) ">
+<polygon id="line57" points="12.140989,0.667131 12.140989,6.381643 0.000000,0.667131 12.140989,-5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(0.433598,0.667132) rotate(180.000000) "/>
+<polygon id="line58" points="12.140989,-0.667132 12.140989,-6.381644 0.000000,-0.667132 12.140989,5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(-0.433597,0.667132) "/>
+</g>
+<g id="element10" transform="translate(819.207391,712.000000) ">
+<polygon id="line57" points="12.140989,0.667131 12.140989,6.381643 0.000000,0.667131 12.140989,-5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(0.433598,0.667132) rotate(180.000000) "/>
+<polygon id="line58" points="12.140989,-0.667132 12.140989,-6.381644 0.000000,-0.667132 12.140989,5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(-0.433597,0.667132) "/>
+</g>
+<polygon id="line32" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#00FF00" stroke="none" transform="translate(210.389852,92.154998) rotate(180.000000) "/>
+<polygon id="line19" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#00FF00" stroke="none" transform="translate(310.389852,92.154998) rotate(180.000000) "/>
+<polygon id="line20" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#FF0000" stroke="none" transform="translate(567.610148,71.345002) "/>
+<polygon id="line21" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#FF0000" stroke="none" transform="translate(567.610148,278.645002) "/>
+<g id="element11" transform="translate(650.000000,560.707391) rotate(90.000000) ">
+<polygon id="line57" points="12.140989,0.667131 12.140989,6.381643 0.000000,0.667131 12.140989,-5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(0.433598,0.667132) rotate(180.000000) "/>
+<polygon id="line58" points="12.140989,-0.667132 12.140989,-6.381644 0.000000,-0.667132 12.140989,5.047380" fill="#00FF00" stroke="none" stroke-width="1" transform="translate(-0.433597,0.667132) "/>
+</g>
+<polygon id="line22" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#00FF00" stroke="none" transform="translate(1015.110148,673.345002) "/>
+<polygon id="line23" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#FF0000" stroke="none" transform="translate(1164.554998,119.610148) rotate(90.000000) "/>
+<rect id="rect1" x="-208.5" y="-91" width="417" height="182" fill="none" stroke="#FFCC00" transform="translate(252.500000,138.000000) "/>
+<text id="text17" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(117.088867,58.000000) ">
+五期至六期热网补水泵变频系统</text>
+<text id="text1" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(359.088867,87.000000) ">
+至#3机组热网</text>
+<text id="text2" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(530.088867,52.000000) ">
+来自厂区软化水</text>
+<text id="text3" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(893.088867,303.000000) ">
+#2</text>
+<text id="text4" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(733.088867,301.000000) ">
+#1</text>
+<text id="text5" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(494.088867,582.000000) ">
+#1</text>
+<text id="text6" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(309.088867,583.000000) ">
+#2</text>
+<text id="text7" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(125.088867,581.400000) ">
+#3</text>
+<text id="text8" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(1109.088867,575.000000) ">
+#3</text>
+<text id="text9" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(1281.088867,579.000000) ">
+#2</text>
+<text id="text10" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(1440.588867,577.500000) ">
+#1</text>
+<g id="szl4" transform="translate(54.217391,93.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_JONDA50CP101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl1" transform="translate(54.217391,120.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_JONDA60CF101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl2" transform="translate(54.217391,150.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_JONDA50CF101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl3" transform="translate(120.217391,178.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_ABSBDL" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl5" transform="translate(335.217391,177.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_BBSBDL" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl6" transform="translate(120.217391,218.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_JOND12AP001GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl7" transform="translate(335.217391,216.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_JOND12AP001GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl8" transform="translate(37.217391,270.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_10NDB30CT301" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl9" transform="translate(157.217391,603.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDG23AA102GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl10" transform="translate(149.217391,650.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA13CE101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl11" transform="translate(149.217391,670.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA13CS101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl12" transform="translate(349.217391,602.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDG22AA102GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl13" transform="translate(341.217391,649.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA12CE101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl14" transform="translate(341.217391,669.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA12CS101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl15" transform="translate(523.217391,599.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDG21AA102GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl16" transform="translate(515.217391,646.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA11CE101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl17" transform="translate(515.217391,666.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA11CS101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl18" transform="translate(498.217391,419.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0LCP10CF101F" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl19" transform="translate(719.217391,574.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDA10CF101F" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl20" transform="translate(730.217391,386.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDC11AP001GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl21" transform="translate(825.217391,469.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDC22CF101F" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl22" transform="translate(882.217391,386.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDC12AP001GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl23" transform="translate(953.217391,568.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB10CF102" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl24" transform="translate(1017.217391,611.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_RWHSFSGT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl25" transform="translate(1135.717391,642.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB13CE101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl26" transform="translate(1151.217391,617.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDG13AA102GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl27" transform="translate(1135.717391,661.500000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB13CS101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl28" transform="translate(1302.217391,641.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB12CE101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl29" transform="translate(1317.717391,616.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDG12AA102GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl30" transform="translate(1302.217391,660.500000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB12CS101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl31" transform="translate(1462.717391,641.500000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB11CE101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl32" transform="translate(1478.217391,616.500000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDG11AA102GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl33" transform="translate(1462.717391,661.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0NDB11CS101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl34" transform="translate(657.217391,142.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0LCP60AA101GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<polygon id="line24" points="2.389852,10.154998 -3.610148,-5.845002 8.389852,-5.845002" fill="#00FF00" stroke="none" transform="translate(705.610148,296.445002) "/>
+<path id="line25" d="M28.000000,-44.000000 V4.500000 H-28.000000 V11.000000 H27.500000 V40.000000 " fill="none" stroke="#00FF00" stroke-width="2" stroke-dasharray="2,2" transform="translate(736.000000,248.000000) "/>
+<g id="element5" transform="translate(777.700000,172.800000) ">
+<g id="element6" transform="translate(-5.644652,-95.436943) rotate(90.000000) ">
+<ellipse id="circle1" cx="0.0520225" cy="-7.29245" rx="9.02591" ry="30.4338" fill="url(#gradient-13)" stroke="none" transform="translate(41.610831,7.292446) "/>
+<ellipse id="circle2" cx="0.0520225" cy="-7.29245" rx="9.02591" ry="30.4338" fill="url(#gradient-14)" stroke="none" transform="translate(93.113149,7.292446) "/>
+<rect id="rect1" x="-25.8032" y="-30.4338" width="51.6064" height="60.8676" fill="url(#gradient-15)" stroke="none" transform="translate(67.388002,0.000000) "/>
+</g>
+<ellipse id="circle1" cx="0.194465" cy="-5.73248" rx="33.7397" ry="23.9236" fill="url(#gradient-16)" stroke="none" transform="translate(-100.154749,15.008917) "/>
+<ellipse id="circle2" cx="0.194465" cy="-5.73248" rx="33.7397" ry="23.9236" fill="url(#gradient-17)" stroke="none" transform="translate(92.365819,15.008917) "/>
+<rect id="rect8" x="-96.4547" y="-23.9236" width="192.909" height="47.8471" fill="url(#gradient-18)" stroke="none" transform="translate(-3.797233,9.276433) "/>
+</g>
+<text id="text11" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#000000" transform="translate(743.088867,183.000000) ">
+低压除氧器</text>
+<text id="text12" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#000000" transform="translate(117.088867,331.000000) ">
+#1热网加热器B</text>
+<text id="text13" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#000000" transform="translate(425.088867,331.000000) ">
+#1热网加热器A</text>
+<text id="text14" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#000000" transform="translate(1069.088867,327.000000) ">
+#2热网加热器B</text>
+<text id="text15" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#000000" transform="translate(1377.088867,327.000000) ">
+#2热网加热器A</text>
+<g id="szl35" transform="translate(954.217391,146.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0LBG91AA101GT" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl36" transform="translate(810.217391,170.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0SBA10CL101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl37" transform="translate(810.217391,194.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_J0SBA10CL102" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl38" transform="translate(102.217391,346.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_10NDD20CL101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl39" transform="translate(102.217391,366.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_10NDD20CL102" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl40" transform="translate(418.217391,346.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_10NDD10CL101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl41" transform="translate(418.217391,366.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_10NDD10CL102" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl42" transform="translate(1058.717391,344.500000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_20NDD20CL101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl43" transform="translate(1058.717391,364.500000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_20NDD20CL102" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl44" transform="translate(1370.217391,346.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_20NDD10CL101" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<g id="szl45" transform="translate(1370.217391,366.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value &gt; upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value &lt; lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="U1_20NDD10CL102" tagunit="" upperlimit="" Value="">
+<text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+0.00</text>
+<text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) ">
+</text>
+</g>
+<text id="text16" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(1213.088867,127.000000) ">
+辅汽管道</text>
+<text id="text18" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(712.375976,319.000000) ">
+备用投入</text>
+<text id="text19" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(869.088867,321.000000) ">
+备用投入</text>
+<text id="text20" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(817.088867,559.000000) ">
+回水流量（超声波）</text>
+<text id="text21" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#000000" transform="translate(755.088867,143.000000) ">
+除氧头</text>
+<line id="line26" x1="-283" y1="0" x2="-103" y2="0" fill="none" stroke="#00FF00" stroke-width="3" transform="translate(619.000000,496.000000) "/>
+<polygon id="line27" points="-9.250000,-34.750000 8.369494,-34.750000 8.369494,1.252922 -0.450000,10.850000 -9.250000,1.252922" fill="none" stroke="#00FF00" transform="translate(712.450000,656.350000) "/>
+<text id="text22" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(708.788867,632.419559) ">
+<tspan x="-3.08887" y="3">
+外</tspan>
+<tspan x="-3.08887" y="17">
+网</tspan>
+</text>
+<polygon id="line28" points="9.250000,-34.750000 -8.369494,-34.750000 -8.369494,1.252922 0.450000,10.850000 9.250000,1.252922" fill="none" stroke="#00FF00" transform="translate(773.150000,712.450000) rotate(270.000000) "/>
+<text id="text23" x="-3.08887" y="3" font-family="SimSun" font-size="12" text-anchor="start" fill="#FFFFFF" transform="translate(747.280851,712.319494) ">
+外网</text>
+</svg>
+
+	<script src="../js/jquery-3.2.1.min.js" charset="utf-8"></script>
+	<script src="../js/layui/layui.js" charset="utf-8"></script>
+	<script src="../js/sisbasic.js" charset="utf-8"></script>
+	<script src="../js/monitorcfg.js" charset="utf-8"></script>
+	<script src="../js/cp-interface.js" charset="utf-8"></script>				
+	</body>
+</html>

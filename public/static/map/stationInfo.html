@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>东北供热</title>
+<style type="text/css">
+* { margin:0; padding:0; box-sizing:border-box;}
+ul, li { list-style:none; }
+.wrap { width:100%; float:left;}
+.right {width:100%; float:right; font-size:14px;}
+.right-tit{ font-size:18px; width:100%; text-align:center; font-weight:bold; height:40px; line-height:40px; background:#f5f5f5;}
+.tab { width:100%; float:left; background:#fff;}
+.tab-hd { overflow:hidden; zoom:1; height:100%; padding:8px;}
+.tab-hd li{ float:left;color:#666; text-align:center; cursor:pointer; height:32px; line-height:32px; padding:0 10px;border-radius: 4px; font-size:15px; display:table; text-align:center; margin-left:10px;}
+.tab-hd li.active { background:#409eff; color:#fff; }
+.tab-hd li i{ display:block; width:14px; height:14px; margin:10px 6px 10px 0; border-radius:50%; background:#89da09; float:left;}
+/* .tab-hd li:last-of-type i{ background:#CCC;} */
+.tab-hd li span{ display:block; float:left;}
+.tab-bd li { display:none; }
+.tab-bd li.thisclass { display:list-item; }
+.time{ width:100%; text-align:center;}
+.box1-left{ width:calc(100% - 120px); float:left;}
+.box{ width:100%; float:left;}
+.box-content{ width:100%; padding:10px; float:left;}
+.box table{ width:100%; line-height:24px;}
+.box table td{ padding:0 5px;}
+.box table td:first-of-type{text-align:right;}
+.box table td:nth-of-type(2){ text-align:right;}
+.weather{ width:120px; float:right; background:#ac7bab; color:#fff; padding:10px;}
+.weather p{ width:100%; text-align:center; line-height:26px;}
+.weather p.wico{ font-size:30px; font-weight:bold;}
+.box-tit{ width:100%; float:left; background:#f2f2f2; padding-left:10px; height:32px; line-height:32px;}
+.tab-bd li .link{ float:right; font-size:15px; color:#1c9cd5;cursor:pointer;}
+.box2 table td:nth-of-type(4){ text-align:right;}
+.right-bottom{ width:100%; float:left; margin-top:20px;}
+.b-tit{ width:100%; float:left; font-size:16px; font-weight:bold; background:#fff; margin-bottom:10px;}
+.right-bottom table{ width:100%; float:left; border:1px solid #ddd; border-right:none; border-bottom:none; font-size:13px;}
+.right-bottom table td{border:1px solid #ddd; border-left:none; border-top:none; padding:3px 8px; line-height:18px;}
+.right-bottom table td i img{ width:18px; height:18px;}
+.right-bottom table td i{ float:left; margin-right:8px;}
+a:hover{text-decoration:underline;}
+</style>
+<script type="text/javascript" src="./js/showInfo.js"></script>
+</head>
+<body>
+
+  <div class="right">
+    <p class="right-tit"><span id="stationName"></span></p>
+    <div class="tab">
+      <ul class="tab-hd"  id="tabInfo">
+        <li class="active" id="basicInfo">基础信息</li>
+      </ul>
+      <ul class="tab-bd" id="detailInfo">
+        <li class="thisclass">
+          <!--box-->
+		  <a style="float:right;" id="stationLink" class="link" onclick=linkConfig(stationObjNo,stationObjId)>
+		  		换热站原理图
+		  </a>
+          <div class="box box1">
+            <div class="box-content">
+             <div class="box1-left">
+               <p class="time"><span id=localtime></span></p>
+               <table>
+                 <tr>
+                   <td style="width:100px;">供热天数：</td>
+                   <td style="width:80px;">第<span id="heatDays"></span>天</td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td>室外温度：</td>
+                   <td><span id="outsideTemp"></span></td>
+                   <td>℃</td>
+                 </tr>
+                 <tr>
+                   <td>室内均温：</td>
+                   <td><span id="insideAvgTemp"></span></td>
+                   <td>℃</td>
+                 </tr>
+                 <tr>
+                   <td>供热热源：</td>
+                   <td><span id="heatSource"></span></td>
+                   <td></td>
+                 </tr>
+				 <tr id="yxzt_tr">
+				   <td>运行状态：</td>
+				   <td><span id="heatSource">运行中</span></td>
+				   <td></td>
+				 </tr>
+               </table>
+             </div>
+             <div class="box1-right">
+               <div class="weather">
+                 <p class="wico">☼</p>
+                 <p>-2~10℃</p>
+                 <p>晴</p>
+                 <p>北风3-4级</p>
+               </div>
+             </div>
+             </div>
+          </div>
+          <!--box over-->
+          <!--box-->
+          <div class="box">
+            <p class="box-tit"></p>
+            <div class="box-content">
+               <table>
+                 <tr>
+                   <td style="width:140px;">直供并网面积：</td>
+                   <td style="width:50px;"><span id="directGridConArea"></span></td>
+                   <td style="width:40px;">m2</td>
+                   <td style="width:40px;"></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td>直供实供面积：</td>
+                   <td><span id="directActualSupplyArea"></span></td>
+                   <td>m2</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td>站单位面积热指标：</td>
+                   <td><span id="unitAreaHeatIndex"></span></td>
+                   <td>W/m2</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td>一级网循环流量：</td>
+                   <td><span id="oneCirculateFlow"></span></td>
+                   <td>t/h</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td>累计供热量：</td>
+                   <td><span id="totalHeatSupply"></span></td>
+                   <td>GJ</td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+				 <tr>
+				   <td>单位面积热耗：</td>
+				   <td><span id="unitAreaHeatConsum"></span></td>
+				   <td>GJ/m2</td>
+				   <td></td>
+				   <td></td>
+				 </tr>
+				 <tr>
+				   <td>累计耗电量：</td>
+				   <td><span id="totalPowerConsum"></span></td>
+				   <td>kWh</td>
+				   <td></td>
+				   <td></td>
+				 </tr>
+				 <tr>
+				   <td>单位面积电耗：</td>
+				   <td><span id="unitAreaPowerConsum"></span></td>
+				   <td>kWh/m2</td>
+				   <td></td>
+				   <td></td>
+				 </tr>
+				 <tr>
+				   <td>累计补水量：</td>
+				   <td><span id="totalWaterReplen"></span></td>
+				   <td>t</td>
+				   <td></td>
+				   <td></td>
+				 </tr>
+				 <tr>
+				   <td>单位面积水耗：</td>
+				   <td><span id="unitWaterConsum"></span></td>
+				   <td>GJ/m2</td>
+				   <td></td>
+				   <td></td>
+				 </tr>
+				 <tr>
+				   <td>换热站补水率：</td>
+				   <td><span id="stationWaterReplenRate"></span></td>
+				   <td>%</td>
+				   <td></td>
+				   <td></td>
+				 </tr>
+               </table>
+             </div>
+          </div>
+          <!--box over-->
+        </li>
+       
+		 
+      </ul>
+    </div>
+  </div>
+
+<script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script> 
+<script type="text/javascript">
+var CALCULATION_URL = "";
+var url = "";
+var stationObjNo = "";
+var stationObjId = "";
+var locaNo = "";
+var pointInfo = null;
+$(function(){
+    tabs(".tab-hd","active",".tab-bd");
+	url = parent.api_url;
+	CALCULATION_URL = parent.CALCULATION_URL;
+	
+	$("#stationName").html(parent.stationName);
+	$("#stationLink").html(parent.stationName+"原理图");
+	var stationNo = parent.stationNo;//站对应的指标对象编码
+	locaNo = parent.areaNo;
+	stationObjNo = stationNo;
+	var objectId = parent.objectId;//指标编码
+	stationObjId = parent.objectId;
+	if(null != objectId){
+		showUnitTab(objectId);
+	}
+	
+	//供热天数--业务表 TODO
+	var heatDays = 0;
+	$("#heatDays").html(heatDays);
+	//室外温度--测点
+	// var outsideTemp = 0;
+	// outsideTemp = getPointValue("HR_SWWD",stationNo);
+	// $("#outsideTemp").html(outsideTemp);
+	
+	//室外温度--测点
+	pointInfo = getStationPointInfo("HR_SWWD",stationNo);
+	var outsideTemp = 0;
+	var outsideTempPointNo = "";
+	if(null != pointInfo && null != pointInfo.pointValue){
+		outsideTemp = pointInfo.pointValue;
+	}
+	if(null != pointInfo && null != pointInfo.pointName){
+		outsideTempPointNo = pointInfo.pointName;
+	}
+	$("#outsideTemp").html("<a class='link' onclick=showPointTrend('"+outsideTempPointNo+"')>"+outsideTemp+"</a>");
+	
+	
+	//室内均温--指标
+	var insideAvgTemp = 0;
+	insideAvgTemp = getLastIndicatorValue('SC_SNJW',locaNo,'DA');
+	$("#insideAvgTemp").html("<a class='link' onclick=linkIndicatorInfo('SC_SNJW','"+objectId+"','DA')>"+insideAvgTemp+"</a>");
+	// $("#insideAvgTemp").html(insideAvgTemp);
+	//供热热源--测点 TODO
+	var heatSource = "";
+	// heatSource = getPointName("HR_RY",stationNo);
+	$("#heatSource").html(heatSource);
+	
+	//直供并网面积--指标
+	var directGridConArea = 0;
+	directGridConArea = getLastIndicatorValue('YW_HRZZGBWMJ',locaNo,'DA');
+	$("#directGridConArea").html("<a class='link' onclick=linkIndicatorInfo('YW_HRZZGBWMJ','"+objectId+"','DA')>"+directGridConArea+"</a>");
+	
+	//直供实供面积--指标 
+	var directActualSupplyArea = 0;
+	directActualSupplyArea = getLastIndicatorValue('YW_ZHIGSGMJ',locaNo,'DA');
+	$("#directActualSupplyArea").html("<a class='link' onclick=linkIndicatorInfo('YW_ZHIGSGMJ','"+objectId+"','DA')>"+directActualSupplyArea+"</a>");
+	
+	//站单位面积热指标--参数(业务数据)  TODO
+	var unitAreaHeatIndex = 0;
+	unitAreaHeatIndex = getLastIndicatorValue('SC_ZDWMJRZB',locaNo,'DA');
+	$("#unitAreaHeatIndex").html("<a class='link' onclick=linkIndicatorInfo('SC_ZDWMJRZB','"+objectId+"','DA')>"+unitAreaHeatIndex+"</a>");
+	// unitAreaHeatIndex = getLastIndicatorValue('YW_DWMJRZB',locaNo,'DA');
+	// $("#unitAreaHeatIndex").html(unitAreaHeatIndex);
+	
+	//一级网循环流量--指标 
+	var oneCirculateFlow = 0;
+	oneCirculateFlow = getLastIndicatorValue('SC_YJWXHLL',locaNo,'DA');
+	$("#oneCirculateFlow").html("<a class='link' onclick=linkIndicatorInfo('SC_YJWXHLL','"+objectId+"','DA')>"+oneCirculateFlow+"</a>");
+	// $("#oneCirculateFlow").html(oneCirculateFlow);
+	
+	//累计供热量--测点
+	pointInfo = getStationPointInfo("HR_YCWLJGRL",stationNo);
+	var totalHeatSupply = 0;
+	var totalHeatSupplyPointNo = "";
+	if(null != pointInfo && null != pointInfo.pointValue){
+		totalHeatSupply = pointInfo.pointValue;
+	}
+	if(null != pointInfo && null != pointInfo.pointName){
+		totalHeatSupplyPointNo = pointInfo.pointName;
+	}
+	$("#totalHeatSupply").html("<a class='link' onclick=showPointTrend('"+totalHeatSupplyPointNo+"')>"+totalHeatSupply+"</a>");
+	// $("#totalHeatSupply").html(totalHeatSupply);
+	
+	//单位面积热耗--指标 
+	var unitAreaHeatConsum = 0;
+	unitAreaHeatConsum = getLastIndicatorValue('SC_DWMJRH_HRZ',locaNo,'HS');
+	$("#unitAreaHeatConsum").html("<a class='link' onclick=linkIndicatorInfo('SC_DWMJRH_HRZ','"+objectId+"','HS')>"+unitAreaHeatConsum+"</a>");
+	// $("#unitAreaHeatConsum").html(unitAreaHeatConsum);
+	
+	//累计耗电量--测点
+	pointInfo = getStationPointInfo("HR_LJHDL",stationNo);
+	var totalPowerConsum = 0;
+	var totalPowerConsumPointNo = "";
+	if(null != pointInfo && null != pointInfo.pointValue){
+		totalPowerConsum = pointInfo.pointValue;
+	}
+	if(null != pointInfo && null != pointInfo.pointName){
+		totalPowerConsumPointNo = pointInfo.pointName;
+	}
+	$("#totalPowerConsum").html("<a class='link' onclick=showPointTrend('"+totalPowerConsumPointNo+"')>"+totalPowerConsum+"</a>");
+	// $("#totalPowerConsum").html(totalPowerConsum);
+	
+	//单位面积电耗--指标
+	var unitAreaPowerConsum = 0;
+	unitAreaPowerConsum = getLastIndicatorValue('SC_DWMJDH',locaNo,'HS');
+	$("#unitAreaPowerConsum").html("<a class='link' onclick=linkIndicatorInfo('SC_DWMJDH','"+objectId+"','HS')>"+unitAreaPowerConsum+"</a>");
+	// $("#unitAreaPowerConsum").html(unitAreaPowerConsum);
+	
+	//累计补水量--测点
+	pointInfo = getStationPointInfo("HR_LJBSL",stationNo);
+	var totalWaterReplen = 0;
+	var totalWaterReplenPointNo = "";
+	if(null != pointInfo && null != pointInfo.pointValue){
+		totalWaterReplen = pointInfo.pointValue;
+	}
+	if(null != pointInfo && null != pointInfo.pointName){
+		totalWaterReplenPointNo = pointInfo.pointName;
+	}
+	$("#totalWaterReplen").html("<a class='link' onclick=showPointTrend('"+totalWaterReplenPointNo+"')>"+totalWaterReplen+"</a>");
+	// $("#totalWaterReplen").html(totalWaterReplen);
+	
+	//单位面积水耗--指标 
+	var unitWaterConsum = 0;
+	unitWaterConsum = getLastIndicatorValue('SC_DWMJSH',locaNo,'HS');
+	$("#unitWaterConsum").html("<a class='link' onclick=linkIndicatorInfo('SC_DWMJSH','"+objectId+"','HS')>"+unitWaterConsum+"</a>");
+	// $("#unitWaterConsum").html(unitWaterConsum);
+	
+	//换热站补水率--指标 
+	var stationWaterReplenRate = 0;
+	stationWaterReplenRate = getLastIndicatorValue('SC_BSL_HRZ',locaNo,'DA');
+	// $("#stationWaterReplenRate").html(stationWaterReplenRate);
+	$("#stationWaterReplenRate").html("<a class='link' onclick=linkIndicatorInfo('SC_BSL_HRZ','"+objectId+"','DA')>"+stationWaterReplenRate+"</a>");
+});
+</script>
+<script type="text/javascript">
+function showLocale(objD){
+	var str,colorhead,colorfoot;
+	var yy = objD.getYear();
+	if(yy<1900) yy = yy+1900;
+	var MM = objD.getMonth()+1;
+	if(MM<10) MM = '0' + MM;
+	var dd = objD.getDate();
+	if(dd<10) dd = '0' + dd;
+	var hh = objD.getHours();
+	if(hh<10) hh = '0' + hh;
+	var mm = objD.getMinutes();
+	if(mm<10) mm = '0' + mm;
+	var ss = objD.getSeconds();
+	if(ss<10) ss = '0' + ss;
+	var ww = objD.getDay();
+	if  ( ww==0 )  colorhead="<font color=\"#000000\">";
+	if  ( ww > 0 && ww < 6 )  colorhead="<font color=\"#000000\">";
+	colorfoot="</font>"
+	// str = colorhead + yy + "年&nbsp;&nbsp;&nbsp;" + MM + "月" + dd + "日&nbsp;&nbsp;&nbsp;" + hh + ":" + mm + ":" + ss;
+	str = yy + "年&nbsp;&nbsp;&nbsp;" + MM + "月" + dd + "日&nbsp;&nbsp;&nbsp;" + hh + ":" + mm + ":" + ss;
+	return(str);
+}
+
+function tick(){
+	var today;
+	today = new Date();
+	document.getElementById("localtime").innerHTML = showLocale(today);
+	window.setTimeout("tick()", 1000);
+}
+
+tick();
+
+	
+function showUnitTab(objectId){
+	var requestUrl =url+CALCULATION_URL+"/api/imObject/getSubTreeList";
+	//查询后台获得数据
+	$.ajax({
+			type:'GET',
+			url:requestUrl,
+			dataType: 'json',
+			async:true,
+			data:{id:objectId},
+			success: function(response) {
+				if(response.code == 0){//成功
+					var unitTabInfo = "";
+					var data = response.data;
+					var objName = "";
+					var objNo = "";
+					var objId = "";
+					var ele;
+					//直供实供面积--指标
+					var directActualSupplyArea = 0;
+					//累计供热量--测点
+					var totalHeatSupply = 0;
+					//高温水供水温度--测点
+					var highWaterSupplyTempH = 0;
+					//高温水供水温度设定值--标杆
+					var highWaterSupplySetH = 0;
+					//供水流量--测点
+					var waterSupplyFlow_F = 0;
+					var waterSupplyFlow_S = 0;
+					//回水流量--测点
+					var waterReturnFlow_F = 0;
+					var waterReturnFlow_S = 0;
+					//供水温度--测点
+					var waterSupplyTemp_F = 0;
+					var waterSupplyTemp_S = 0;
+					//回水温度--测点
+					var waterReturnTemp_F = 0;
+					var waterReturnTemp_S = 0;
+					//供水压力--测点
+					var waterSupplyPres_F = 0;
+					var waterSupplyPres_S = 0;
+					//回水压力--测点
+					var waterReturnPres_F = 0;
+					var waterReturnPres_S = 0;
+					//累计补水量--测点
+					var totalWaterReplen = 0;
+					if(null == data || data.length == 0){
+						$("#stationLink").show();
+						$("#yxzt_tr").show();
+					}else{
+						$("#yxzt_tr").hide();
+						$("#stationLink").hide();
+					}
+					
+					for (var i = 0;  i< data.length; i++) {
+						objName = data[i].data.objectName;
+						objId = data[i].data.objectId;
+						objNo = data[i].data.objectNo;
+						//直供实供面积--指标 
+						 directActualSupplyArea = 0;
+						 directActualSupplyArea = getLastIndicatorValue('YW_ZHIGSGMJ',objNo,'DA');
+						 directActualSupplyArea = "<a class='link' onclick=linkIndicatorInfo('YW_ZHIGSGMJ','"+objId+"','DA')>"+directActualSupplyArea+"</a>";
+						 //累计供热量--测点
+						 pointInfo = getStationPointInfo("HR_YCWLJGRL",objNo);
+						 var totalHeatSupplyPointNo = "";
+						 if(null != pointInfo && null != pointInfo.pointValue){
+							totalHeatSupply = pointInfo.pointValue;
+						 }
+						 if(null != pointInfo && null != pointInfo.pointName){
+						 	totalHeatSupplyPointNo = pointInfo.pointName;
+						 }
+						 totalHeatSupply = "<a class='link' onclick=showPointTrend('"+totalHeatSupplyPointNo+"')>"+totalHeatSupply+"</a>";
+						 //高温水供水温度--测点
+						 pointInfo = getStationPointInfo("SZ_GWSGSWD",objNo);
+						 var highWaterSupplyTempHPointNo = "";
+						 if(null != pointInfo && null != pointInfo.pointValue){
+							highWaterSupplyTempH = pointInfo.pointValue;
+						 }
+						 if(null != pointInfo && null != pointInfo.pointName){
+						 	highWaterSupplyTempHPointNo = pointInfo.pointName;
+						 }
+						 highWaterSupplyTempH = "<a class='link' onclick=showPointTrend('"+highWaterSupplyTempHPointNo+"')>"+highWaterSupplyTempH+"</a>";
+						 //高温水供水温度设定值--标杆 TODO
+						 highWaterSupplySetH = 0;
+						 //一级网供水流量--测点
+						 pointInfo = getStationPointInfo("HR_YCWGSLL",objNo);
+						 var waterSupplyFlow_FPointNo = "";
+						 if(null != pointInfo && null != pointInfo.pointValue){
+							waterSupplyFlow_F = pointInfo.pointValue;
+						 }
+						 if(null != pointInfo && null != pointInfo.pointName){
+						 	waterSupplyFlow_FPointNo = pointInfo.pointName;
+						 }
+						 waterSupplyFlow_F = "<a class='link' onclick=showPointTrend('"+waterSupplyFlow_FPointNo+"')>"+waterSupplyFlow_F+"</a>";
+						 //二级网供水流量--测点
+						 pointInfo = getStationPointInfo("HR_ECWGSLL",objNo);
+						 var waterSupplyFlow_SPointNo = "";
+						 if(null != pointInfo && null != pointInfo.pointValue){
+							waterSupplyFlow_S = pointInfo.pointValue;
+						 }
+						 if(null != pointInfo && null != pointInfo.pointName){
+						  	waterSupplyFlow_SPointNo = pointInfo.pointName;
+						 }
+						 waterSupplyFlow_S = "<a class='link' onclick=showPointTrend('"+waterSupplyFlow_SPointNo+"')>"+waterSupplyFlow_S+"</a>";
+						 //一级网回水流量--测点
+						 pointInfo = getStationPointInfo("HR_YCWHSLL",objNo);
+						 var waterReturnFlow_FPointNo = "";
+						 if(null != pointInfo && null != pointInfo.pointValue){
+							waterReturnFlow_F = pointInfo.pointValue;
+						 }
+						 if(null != pointInfo && null != pointInfo.pointName){
+						  	waterReturnFlow_FPointNo = pointInfo.pointName;
+						 }
+						 waterReturnFlow_F = "<a class='link' onclick=showPointTrend('"+waterReturnFlow_FPointNo+"')>"+waterReturnFlow_F+"</a>";
+						 //二级网回水流量--测点
+						 pointInfo = getStationPointInfo("HR_ECWHSLL",objNo);
+						 var waterReturnFlow_SPointNo = "";
+						 if(null != pointInfo && null != pointInfo.pointValue){
+							waterReturnFlow_S = pointInfo.pointValue;
+						 }
+						 if(null != pointInfo && null != pointInfo.pointName){
+						  	waterReturnFlow_SPointNo = pointInfo.pointName;
+						 }
+						 waterReturnFlow_S = "<a class='link' onclick=showPointTrend('"+waterReturnFlow_SPointNo+"')>"+waterReturnFlow_S+"</a>";
+						//一级网供水温度--测点
+						pointInfo = getStationPointInfo("HR_YCWGSWD",objNo);
+						var waterSupplyTemp_FPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterSupplyTemp_F = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterSupplyTemp_FPointNo = pointInfo.pointName;
+						}
+						waterSupplyTemp_F = "<a class='link' onclick=showPointTrend('"+waterSupplyTemp_FPointNo+"')>"+waterSupplyTemp_F+"</a>";
+						//二级网供水温度--测点
+						pointInfo = getStationPointInfo("HR_ECWGSWD",objNo);
+						var waterSupplyTemp_SPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterSupplyTemp_S = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterSupplyTemp_SPointNo = pointInfo.pointName;
+						}
+						waterSupplyTemp_S = "<a class='link' onclick=showPointTrend('"+waterSupplyTemp_SPointNo+"')>"+waterSupplyTemp_S+"</a>";
+						//一级网回水温度--测点
+						pointInfo = getStationPointInfo("HR_YCWHSWD",objNo);
+						var waterReturnTemp_FPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterReturnTemp_F = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterReturnTemp_FPointNo = pointInfo.pointName;
+						}
+						waterReturnTemp_F = "<a class='link' onclick=showPointTrend('"+waterReturnTemp_FPointNo+"')>"+waterReturnTemp_F+"</a>";
+						//二级网回水温度--测点
+						pointInfo = getStationPointInfo("HR_ECWHSWD",objNo);
+						var waterReturnTemp_SPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterReturnTemp_S = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterReturnTemp_SPointNo = pointInfo.pointName;
+						}
+						waterReturnTemp_S = "<a class='link' onclick=showPointTrend('"+waterReturnTemp_SPointNo+"')>"+waterReturnTemp_S+"</a>";
+						//一级网供水压力--测点
+						pointInfo = getStationPointInfo("HR_YCWGSYL",objNo);
+						var waterSupplyPres_FPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterSupplyPres_F = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterSupplyPres_FPointNo = pointInfo.pointName;
+						}
+						waterSupplyPres_F = "<a class='link' onclick=showPointTrend('"+waterSupplyPres_FPointNo+"')>"+waterSupplyPres_F+"</a>";
+						//二级网供水压力--测点
+						pointInfo = getStationPointInfo("HR_ECWGSYL",objNo);
+						var waterSupplyPres_SPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterSupplyPres_S = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterSupplyPres_SPointNo = pointInfo.pointName;
+						}
+						waterSupplyPres_S = "<a class='link' onclick=showPointTrend('"+waterSupplyPres_SPointNo+"')>"+waterSupplyPres_S+"</a>";
+						//一级网回水压力--测点
+						pointInfo = getStationPointInfo("HR_ECWGSYL",objNo);
+						var waterReturnPres_FPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterReturnPres_F = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterReturnPres_FPointNo = pointInfo.pointName;
+						}
+						waterReturnPres_F = "<a class='link' onclick=showPointTrend('"+waterReturnPres_FPointNo+"')>"+waterReturnPres_F+"</a>";
+						//二级网回水压力--测点
+						pointInfo = getStationPointInfo("HR_ECWHSYL",objNo);
+						var waterReturnPres_SPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							waterReturnPres_S = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	waterReturnPres_SPointNo = pointInfo.pointName;
+						} 
+						waterReturnPres_S = "<a class='link' onclick=showPointTrend('"+waterReturnPres_SPointNo+"')>"+waterReturnPres_S+"</a>";
+						//累计补水量--测点
+						pointInfo = getStationPointInfo("HR_LJBSL",objNo);
+						var totalWaterReplenPointNo = "";
+						if(null != pointInfo && null != pointInfo.pointValue){
+							totalWaterReplen = pointInfo.pointValue;
+						}
+						if(null != pointInfo && null != pointInfo.pointName){
+						 	totalWaterReplenPointNo = pointInfo.pointName;
+						} 
+						totalWaterReplen = "<a class='link' onclick=showPointTrend('"+totalWaterReplenPointNo+"')>"+totalWaterReplen+"</a>";
+						 
+						//tab页拼接
+						ele = document.createElement("li");
+						ele.innerHTML = '<span>'+objName+'</span>';
+						document.getElementById('tabInfo').appendChild(ele);
+						
+						//tab页详情拼接
+						ele = document.createElement("li");
+						ele.innerHTML = '<a class="link" onclick=linkConfig(\"'+objNo+'\",\"'+objId+'\")>'+objName+'原理图</a>'+
+										<!--box-->
+										'<div class="box"><div class="box-content"><table><tr><td style="width:100px;">运行状态：</td>'+
+										'<td style="width:80px; text-align:left;">运行中</td><td style="width:100px; text-align:right;"></td>' +
+										'<td></td></tr></table></div></div>'+
+										 <!--box over-->
+										 <!--box-->
+										 '<div class="box box2"><p class="box-tit"></p><div class="box-content"><table><tr>'+
+										 '<td style="width:180px;">直供实供面积：</td><td style="width:50px;">'+directActualSupplyArea+'</td>'+
+										 '<td style="width:40px;">m2</td><td style="width:50px;"></td><td></td></tr>'+
+										 '<tr><td>累计供热量：</td><td>'+totalHeatSupply+'</td><td>GJ</td><td></td><td></td></tr>'+
+										 '<tr><td>高温水供水温度：</td><td>'+highWaterSupplyTempH+'</td><td>℃</td><td></td><td></td></tr>'+
+										 '<tr><td>高温水供水温度设定值：</td><td>'+highWaterSupplySetH+'</td><td>℃</td><td></td><td></td></tr>'+
+										 '<tr><td>一级网供水流量：</td><td>'+waterSupplyFlow_F+'</td><td>t/h</td><td></td><td></td></tr>'+
+										 '<tr><td>一级网回水流量：</td><td>'+waterReturnFlow_F+'</td><td>t/h</td><td></td><td></td></tr>'+
+										 '<tr><td>一级网供水温度：</td><td>'+waterSupplyTemp_F+'</td><td>℃</td><td></td><td></td></tr>'+
+										 '<tr><td>一级网回水温度：</td><td>'+waterReturnTemp_F+'</td><td>℃</td><td></td><td></td></tr>'+
+										 '<tr><td>一级网供水压力：</td><td>'+waterSupplyPres_F+'</td><td>MPa</td><td></td><td></td></tr>'+
+										 '<tr><td>一级网回水压力：</td><td>'+waterReturnPres_F+'</td><td>MPa</td><td></td><td></td></tr>'+
+										 '<tr><td>二级网供水流量：</td><td>'+waterSupplyFlow_S+'</td><td>t/h</td><td></td><td></td></tr>'+
+										 '<tr><td>二级网回水流量：</td><td>'+waterReturnFlow_S+'</td><td>t/h</td><td></td><td></td></tr>'+
+										 '<tr><td>二级网供水温度：</td><td>'+waterSupplyTemp_S+'</td><td>℃</td><td></td><td></td></tr>'+
+										 '<tr><td>二级网回水温度：</td><td>'+waterReturnTemp_S+'</td><td>℃</td><td></td><td></td></tr>'+
+										 '<tr><td>二级网供水压力：</td><td>'+waterSupplyPres_S+'</td><td>MPa</td><td></td><td></td></tr>'+
+										 '<tr><td>二级网回水压力：</td><td>'+waterReturnPres_S+'</td><td>MPa</td><td></td><td></td></tr>'+
+										 '<tr><td>累计补水量：</td><td>'+totalWaterReplen+'</td><td>t</td><td></td><td></td></tr>'+
+										 '</table> </div></div>';
+										 <!--box over--> 
+						document.getElementById('detailInfo').appendChild(ele);
+						
+				}
+				tabs(".tab-hd","active",".tab-bd");
+			}
+		 },
+		error: function() {
+	 	}
+	});
+}
+
+</script>
+</body>
+</html>

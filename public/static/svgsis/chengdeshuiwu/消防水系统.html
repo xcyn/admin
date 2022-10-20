@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8"> 
+  <title></title> 
+  <link rel="stylesheet" href="../js/layui/css/layui.css"> 
+  <style type="text/css">
+			.layui-input {
+			    height: 22px;
+				width: 152px;
+				margin:0px 0px 0px 0px;
+			}
+			svg{
+			    outline:none;
+			}
+			
+		</style> 
+ </head> 
+ <body> 
+  <div style="height:48px;position:fixed;right:20px;padding-top: 10px;" align="right"> 
+   <svg class="icon" p-id="1271" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:none" id="optools" viewbox="0.000000 0.000000 188.000000 42.000000" width="188.000000" height="42.000000"> 
+    <g id="opzoomin" transform="translate(24.000000,14.000000) " onclick="opZoomin(evt)"> 
+     <rect id="rect1" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) " /> 
+     <path d="M21.153714,13.916116 H3.207934 C2.272485,13.916116 1.514038,13.139350 1.514038,12.180824 1.514038,11.222298 2.272485,10.445532 3.207934,10.445532 H21.153476 C22.088925,10.445532 22.847372,11.222298 22.847372,12.180824 22.847372,13.139350 22.089163,13.916116 21.153714,13.916116Z" fill="#7F8693" transform="translate(-20.180705,-10.180705) " p-id="7054" /> 
+     <path d="M12.180824,22.847372 C11.245375,22.847372 10.486928,22.070606 10.486928,21.112080 V3.249330 C10.486928,2.291042 11.245375,1.514038 12.180824,1.514038 13.116273,1.514038 13.874720,2.290804 13.874720,3.249330 V21.112318 C13.874720,22.070606 13.116273,22.847372 12.180824,22.847372Z" fill="#7F8693" transform="translate(-20.180705,-10.180705) " p-id="7055" /> 
+    </g> 
+    <g id="opzoomout" transform="translate(66.000000,14.000000) " onclick="opZoomout(evt)"> 
+     <rect id="rect2" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) " /> 
+     <path d="M62.725788,296.866666 H44.821116 C43.874234,296.866666 43.106666,296.090644 43.106666,295.133333 43.106666,294.176022 43.874234,293.400000 44.821116,293.400000 H62.725550 C63.672432,293.400000 64.440000,294.176022 64.440000,295.133333 64.440000,296.090644 63.672432,296.866666 62.725788,296.866666Z" fill="#7F8693" transform="translate(-61.773333,-293.133333) " p-id="7873" /> 
+    </g> 
+    <g id="opadaptive" transform="translate(108.000000,14.000000) " onclick="opAdaptive(evt)"> 
+     <rect id="rect3" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) " /> 
+     <g id="element2" transform="translate(200.666667,217.333333) "> 
+      <path d="M25.969604,5.632252 H17.896656 C17.251468,5.632252 16.729483,6.138840 16.729483,6.764996 16.729483,7.391151 17.251468,7.897739 17.896656,7.897739 H23.450456 L17.436271,13.731368 C16.979128,14.175025 16.979128,14.889283 17.436271,15.332940 17.663222,15.553196 17.961499,15.666470 18.263019,15.666470 18.561296,15.666470 18.859574,15.556343 19.086524,15.336087 L24.802431,9.788791 V15.103246 C24.802431,15.729401 25.324417,16.235989 25.969604,16.235989 26.614792,16.235989 27.136778,15.729401 27.136778,15.103246 V6.764996 C27.136778,6.138840 26.614792,5.632252 25.969604,5.632252ZM15.043566,24.700099 H9.489766 L15.503951,18.866470 C15.961094,18.422813 15.961094,17.708555 15.503951,17.264898 15.046808,16.821240 14.310840,16.821240 13.853698,17.264898 L8.137791,22.809047 V17.494592 C8.137791,16.868437 7.615805,16.361849 6.970618,16.361849 6.325430,16.361849 5.803444,16.868437 5.803444,17.494592 V25.832842 C5.803444,26.458998 6.325430,26.965586 6.970618,26.965586 H15.043566 C15.688754,26.965586 16.210739,26.458998 16.210739,25.832842 16.210739,25.206687 15.688754,24.700099 15.043566,24.700099Z" fill="#7F8693" transform="translate(-225.136778,-231.632252) " p-id="1573" /> 
+      <line id="line1" x1="-1.52381" y1="-1.16421" x2="1.52381" y2="1.16421" fill="none" stroke="#7F8693#000000" transform="translate(-200.269504,-223.671583) " /> 
+     </g> 
+    </g> 
+    <g id="playback" transform="translate(150.000000,14.000000) " onclick="opPlayback(evt)"> 
+     <rect id="rect4" x="-13" y="-11" width="32" height="32" rx="3" ry="3" fill="#FFFFFF" stroke="none" transform="translate(-11.000000,-3.000000) " /> 
+     <g id="element1" transform="translate(340.812000,361.750353) "> 
+      <path d="M5.884020,4.170025 L7.704058,4.108247 C8.263380,4.089248 8.732668,4.513877 8.752244,5.056681 8.771820,5.599485 8.334271,6.054917 7.774950,6.073915 L3.443316,6.219935 C2.884416,6.238878 2.415486,5.814595 2.395854,5.272203 L2.242496,1.031976 C2.222920,0.489171 2.660469,0.033741 3.219790,0.014743 3.779111,-0.004255 4.248400,0.420373 4.267976,0.963177 L4.335974,2.890936 C7.747839,-0.431245 13.103202,-0.950745 17.125152,1.650316 21.147104,4.251377 22.714668,9.248045 20.868664,13.582895 19.022660,17.917743 14.277594,20.382589 9.536941,19.469209 4.796288,18.555828 1.381334,14.518795 1.381666,9.828341 H3.407147 C3.406929,13.566184 6.118313,16.787507 9.892439,17.533343 13.666566,18.279179 17.460065,16.343339 18.966016,12.903056 20.471966,9.462773 19.274044,5.469123 16.100734,3.350745 12.927424,1.232367 8.656000,1.574893 5.884020,4.170025ZM12.498660,5.897005 V9.537703 H14.325932 C14.687783,9.537653 15.022168,9.724970 15.203108,10.029080 15.384048,10.333190 15.384048,10.707883 15.203108,11.011993 15.022168,11.316103 14.687783,11.503420 14.325932,11.503371 H11.485920 C11.217324,11.503371 10.959730,11.399823 10.769804,11.215505 10.579878,11.031188 10.473179,10.781201 10.473179,10.520537 V5.898409 C10.473128,5.547243 10.666145,5.222732 10.979508,5.047135 11.292872,4.871538 11.678966,4.871538 11.992330,5.047135 12.305694,5.222732 12.498710,5.547243 12.498660,5.898409Z" fill="#7F8693" transform="translate(-360.860001,-369.466275) " p-id="2453" /> 
+      <line id="line1" x1="-0.553889" y1="-0.479939" x2="0.553889" y2="0.479939" fill="none" stroke="#7F8693" transform="translate(-357.101472,-365.607561) " /> 
+     </g> 
+    </g> 
+   </svg> 
+  </div> 
+  <div id="hisplaytoolsdiv" style="height:48px;position:fixed;left:5px;padding-top: 10px;display: none;outline: none;" align="left"> 
+   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:none" id="hisplaytools" viewbox="0.000000 0.000000 430.000000 140.000000" width="430.000000" height="140.000000"> 
+    <defs> 
+     <lineargradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-1"> 
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="1" /> 
+      <stop offset="1" stop-color="#CCCCCC" stop-opacity="1" /> 
+     </lineargradient> 
+     <lineargradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-2"> 
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="1" /> 
+      <stop offset="1" stop-color="#CCCCCC" stop-opacity="1" /> 
+     </lineargradient> 
+     <lineargradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-3"> 
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="1" /> 
+      <stop offset="1" stop-color="#CCCCCC" stop-opacity="1" /> 
+     </lineargradient> 
+     <lineargradient x1="0.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="g1-4"> 
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="1" /> 
+      <stop offset="1" stop-color="#CCCCCC" stop-opacity="1" /> 
+     </lineargradient> 
+    </defs> 
+    <rect id="rect3" x="-258.701" y="-77.7778" width="430" height="116.918" rx="5" ry="5" fill="#E5F3FE" stroke="none" transform="translate(258.701299,100.860215) " /> 
+    <rect id="hisalltime" x="-218.182" y="-2.50896" width="335.299" height="6.02151" rx="3" ry="3" fill="#D3E5F2" stroke="none" transform="translate(236.133112,42.652330) " /> 
+    <rect id="hiscurtime" x="-218.182" y="-2.50896" width="116.883" height="6.02151" rx="3" ry="3" fill="#009F95" stroke="none" transform="translate(236.133112,42.652330) " /> 
+    <rect id="rect1" x="-192" y="-16.0573" width="430" height="27.5986" fill="#009F95" stroke="none" transform="translate(192.000000,16.057348) " /> 
+    <text id="text5" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#FFFFFF" transform="translate(8.215351,8.989964) ">
+      历史回放 
+    </text> 
+    <text id="hisplaytime" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#FFFFFF" transform="translate(96.215351,8.989964) ">
+      2022-05-15 12:26:39 
+    </text> 
+    <ellipse id="circle1" cx="-6" cy="-6.0215" rx="24" ry="12.043" fill="#009F95" stroke="none" transform="translate(391.250000,49.175627) " /> 
+    <text id="hisstatetext" x="4.21434" y="5.63441" font-family="SimSun" font-size="12" text-anchor="middle" fill="#FFFFFF" transform="translate(381.035662,40.519713) ">
+      X1 
+    </text> 
+    <rect id="starttime_his1" x="-99.25" y="-10.2867" width="150" height="20.0717" fill="none" stroke="#CCCCCC" transform="translate(166.359375,68.996416) " /> 
+    <foreignobject x="-99.25" y="-10.2867" width="150" height="20.0717" transform="translate(166.359375,68.996416) "> 
+     <div xmlns="http://www.w3.org/1999/xhtml"> 
+      <input type="text" class="layui-input" id="starttime_his" placeholder="开始时间"> 
+     </div> 
+    </foreignobject> 
+    <rect id="endtime_his1" x="-99.25" y="-10.2867" width="150" height="20.0717" fill="none" stroke="#CCCCCC" transform="translate(358.359375,68.996416) " /> 
+    <foreignobject x="-99.25" y="-10.2867" width="150" height="20.0717" transform="translate(358.359375,68.996416) "> 
+     <div xmlns="http://www.w3.org/1999/xhtml"> 
+      <input type="text" class="layui-input" id="endtime_his" placeholder="结束时间"> 
+     </div> 
+    </foreignobject> 
+    <text id="text7" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(22.715351,63.853047) ">
+      时间 
+    </text> 
+    <line id="line3" x1="-3.40234" y1="0" x2="8.59766" y2="0" fill="none" stroke="#666666" stroke-width="3" transform="translate(235.511719,68.996416) " /> 
+    <text id="text8" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(78.215351,105.000000) ">
+      减速 
+    </text> 
+    <text id="hisplaysate" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(236.215351,105.000000) ">
+      回放 
+    </text> 
+    <text id="text10" x="-0.965351" y="9.60932" font-family="SimSun" font-size="16" text-anchor="start" font-weight="bold" fill="#666666" transform="translate(366.715351,105.000000) ">
+      加速 
+    </text> 
+    <g id="hispause" transform="translate(197.250000,109.892473) " onclick="hisPause(evt)"> 
+     <g id="element6" transform="translate(5.000000,5.017921) "> 
+      <ellipse id="circle2" cx="-0.838709" cy="-0.841715" rx="26" ry="26.0932" fill="url(#gradient-1)" stroke="none" transform="translate(-4.161291,-4.176206) " /> 
+      <ellipse id="circle3" cx="-1.67742" cy="-1.68343" rx="25.1613" ry="25.2515" fill="#E5F3FE" stroke="none" transform="translate(-3.322580,-3.334489) " /> 
+     </g> 
+     <g id="element7"> 
+      <ellipse id="circle2" cx="-2" cy="-2.00717" rx="12" ry="12.043" fill="none" stroke="#009F95" stroke-width="2" transform="translate(2.000000,2.007169) " /> 
+      <g id="element7"> 
+       <line id="line6" x1="0" y1="-7.22581" x2="0" y2="7.22581" fill="none" stroke="#009F95" stroke-width="2" stroke-linecap="round" transform="translate(-2.900000,0.000000) " /> 
+       <line id="line7" x1="0" y1="-7.22581" x2="0" y2="7.22581" fill="none" stroke="#009F95" stroke-width="2" stroke-linecap="round" transform="translate(2.900000,0.000000) " /> 
+      </g> 
+     </g> 
+    </g> 
+    <g id="hisplay" transform="translate(197.250000,109.892473) " onclick="hisPlay(evt)"> 
+     <g id="element5" transform="translate(5.000000,5.017921) "> 
+      <ellipse id="circle2" cx="-0.838709" cy="-0.841715" rx="26" ry="26.0932" fill="url(#gradient-2)" stroke="none" transform="translate(-4.161291,-4.176206) " /> 
+      <ellipse id="circle3" cx="-1.67742" cy="-1.68343" rx="25.1613" ry="25.2515" fill="#E5F3FE" stroke="none" transform="translate(-3.322580,-3.334489) " /> 
+     </g> 
+     <polygon id="line4" points="-14.750000,-12.921147 5.250000,-2.885305 -14.750000,7.150537" fill="#009F95" stroke="none" transform="translate(8.750000,2.885305) " /> 
+    </g> 
+    <g id="hisminus" transform="translate(49.750000,109.892473) " onclick="hisMinus(evt)"> 
+     <g id="element1" transform="translate(11.000000,11.039427) "> 
+      <ellipse id="circle2" cx="-0.645161" cy="-0.647474" rx="20" ry="20.0717" fill="url(#gradient-3)" stroke="none" transform="translate(-10.354839,-10.391953) " /> 
+      <ellipse id="circle3" cx="-1.29032" cy="-1.29495" rx="19.3548" ry="19.4242" fill="#E5F3FE" stroke="none" transform="translate(-9.709677,-9.744479) " /> 
+     </g> 
+     <g id="element2" transform="translate(6.016234,3.387097) "> 
+      <polygon id="line5" points="9.850777,-10.336917 -0.245859,-4.315412 9.850777,1.706093" fill="#009F95" stroke="none" transform="translate(-4.867011,0.928315) " /> 
+      <polygon id="line6" points="14.505719,-10.336917 -0.245860,-4.315412 14.505719,1.706093" fill="#009F95" stroke="none" transform="translate(-18.770374,0.928315) " /> 
+     </g> 
+    </g> 
+    <g id="hisadd" transform="translate(338.250000,109.892473) " onclick="hisAdd(evt)"> 
+     <g id="element3" transform="translate(11.000000,11.039427) "> 
+      <ellipse id="circle2" cx="-0.645161" cy="-0.647474" rx="20" ry="20.0717" fill="url(#gradient-4)" stroke="none" transform="translate(-10.354839,-10.391953) " /> 
+      <ellipse id="circle3" cx="-1.29032" cy="-1.29495" rx="19.3548" ry="19.4242" fill="#E5F3FE" stroke="none" transform="translate(-9.709677,-9.744479) " /> 
+     </g> 
+     <g id="element4" transform="translate(-4.483766,3.387097) "> 
+      <polygon id="line5" points="-9.850777,-10.336917 0.245859,-4.315412 -9.850777,1.706093" fill="#009F95" stroke="none" transform="translate(4.867011,0.928315) " /> 
+      <polygon id="line6" points="-14.505719,-10.336917 0.245860,-4.315412 -14.505719,1.706093" fill="#009F95" stroke="none" transform="translate(18.770374,0.928315) " /> 
+     </g> 
+    </g> 
+    <g id="hisclose" transform="translate(413.000000,11.624373) " onclick="hisClose(evt)"> 
+     <rect id="rect5" x="-6.66417" y="-7.37992" width="14" height="14.0502" fill="#009F95" stroke="none" stroke-width="2" transform="translate(-0.335831,0.354832) " /> 
+     <line id="line4" x1="-7" y1="-7.02509" x2="7" y2="7.02509" fill="none" stroke="#FFFFFF" stroke-width="2" transform="translate(0.000000,-0.000001) " /> 
+     <line id="line5" x1="6.79" y1="-7.02509" x2="-7.21" y2="7.02509" fill="none" stroke="#FFFFFF" stroke-width="2" transform="translate(0.210000,-0.000001) " /> 
+    </g> 
+   </svg> 
+  </div> 
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" style="background-color:#013057" id="main" viewbox="0.000000 0.000000 1600.000000 800.000000" width="1600.000000" height="800.000000"> 
+   <defs> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-1"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-2"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-3"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-4"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-5"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-6"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-7"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-8"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-9"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-10"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-11"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-12"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="50.000000%" x2="0.000000%" y2="50.000000%" id="gradient-13"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-14"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="50.000000%" x2="0.000000%" y2="50.000000%" id="gradient-15"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-16"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-17"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-18"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="50.000000%" x2="0.000000%" y2="50.000000%" id="gradient-19"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-20"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="50.000000%" x2="0.000000%" y2="50.000000%" id="gradient-21"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-22"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-23"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="0.000000%" y2="0.000000%" id="gradient-24"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-25"> 
+     <stop offset="0.00" stop-color="#49859b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#74b5cf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#bed8e4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#5599b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#4b889e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#3e7285" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#386879" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#4d8ba1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-26"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-27"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="0.000000%" y2="0.000000%" id="gradient-28"> 
+     <stop offset="0.00" stop-color="#567884" stop-opacity="1" /> 
+     <stop offset="0.03" stop-color="#a2c0cc" stop-opacity="1" /> 
+     <stop offset="0.08" stop-color="#729dad" stop-opacity="1" /> 
+     <stop offset="0.64" stop-color="#709baa" stop-opacity="1" /> 
+     <stop offset="0.95" stop-color="#6d97a6" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#4f6f7a" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="0.000000%" y2="0.000000%" id="gradient-29"> 
+     <stop offset="0.00" stop-color="#567884" stop-opacity="1" /> 
+     <stop offset="0.03" stop-color="#a2c0cc" stop-opacity="1" /> 
+     <stop offset="0.08" stop-color="#729dad" stop-opacity="1" /> 
+     <stop offset="0.64" stop-color="#709baa" stop-opacity="1" /> 
+     <stop offset="0.95" stop-color="#6d97a6" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#4f6f7a" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-30"> 
+     <stop offset="0.00" stop-color="#49859b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#74b5cf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#bed8e4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#5599b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#4b889e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#3e7285" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#386879" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#4d8ba1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="0.000000%" y2="0.000000%" id="gradient-31"> 
+     <stop offset="0.00" stop-color="#c4aa84" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#ffe0b3" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#ffeed7" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#dfc297" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#c7ad86" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#a89170" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#998566" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#cbb189" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-32"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-33"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-34"> 
+     <stop offset="0.00" stop-color="#678c9b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#93bdcf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#c9dce4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#76a1b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#698f9e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#577885" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#4f6d79" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6b92a1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-35"> 
+     <stop offset="0.00" stop-color="#678c9b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#93bdcf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#c9dce4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#76a1b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#698f9e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#577885" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#4f6d79" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6b92a1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-36"> 
+     <stop offset="0.00" stop-color="#678c9b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#93bdcf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#c9dce4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#76a1b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#698f9e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#577885" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#4f6d79" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6b92a1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-37"> 
+     <stop offset="0.00" stop-color="#678c9b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#93bdcf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#c9dce4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#76a1b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#698f9e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#577885" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#4f6d79" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6b92a1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-38"> 
+     <stop offset="0.00" stop-color="#678c9b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#93bdcf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#c9dce4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#76a1b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#698f9e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#577885" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#4f6d79" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6b92a1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="0.000000%" y2="0.000000%" id="gradient-39"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-40"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-41"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-42"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-43"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-44"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-45"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-46"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-47"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-48"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-49"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-50"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-51"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-52"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-53"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-54"> 
+     <stop offset="0.00" stop-color="#49859b" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#74b5cf" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#bed8e4" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#5599b1" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#4b889e" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#3e7285" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#386879" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#4d8ba1" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="gradient-55"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="0.000000%" x2="100.000000%" y2="100.000000%" id="gradient-56"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-57"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-58"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-59"> 
+     <stop offset="0.00" stop-color="#6a96a6" stop-opacity="1" /> 
+     <stop offset="0.15" stop-color="#96c9dc" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#cbe2eb" stop-opacity="1" /> 
+     <stop offset="0.44" stop-color="#7aacbe" stop-opacity="1" /> 
+     <stop offset="0.60" stop-color="#6c99a9" stop-opacity="1" /> 
+     <stop offset="0.80" stop-color="#5a818e" stop-opacity="1" /> 
+     <stop offset="0.97" stop-color="#527582" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#6e9dad" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="0.000000%" x2="0.000000%" y2="100.000000%" id="gradient-60"> 
+     <stop offset="0.00" stop-color="#5c7e8b" stop-opacity="1" /> 
+     <stop offset="0.03" stop-color="#a7c6d3" stop-opacity="1" /> 
+     <stop offset="0.08" stop-color="#79a6b6" stop-opacity="1" /> 
+     <stop offset="0.64" stop-color="#77a3b3" stop-opacity="1" /> 
+     <stop offset="0.95" stop-color="#749faf" stop-opacity="1" /> 
+     <stop offset="1.00" stop-color="#557581" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="50.000000%" y1="0.000000%" x2="50.000000%" y2="100.000000%" id="gradient-61"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#b9b9b9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="100.000000%" y1="50.000000%" x2="0.000000%" y2="50.000000%" id="gradient-62"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+    <lineargradient x1="0.000000%" y1="50.000000%" x2="100.000000%" y2="50.000000%" id="gradient-63"> 
+     <stop offset="0" stop-color="#666666" stop-opacity="1" /> 
+     <stop offset="0.25" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.5" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="0.75" stop-color="#B9B9B9" stop-opacity="1" /> 
+     <stop offset="1" stop-color="#666666" stop-opacity="1" /> 
+    </lineargradient> 
+   </defs> 
+   <rect id="rect1" x="-129.25" y="-104.35" width="16" height="50.5176" fill="url(#gradient-1)" stroke="none" transform="translate(1120.300000,386.832417) " /> 
+   <rect id="rect12" x="-159.75" y="-13.5" width="108.9" height="16" fill="url(#gradient-2)" stroke="none" transform="translate(1228.250000,364.054223) " /> 
+   <text id="text12" x="1.45557" y="17.5" font-family="SimSun" font-size="24" text-anchor="start" fill="#FFFFFF" transform="translate(736.761231,50.307908) ">
+     消防水系统 
+   </text> 
+   <rect id="rect4" x="-129.25" y="-13.5" width="94.852" height="16" fill="url(#gradient-3)" stroke="none" transform="translate(388.797980,236.918474) " /> 
+   <rect id="rect6" x="-129.25" y="-81.4376" width="16" height="216.7" fill="url(#gradient-4)" stroke="none" transform="translate(497.997980,335.037649) " /> 
+   <rect id="rect2" x="-129.25" y="-13.5" width="97.1" height="16" fill="url(#gradient-5)" stroke="none" transform="translate(387.750000,499.500000) " /> 
+   <rect id="rect10" x="-129.25" y="-13.5" width="116.8" height="16" fill="url(#gradient-6)" stroke="none" transform="translate(513.950000,363.950006) " /> 
+   <rect id="rect11" x="-129.25" y="-13.5" width="46.2" height="16" fill="url(#gradient-7)" stroke="none" transform="translate(874.050000,364.054223) " /> 
+   <rect id="rect13" x="-129.25" y="-104.35" width="16" height="323.581" fill="url(#gradient-8)" stroke="none" transform="translate(1306.500000,296.269175) " /> 
+   <rect id="rect14" x="-129.25" y="-13.5" width="100" height="16" fill="url(#gradient-9)" stroke="none" transform="translate(1338.250000,197.936758) " /> 
+   <rect id="rect15" x="-144.05" y="-13.5" width="114.8" height="16" fill="url(#gradient-10)" stroke="none" transform="translate(1337.250000,364.054223) " /> 
+   <rect id="rect16" x="-129.25" y="-13.5" width="100" height="16" fill="url(#gradient-11)" stroke="none" transform="translate(1337.250000,539.936758) " /> 
+   <g id="element11" transform="translate(368.760000,486.000000) "> 
+    <polygon id="line3" points="-7.950000,-16.000000 8.050000,-16.000000 8.050000,16.000000 -8.050000,0.000000" fill="url(#gradient-12)" stroke="none" transform="translate(7.940000,0.000000) " /> 
+    <polygon id="line2" points="7.950000,-16.000000 -8.050000,-16.000000 -8.050000,16.000000 8.050000,0.000000" fill="url(#gradient-13)" stroke="none" transform="translate(0.000000,7.950000) rotate(270.000000) " /> 
+   </g> 
+   <g id="element1" transform="translate(118.669462,232.427616) "> 
+    <polygon id="line1" points="-113.500000,-25.436757 103.721539,-25.436757 113.500000,-0.127184 103.896154,25.436758 -113.150769,25.182390" fill="#79D3F1" stroke="#CCCCCC" transform="translate(30.830538,-0.000001) " /> 
+    <polygon id="line2" points="-46.884231,-25.340167 46.884231,-25.340167 5.674584,24.159833 -46.534999,24.100071" fill="#5DCBEF" stroke="none" transform="translate(-34.824175,0.503409) " /> 
+   </g> 
+   <text id="text1" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#000000" transform="translate(61.180176,224.427616) ">
+     1号循环水排污水来 
+   </text> 
+   <g id="element2" transform="translate(1390.169462,192.436758) "> 
+    <polygon id="line1" points="-113.500000,-25.436757 103.721539,-25.436757 113.500000,-0.127184 103.896154,25.436758 -113.150769,25.182390" fill="#79D3F1" stroke="#CCCCCC" transform="translate(30.830538,-0.000001) " /> 
+    <polygon id="line2" points="-46.884231,-25.340167 46.884231,-25.340167 5.674584,24.159833 -46.534999,24.100071" fill="#5DCBEF" stroke="none" transform="translate(-34.824175,0.503409) " /> 
+   </g> 
+   <text id="text4" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#000000" transform="translate(1337.831543,184.436758) ">
+     其他用户 
+   </text> 
+   <g id="element9" transform="translate(1390.169462,358.436758) "> 
+    <polygon id="line1" points="-113.500000,-25.436757 103.721539,-25.436757 113.500000,-0.127184 103.896154,25.436758 -113.150769,25.182390" fill="#79D3F1" stroke="#CCCCCC" transform="translate(30.830538,-0.000001) " /> 
+    <polygon id="line2" points="-46.884231,-25.340167 46.884231,-25.340167 5.674584,24.159833 -46.534999,24.100071" fill="#5DCBEF" stroke="none" transform="translate(-34.824175,0.503409) " /> 
+   </g> 
+   <text id="text5" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#000000" transform="translate(1337.831543,350.436758) ">
+     用户排工业废水站 
+   </text> 
+   <g id="element10" transform="translate(1390.169462,534.436758) "> 
+    <polygon id="line1" points="-113.500000,-25.436757 103.721539,-25.436757 113.500000,-0.127184 103.896154,25.436758 -113.150769,25.182390" fill="#79D3F1" stroke="#CCCCCC" transform="translate(30.830538,-0.000001) " /> 
+    <polygon id="line2" points="-46.884231,-25.340167 46.884231,-25.340167 5.674584,24.159833 -46.534999,24.100071" fill="#5DCBEF" stroke="none" transform="translate(-34.824175,0.503409) " /> 
+   </g> 
+   <text id="text6" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#000000" transform="translate(1337.831543,526.436758) ">
+     氨站喷淋 
+   </text> 
+   <g id="element12" transform="translate(368.750000,239.400000) "> 
+    <polygon id="line3" points="-7.950000,16.000000 8.050000,16.000000 8.050000,-16.000000 -8.050000,0.000000" fill="url(#gradient-14)" stroke="none" transform="translate(7.940000,0.000000) " /> 
+    <polygon id="line2" points="7.950000,16.000000 -8.050000,16.000000 -8.050000,-16.000000 8.050000,0.000000" fill="url(#gradient-15)" stroke="none" transform="translate(0.000000,-7.950000) rotate(90.000000) " /> 
+   </g> 
+   <ellipse id="circle2" cx="0.75" cy="-0.4" rx="8" ry="8" fill="url(#gradient-16)" stroke="none" transform="translate(387.050000,357.700000) rotate(90.000000) " /> 
+   <rect id="rect17" x="-129.25" y="-13.5" width="122.1" height="16" fill="url(#gradient-17)" stroke="none" transform="translate(968.350000,364.054223) " /> 
+   <ellipse id="circle3" cx="0.75" cy="-0.4" rx="8" ry="8" fill="url(#gradient-18)" stroke="none" transform="translate(1173.550000,357.804223) rotate(90.000000) " /> 
+   <g id="element13" transform="translate(1193.200000,200.450000) "> 
+    <polygon id="line3" points="7.950000,16.000000 -8.050000,16.000000 -8.050000,-16.000000 8.050000,0.000000" fill="url(#gradient-19)" stroke="none" transform="translate(-7.940000,-0.013242) " /> 
+    <polygon id="line2" points="-7.950000,16.000000 8.050000,16.000000 8.050000,-16.000000 -8.050000,0.000000" fill="url(#gradient-20)" stroke="none" transform="translate(0.000000,-7.963242) rotate(270.000000) " /> 
+   </g> 
+   <g id="element14" transform="translate(1193.200000,526.450000) "> 
+    <polygon id="line3" points="7.950000,-16.000000 -8.050000,-16.000000 -8.050000,16.000000 8.050000,0.000000" fill="url(#gradient-21)" stroke="none" transform="translate(-7.940000,0.000000) " /> 
+    <polygon id="line2" points="-7.950000,-16.000000 8.050000,-16.000000 8.050000,16.000000 -8.050000,0.000000" fill="url(#gradient-22)" stroke="none" transform="translate(0.000000,7.950000) rotate(90.000000) " /> 
+   </g> 
+   <ellipse id="circle4" cx="0.75" cy="-0.4" rx="8" ry="8" fill="url(#gradient-23)" stroke="none" transform="translate(1195.800000,357.850000) rotate(90.000000) " /> 
+   <text id="text14" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#FFFFFF" transform="translate(568.544434,466.500000) ">
+     消防水池 
+   </text> 
+   <text id="text15" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#FFFFFF" transform="translate(783.544434,390.500000) ">
+     消防水泵 
+   </text> 
+   <path id="flowline1" d="M523.000000,63.567874 H-406.752020 V-63.567875 H-523.000000 " fill="none" stroke="#008080" stroke-width="3" stroke-dasharray="16,8" transform="translate(783.500000,294.986349) " /> 
+   <path id="flowline2" d="M58.623990,-67.722889 V67.722888 H-58.623990 " fill="none" stroke="#008080" stroke-width="3" stroke-dasharray="16,8" transform="translate(318.123990,426.277112) " /> 
+   <path id="flowline3" d="M61.250000,-83.058732 H-61.250000 V83.058733 " fill="none" stroke="#008080" stroke-width="3" stroke-dasharray="16,8" transform="translate(1245.750000,275.495490) " /> 
+   <path id="flowline4" d="M61.250000,87.941267 H-61.250000 V-87.941268 " fill="none" stroke="#008080" stroke-width="3" stroke-dasharray="16,8" transform="translate(1245.750000,446.495491) " /> 
+   <g id="element3" transform="translate(118.669462,494.445900) "> 
+    <polygon id="line1" points="-113.500000,-25.436757 103.721539,-25.436757 113.500000,-0.127184 103.896154,25.436758 -113.150769,25.182390" fill="#79D3F1" stroke="#CCCCCC" transform="translate(30.830538,-0.000001) " /> 
+    <polygon id="line2" points="-46.884231,-25.340167 46.884231,-25.340167 5.674584,24.159833 -46.534999,24.100071" fill="#5DCBEF" stroke="none" transform="translate(-34.824175,0.503409) " /> 
+   </g> 
+   <text id="text3" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#000000" transform="translate(61.180176,486.445900) ">
+     2号循环水排污水来 
+   </text> 
+   <g id="g1" transform="translate(790.820000,292.100000) "> 
+    <polygon id="shape91" points="0.000000,0.000000 16.575420,0.000000 16.575420,3.367535 0.000000,3.367535 0.000000,0.000000" fill="url(#gradient-24)" fill-rule="nonzero" transform="translate(16.429132,73.659563) " /> 
+    <polygon id="shape92" points="0.000000,0.000000 23.046567,0.000000 23.046567,27.520460 0.000000,27.520460 0.000000,0.000000" fill="url(#gradient-25)" fill-rule="nonzero" transform="translate(38.087681,13.364904) rotate(90.000000) " /> 
+    <polygon id="shape93" points="0.000000,0.000000 7.524336,0.000000 7.524336,29.414794 0.000000,29.414794 0.000000,0.000000" fill="url(#gradient-26)" fill-rule="nonzero" transform="translate(39.403191,5.840568) rotate(90.000000) " /> 
+    <path id="shape94" d="M5.945804,0.000000 L5.945804,29.414794 C5.945804,29.414794 0.000000,29.414794 0.000000,14.786328 0.000000,0.157861 5.945804,0.000000 5.945804,0.000000Z" fill="url(#gradient-27)" fill-rule="nonzero" transform="translate(39.403191,0.000000) rotate(90.000000) " /> 
+    <polygon id="shape95" points="0.000000,0.000000 -1.946955,1.368061 -1.946955,12.470402 0.000000,13.838463 0.000000,0.000000" fill="url(#gradient-28)" fill-rule="nonzero" transform="translate(40.034636,12.786109) " /> 
+    <polygon id="shape96" points="0.000000,4.630594 13.785846,4.630594 13.785846,0.000000 0.000000,0.000000 0.000000,4.630594" fill="url(#gradient-29)" fill-rule="nonzero" transform="translate(44.665229,12.786109) rotate(90.000000) " /> 
+    <polygon id="shape97" points="0.000000,0.000000 0.684031,0.000000 0.684031,29.414794 0.000000,29.414794 0.000000,0.000000" fill="url(#gradient-30)" fill-rule="nonzero" transform="translate(39.403191,6.051039) rotate(90.000000) " /> 
+    <g id="group98" transform="translate(25.827132,8.471455) rotate(90.000000) "> 
+     <path id="shape99" d="M0.000000,1.105028 C0.000000,0.473583 0.526178,0.000000 1.104973,0.000000 1.736386,0.000000 2.262563,0.473583 2.262563,1.105028 2.262563,1.736472 1.736386,2.210056 1.104973,2.210056 0.526178,2.210056 0.000000,1.736472 0.000000,1.105028Z" fill="url(#gradient-31)" fill-rule="nonzero" transform="translate(-0.005262,-0.005262) " /> 
+     <path id="shape100" d="M0.158503,0.000000 L0.158503,0.000000 C0.211337,0.000000 0.317006,0.052835 0.317006,0.158503 L0.317006,1.479363 C0.317006,1.532197 0.211337,1.585031 0.158503,1.585031 L0.158503,1.585031 C0.052834,1.585031 0.000000,1.532197 0.000000,1.479363 L0.000000,0.158503 C0.000000,0.052835 0.052834,0.000000 0.158503,0.000000Z" fill="#9c8059" fill-rule="nonzero" transform="translate(0.473560,0.631444) rotate(314.999000) skewX(-0.002865) " /> 
+     <path id="shape101" d="M0.158503,0.000000 L0.158503,0.000000 C0.211338,0.000000 0.317006,0.052834 0.317006,0.158503 L0.317006,1.479362 C0.317006,1.532196 0.211338,1.585031 0.158503,1.585031 L0.158503,1.585031 C0.052834,1.585031 0.000000,1.532196 0.000000,1.479362 L0.000000,0.158503 C0.000000,0.052834 0.052834,0.000000 0.158503,0.000000Z" fill="#9c8059" fill-rule="nonzero" transform="translate(1.578532,0.420963) rotate(45.001400) skewX(0.002865) " /> 
+    </g> 
+    <polygon id="shape102" points="0.000000,0.000000 17.153381,0.000000 17.153381,29.414794 0.000000,29.414794 0.000000,0.000000" fill="url(#gradient-32)" fill-rule="nonzero" transform="translate(39.403191,36.411471) rotate(90.000000) " /> 
+    <path id="shape103" d="M0.578795,0.000000 L1.999474,0.000000 C2.315181,0.000000 2.578269,0.263102 2.578269,0.526203 L2.578269,34.413730 C2.578269,34.729452 2.315181,34.939934 1.999474,34.939934 L0.578795,34.939934 C0.263089,34.939934 0.000000,34.729452 0.000000,34.413730 L0.000000,0.526203 C0.000000,0.263102 0.263089,0.000000 0.578795,0.000000Z" fill="url(#gradient-33)" fill-rule="nonzero" transform="translate(42.192071,53.512234) rotate(90.000000) " /> 
+    <polygon id="shape104" points="0.000000,2.210056 6.156274,2.210056 6.156274,0.000000 0.000000,2.210056" fill="url(#gradient-34)" fill-rule="nonzero" transform="translate(41.665868,47.303341) rotate(90.000000) " /> 
+    <polygon id="shape105" points="0.000000,-2.210056 6.156274,-2.210056 6.156274,0.000000 0.000000,-2.210056" fill="url(#gradient-35)" fill-rule="nonzero" transform="translate(7.778341,47.303341) rotate(90.000000) " /> 
+    <path id="shape106" d="M0.000000,5.367279 L6.314128,5.367279 6.314128,0.000000 C6.314128,0.000000 5.314391,3.315084 0.000000,5.367279Z" fill="url(#gradient-36)" fill-rule="nonzero" transform="translate(37.982441,47.198106) rotate(90.000000) " /> 
+    <polygon id="shape107" points="0.000000,0.000000 6.208892,0.000000 6.208892,1.473371 0.000000,1.473371 0.000000,0.000000" fill="url(#gradient-37)" fill-rule="nonzero" transform="translate(25.458790,47.250723) rotate(90.000000) " /> 
+    <path id="shape108" d="M0.000000,-5.367279 L6.314128,-5.367279 6.314128,0.000000 C6.314128,0.000000 5.314391,-3.315084 0.000000,-5.367279Z" fill="url(#gradient-38)" fill-rule="nonzero" transform="translate(11.409147,47.198106) rotate(90.000000) " /> 
+    <polygon id="shape109" points="0.000000,0.000000 24.731580,0.000000 24.731580,3.367535 0.000000,3.367535 0.000000,0.000000" fill="url(#gradient-39)" fill-rule="nonzero" transform="translate(12.356314,56.058932) " /> 
+    <g id="group110" transform="translate(11.488078,13.370166) "> 
+     <polygon id="shape111" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-40)" fill-rule="nonzero" transform="translate(23.679172,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape112" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-41)" fill-rule="nonzero" transform="translate(19.837884,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape113" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-42)" fill-rule="nonzero" transform="translate(17.943550,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape114" points="0.000000,0.000000 23.046566,0.000000 23.046566,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-43)" fill-rule="nonzero" transform="translate(16.049217,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape115" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-44)" fill-rule="nonzero" transform="translate(14.154883,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape116" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-45)" fill-rule="nonzero" transform="translate(12.260549,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape117" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-46)" fill-rule="nonzero" transform="translate(10.366215,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape118" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-47)" fill-rule="nonzero" transform="translate(8.471881,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape119" points="0.000000,0.000000 23.046566,0.000000 23.046566,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-48)" fill-rule="nonzero" transform="translate(6.577548,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape120" points="0.000000,0.000000 23.046566,0.000000 23.046566,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-49)" fill-rule="nonzero" transform="translate(4.630594,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape121" points="0.000000,0.000000 23.046566,0.000000 23.046566,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-50)" fill-rule="nonzero" transform="translate(2.736260,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape122" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-51)" fill-rule="nonzero" transform="translate(0.841926,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape123" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-52)" fill-rule="nonzero" transform="translate(25.573506,0.000000) rotate(90.000000) " /> 
+     <polygon id="shape124" points="0.000000,0.000000 23.046567,0.000000 23.046567,0.841926 0.000000,0.841926 0.000000,0.000000" fill="url(#gradient-53)" fill-rule="nonzero" transform="translate(21.890079,0.000000) rotate(90.000000) " /> 
+    </g> 
+    <polygon id="shape125" points="0.000000,0.000000 0.578795,0.000000 0.578795,29.414795 0.000000,29.414795 0.000000,0.000000" fill="url(#gradient-54)" fill-rule="nonzero" transform="translate(39.403191,38.042620) rotate(90.000000) " /> 
+    <g id="group126" transform="translate(49.453684,57.774270) "> 
+     <polygon id="shape127" points="0.000000,0.000000 -6.998511,0.000000 -6.998511,11.733754 0.000000,11.733754 0.000000,0.000000" fill="url(#gradient-55)" fill-rule="nonzero" transform="translate(-2.836238,2.930808) " /> 
+     <path id="shape128" d="M-0.631444,0.000000 L-2.315297,0.000000 C-2.683639,0.000000 -2.946741,0.315706 -2.946741,0.631413 L-2.946741,16.942910 C-2.946741,17.311234 -2.683639,17.574322 -2.315297,17.574322 L-0.631444,17.574322 C-0.263102,17.574322 0.000000,17.311234 0.000000,16.942910 L0.000000,0.631413 C0.000000,0.315706 -0.263102,0.000000 -0.631444,0.000000Z" fill="url(#gradient-56)" fill-rule="nonzero" /> 
+    </g> 
+    <path id="shape129" d="M0.631444,0.000000 L29.414794,0.000000 C29.783136,0.000000 30.046238,0.263089 30.046238,0.631413 L30.046238,14.312023 C30.046238,14.680348 29.783136,14.943436 29.414794,14.943436 L0.631444,14.943436 C0.263102,14.943436 0.000000,14.680348 0.000000,14.312023 L0.000000,0.631413 C0.000000,0.263089 0.263102,0.000000 0.631444,0.000000Z" fill="url(#gradient-57)" fill-rule="nonzero" transform="translate(9.820012,59.205472) " /> 
+    <g id="group130" transform="translate(-0.020000,57.758485) "> 
+     <polygon id="shape131" points="0.000000,0.000000 6.998511,0.000000 6.998511,11.733755 0.000000,11.733755 0.000000,0.000000" fill="url(#gradient-58)" fill-rule="nonzero" transform="translate(2.836239,2.930807) " /> 
+     <path id="shape132" d="M0.631445,0.000000 L2.315297,0.000000 C2.683640,0.000000 2.946741,0.315706 2.946741,0.631412 L2.946741,16.942909 C2.946741,17.311233 2.683640,17.574322 2.315297,17.574322 L0.631445,17.574322 C0.263102,17.574322 0.000000,17.311233 0.000000,16.942909 L0.000000,0.631412 C0.000000,0.315706 0.263102,0.000000 0.631445,0.000000Z" fill="url(#gradient-59)" fill-rule="nonzero" /> 
+    </g> 
+    <path id="shape133" d="M0.631445,0.000000 L25.783988,0.000000 C26.099710,0.000000 26.415432,0.263089 26.415432,0.631413 L26.415432,2.525651 C26.415432,2.893976 26.099710,3.209682 25.783988,3.209682 L0.631445,3.209682 C0.263102,3.209682 0.000000,2.893976 0.000000,2.525651 L0.000000,0.631413 C0.000000,0.263089 0.263102,0.000000 0.631445,0.000000Z" fill="url(#gradient-60)" fill-rule="nonzero" transform="translate(11.509126,76.790318) " /> 
+    <path id="shape134" d="M0.631445,0.000000 L14.365365,0.000000 C14.733708,0.000000 14.996810,0.315706 14.996810,0.631413 L14.996810,6.840305 C14.996810,7.208629 14.733708,7.471718 14.365365,7.471718 L0.631445,7.471718 C0.263102,7.471718 0.000000,7.208629 0.000000,6.840305 L0.000000,0.631413 C0.000000,0.315706 0.263102,0.000000 0.631445,0.000000Z" fill="#ffffff" fill-opacity="0.29" fill-rule="nonzero" transform="translate(17.339464,62.946593) " /> 
+   </g> 
+   <g id="element15" transform="translate(561.800000,307.400000) "> 
+    <polygon id="shape2" points="0.000000,0.000000 231.469432,0.000000 231.469432,143.261363 0.000000,143.261363 0.000000,0.000000" fill="#cfebf6" fill-rule="nonzero" stroke="#cfebf6" stroke-width="1" transform="translate(-53.205318,-7.468352) " /> 
+    <polygon id="shape3" points="7.367727,0.000000 0.000000,0.000000 0.000000,180.100000 245.590909,180.100000 245.590909,0.000000 238.223182,0.000000 238.223182,172.732273 7.367727,172.732273 7.367727,0.000000" fill="#fde9d0" fill-rule="nonzero" stroke="#eacd98" stroke-width="1" transform="translate(-60.000000,-44.000000) " /> 
+   </g> 
+   <g id="szl7" transform="translate(288.217391,196.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-001" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl8" transform="translate(288.217391,529.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-002" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="element16" transform="translate(1014.693654,355.990981) "> 
+    <polygon id="line1" points="-84.407831,-25.436757 77.135772,-25.436757 77.135772,2.063243 77.265631,25.436758 -84.148115,25.182390" fill="#79D3F1" stroke="#CCCCCC" transform="translate(30.714177,0.000000) " /> 
+    <polygon id="line2" points="-34.866928,-25.340167 34.866927,-25.340167 4.220082,24.159833 -34.607210,24.100071" fill="#5DCBEF" stroke="none" transform="translate(-18.112007,0.503410) " /> 
+   </g> 
+   <text id="text13" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#000000" transform="translate(989.561829,347.990981) ">
+     消防水管网 
+   </text> 
+   <g id="szl9" transform="translate(415.217391,333.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-003" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl10" transform="translate(870.217391,336.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-004" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl11" transform="translate(1079.217391,315.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-006" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl12" transform="translate(1042.217391,238.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-005" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl13" transform="translate(1217.217391,335.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-008" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl14" transform="translate(1488.217391,234.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-007" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <g id="szl15" transform="translate(1488.217391,487.000000) " dbsrc="cprdb" lowerlimit="" getvalue="ret = parseFloat( Sender.getAttribute( &quot;Value&quot; ) );" setvalue="var szlcolor = &quot;#00FF00&quot;;
+var unitcolor = &quot;#FFFFFF&quot;;
+var decimal = 3;
+var lowerlimit = parseFloat(Sender.getAttribute( &quot;lowerlimit&quot;));
+var upperlimit = parseFloat(Sender.getAttribute( &quot;upperlimit&quot;));
+
+if( window.isNaN(lowerlimit)==true &amp;&amp; window.isNaN(upperlimit)==false){
+	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}  
+  }else if(window.isNaN(lowerlimit) ==false &amp;&amp; window.isNaN(upperlimit) ==true  ){
+  	if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }else if(window.isNaN(lowerlimit)==false &amp;&amp; window.isNaN(upperlimit)==false){
+  	if(Value > upperlimit){
+		szlcolor = &quot;#FF0000&quot;;
+	}else if(Value < lowerlimit){
+		szlcolor = &quot;#FFFF80&quot;;
+	}
+  }  
+var tagunit = GetUnitByName( Sender, &quot;text1&quot; );
+tagunit.textContent = Sender.getAttribute( &quot;tagunit&quot;);
+tagunit.setAttribute( &quot;fill&quot;, unitcolor );  
+var atext = GetUnitByName( Sender, &quot;text2&quot; );  
+atext.textContent = Value.toFixed( decimal );
+atext.setAttribute( &quot;fill&quot;, szlcolor ); 
+Sender.setAttribute( &quot;Value&quot;, Value );" tagdesc="" tagid="WBRM-FW-009" tagunit="" upperlimit="" value=""> 
+    <text id="text2" x="85" y="3" font-family="Arial" font-size="14" text-anchor="end" fill="#00FF00" stroke="none" transform="translate(-35.000000,0.000000) ">
+      0.00 
+    </text> 
+    <text id="text1" x="18.7826" y="3" font-family="Arial" font-size="14" text-anchor="start" fill="#00FFFF" stroke="none" transform="translate(38.217391,0.000000) "> 
+    </text> 
+   </g> 
+   <rect id="rect3" x="-129.25" y="-13.5" width="49.2" height="16" fill="url(#gradient-61)" stroke="none" transform="translate(1152.050000,288.500000) " /> 
+   <g id="element4" transform="translate(1007.000000,291.013242) "> 
+    <polygon id="line3" points="7.950000,16.000000 -8.050000,16.000000 -8.050000,-16.000000 8.050000,0.000000" fill="url(#gradient-62)" stroke="none" transform="translate(-7.940000,-0.013242) " /> 
+    <polygon id="line2" points="-7.950000,16.000000 8.050000,16.000000 8.050000,-16.000000 -8.050000,0.000000" fill="url(#gradient-63)" stroke="none" transform="translate(0.000000,-7.963242) rotate(270.000000) " /> 
+   </g> 
+   <path id="flowline5" d="M12.450000,-83.058732 H-61.050000 V-36.558732 " fill="none" stroke="#008080" stroke-width="3" stroke-dasharray="16,8" transform="translate(1059.550000,366.058732) " /> 
+   <text id="text2" x="0.455566" y="13.5" font-family="SimSun" font-size="20" text-anchor="start" fill="#FFFFFF" transform="translate(997.044434,252.500000) ">
+     渗漏损失 
+   </text> 
+   <script type="text/javascript">
+<![CDATA[
+var lines = new Array();
+for( var i = 0; i < 40; i++ )
+  {
+  var l = document.getElementById( "flowline"+(i+1)) ;
+  if(l != null){
+    lines.push( l );  
+  }
+};
+setInterval( ontimer, 200 );
+function ontimer()
+{  
+  for( var i = 0; i < lines.length; i++ )
+  {
+    var aline = lines[i];
+    var s = aline.getAttribute( "stroke-dashoffset" );
+    var w = aline.getAttribute( "stroke-width" );
+    var n = 0;
+    if( s != null && s.length > 0 )
+    {
+      n = parseFloat( s ) + 2 * w;
+      if( n >= 12 * w )
+        n = 0;
+    }else
+      n = 2 * w;
+    aline.setAttribute( "stroke-dashoffset", n );  
+  };
+     
+  };
+]]></script> 
+  </svg> 
+  <script src="../js/jquery-3.2.1.min.js" charset="utf-8"></script> 
+  <script src="../js/layui/layui.js" charset="utf-8"></script> 
+  <script src="../js/sisbasic.js" charset="utf-8"></script> 
+  <script src="../js/monitorcfg.js" charset="utf-8"></script> 
+  <script src="../js/cp-interface.js" charset="utf-8"></script>  
+ </body>
+</html>

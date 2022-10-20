@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>东北供热</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			ul,
+			li {
+				list-style: none;
+			}
+
+			.wrap {
+				width: 100%;
+				float: left;
+			}
+
+			.right {
+				width: 100%;
+				float: right;
+				font-size: 14px;
+			}
+
+			.right-tit {
+				font-size: 18px;
+				width: 100%;
+				text-align: center;
+				font-weight: bold;
+				height: 40px;
+				line-height: 40px;
+				background: #f5f5f5;
+			}
+
+			.tab {
+				width: 100%;
+				float: left;
+				background: #fff;
+			}
+
+			.tab-hd {
+				overflow: hidden;
+				zoom: 1;
+				height: 100%;
+				padding: 8px;
+			}
+
+			.tab-hd li {
+				float: left;
+				color: #666;
+				text-align: center;
+				cursor: pointer;
+				height: 32px;
+				line-height: 32px;
+				padding: 0 10px;
+				border-radius: 4px;
+				font-size: 15px;
+				display: table;
+				text-align: center;
+				margin-left: 10px;
+			}
+
+			.tab-hd li.active {
+				background: #409eff;
+				color: #fff;
+			}
+
+			.tab-hd li i {
+				display: block;
+				width: 14px;
+				height: 14px;
+				margin: 10px 6px 10px 0;
+				border-radius: 50%;
+				background: #89da09;
+				float: left;
+			}
+
+			/* .tab-hd li:last-of-type i {
+				background: #CCC;
+			} */
+
+			.tab-hd li span {
+				display: block;
+				float: left;
+			}
+
+			.tab-bd li {
+				display: none;
+			}
+
+			.tab-bd li.thisclass {
+				display: list-item;
+			}
+
+			.time {
+				width: 100%;
+				text-align: center;
+			}
+
+			.box1-left {
+				width: calc(100% - 120px);
+				float: left;
+			}
+
+			.box {
+				width: 100%;
+				float: left;
+			}
+
+			.box-content {
+				width: 100%;
+				padding: 10px;
+				float: left;
+			}
+
+			.box table {
+				width: 100%;
+				line-height: 24px;
+			}
+
+			.box table td {
+				padding: 0 5px;
+			}
+
+			.box table td:first-of-type {
+				text-align: right;
+			}
+
+			.box table td:nth-of-type(2) {
+				text-align: right;
+			}
+
+			.weather {
+				width: 120px;
+				float: right;
+				background: #ac7bab;
+				color: #fff;
+				padding: 10px;
+			}
+
+			.weather p {
+				width: 100%;
+				text-align: center;
+				line-height: 26px;
+			}
+
+			.weather p.wico {
+				font-size: 30px;
+				font-weight: bold;
+			}
+
+			.box-tit {
+				width: 100%;
+				float: left;
+				background: #f2f2f2;
+				padding-left: 10px;
+				height: 32px;
+				line-height: 32px;
+			}
+
+			.tab-bd li .link {
+				float: right;
+				font-size: 15px;
+				color: #1c9cd5;
+				cursor:pointer;
+			}
+
+			.box2 table td:nth-of-type(4) {
+				text-align: right;
+			}
+
+			.right-bottom {
+				width: 100%;
+				float: left;
+				margin-top: 20px;
+			}
+
+			.b-tit {
+				width: 100%;
+				float: left;
+				font-size: 16px;
+				font-weight: bold;
+				background: #fff;
+				margin-bottom: 10px;
+			}
+
+			.right-bottom table {
+				width: 100%;
+				float: left;
+				border: 1px solid #ddd;
+				border-right: none;
+				border-bottom: none;
+				font-size: 13px;
+			}
+
+			.right-bottom table td {
+				border: 1px solid #ddd;
+				border-left: none;
+				border-top: none;
+				padding: 3px 8px;
+				line-height: 18px;
+			}
+
+			.right-bottom table td i img {
+				width: 18px;
+				height: 18px;
+			}
+
+			.right-bottom table td i {
+				float: left;
+				margin-right: 8px;
+			}
+		</style>
+		<script type="text/javascript" src="./js/showInfo.js"></script>
+	</head>
+	<body>
+
+		<div class="right">
+			<p class="right-tit"><span id="stationName"></span></p>
+			<div class="tab">
+				<ul class="tab-hd" id="tabInfo">
+					<li class="active" id="basicInfo">基础信息</li>
+				</ul>
+				<ul class="tab-bd" id="detailInfo">
+					<li class="thisclass">
+						<!--box-->
+						<a style="float:right;" id="stationLink" class="link" onclick=linkConfig(stationObjNo,stationObjId)>
+							换热站原理图
+						</a>
+						<div class="box box1">
+							<div class="box-content">
+								<div class="box1-left">
+									<p class="time"><span id=localtime></span></p>
+									<table>
+										<tr>
+											<td style="width:100px;">供热天数：</td>
+											<td style="width:80px;">第<span id="heatDays"></span>天</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>室外温度：</td>
+											<td><span id="outsideTemp"></span></td>
+											<td>℃</td>
+										</tr>
+										<tr>
+											<td>室内均温：</td>
+											<td><span id="insideTemp"></span></td>
+											<td>℃</td>
+										</tr>
+										<tr>
+											<td>供热热源：</td>
+											<td><span id="heatSource"></span></td>
+											<td></td>
+										</tr>
+										<tr id="yxzt_tr">
+										  <td>运行状态：</td>
+										  <td><span id="heatSource">运行中</span></td>
+										  <td></td>
+										</tr>
+									</table>
+								</div>
+								<div class="box1-right">
+									<div class="weather">
+										<p class="wico">☼</p>
+										<p>-2~10℃</p>
+										<p>晴</p>
+										<p>北风3-4级</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--box over-->
+						<!--box-->
+						<div class="box">
+							<p class="box-tit"></p>
+							<div class="box-content">
+								<table>
+									<tr>
+										<td style="width:130px;">直供实供面积：</td>
+										<td style="width:50px;"><span id="diretActualArea"></span></td>
+										<td style="width:40px;">m2</td>
+										<td style="width:50px;"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>累计蒸汽热量：</td>
+										<td><span id="totalSteamHeat"></span></td>
+										<td>GJ</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>循环流量：</td>
+										<td><span id="circulFlow"></span></td>
+										<td>t/h</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>累计供热量：</td>
+										<td><span id="totalHeatSupply"></span></td>
+										<td>GJ</td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>高温水补水率：</td>
+										<td><span id="highTempWaterRate"></span></td>
+										<td>%</td>
+										<td></td>
+										<td></td>
+									</tr>
+								</table>
+							</div>
+						</div>
+						<!--box over-->
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript">
+			var CALCULATION_URL = "";
+			var url = "";
+			var stationObjNo = "";
+			var stationObjId = "";
+			var locaNo = "";
+			var pointInfo = null;
+			$(function() {
+				tabs(".tab-hd", "active", ".tab-bd");
+				url = parent.api_url;
+				CALCULATION_URL = parent.CALCULATION_URL;
+				$("#stationName").html(parent.stationName);
+				$("#stationLink").html(parent.stationName + "原理图");
+				var stationNo = parent.stationNo; //站对应的指标对象编码
+				stationObjNo = stationNo;
+				locaNo = parent.areaNo;
+				var objectId = parent.objectId; //指标编码
+				stationObjId = parent.objectId;
+				var layerType = parent.layerType;
+				// if (null != objectId) {
+				// 	showUnitTab(objectId, layerType);
+				// }
+
+				//供热天数--业务表 TODO
+				var heatDays = 0;
+				$("#heatDays").html(heatDays);
+				//室外温度--测点
+				pointInfo = getStationPointInfo("HR_SWWD",stationNo);
+				var outsideTemp = 0;
+				var outsideTempPointNo = "";
+				if(null != pointInfo && null != pointInfo.pointValue){
+					outsideTemp = pointInfo.pointValue;
+				}
+				if(null != pointInfo && null != pointInfo.pointName){
+					outsideTempPointNo = pointInfo.pointName;
+				}
+				$("#outsideTemp").html("<a class='link' onclick=showPointTrend('"+outsideTempPointNo+"')>"+outsideTemp+"</a>");
+				// $("#outsideTemp").html(outsideTemp);
+				//室内温度--测点
+				pointInfo = getStationPointInfo("HR_SNWD",stationNo);
+				var insideTemp = 0;
+				var insideTempPointNo = "";
+				if(null != pointInfo && null != pointInfo.pointValue){
+					insideTemp = pointInfo.pointValue;
+				}
+				if(null != pointInfo && null != pointInfo.pointName){
+					insideTempPointNo = pointInfo.pointName;
+				}
+				$("#insideTemp").html("<a class='link' onclick=showPointTrend('"+insideTempPointNo+"')>"+insideTemp+"</a>");
+				// $("#insideTemp").html(insideTemp);
+				//供热热源--测点//TODO
+				var heatSource = "";
+				heatSource = getPointName("HR_RY", stationNo);
+				var heatSourcePointNo = getPointName("HR_RY",stationNo);
+				$("#heatSource").html("<a class='link' onclick=showPointTrend('"+heatSourcePointNo+"')>"+heatSource+"</a>");
+				// $("#heatSource").html(heatSource);
+
+				//直供实供面积
+				var diretActualArea = 0;
+				diretActualArea = getLastIndicatorValue('YW_ZHIGSGMJ',locaNo,'DA');
+				$("#diretActualArea").html("<a class='link' onclick=linkIndicatorInfo('YW_ZHIGSGMJ','"+objectId+"','DA')>"+diretActualArea+"</a>");
+				//累计蒸汽热量--测点	
+				pointInfo = getStationPointInfo("MZ_LJZQRL",stationNo);
+				var totalSteamHeat = 0;
+				var totalSteamHeatPointNo = "";
+				if(null != pointInfo && null != pointInfo.pointValue){
+					totalSteamHeat = pointInfo.pointValue;
+				}
+				if(null != pointInfo && null != pointInfo.pointName){
+					totalSteamHeatPointNo = pointInfo.pointName;
+				}
+				$("#totalSteamHeat").html("<a class='link' onclick=showPointTrend('"+totalSteamHeatPointNo+"')>"+totalSteamHeat+"</a>");
+				// $("#totalSteamHeat").html(totalSteamHeat);
+				//循环流量--测点 
+				pointInfo = getStationPointInfo("SZ_GWSGSLL(XHLL)",stationNo);
+				var circulFlow = 0;
+				var circulFlowPointNo = "";
+				if(null != pointInfo && null != pointInfo.pointValue){
+					circulFlow = pointInfo.pointValue;
+				}
+				if(null != pointInfo && null != pointInfo.pointName){
+					circulFlowPointNo = pointInfo.pointName;
+				}
+				$("#circulFlow").html("<a class='link' onclick=showPointTrend('"+circulFlowPointNo+"')>"+circulFlow+"</a>");
+				// $("#circulFlow").html(circulFlow);
+				//累计供热量--测点
+				pointInfo = getStationPointInfo("HR_YCWLJGRL",stationNo);
+				var totalHeatSupply = 0;
+				var totalHeatSupplyPointNo = "";
+				if(null != pointInfo && null != pointInfo.pointValue){
+					totalHeatSupply = pointInfo.pointValue;
+				}
+				if(null != pointInfo && null != pointInfo.pointName){
+					totalHeatSupplyPointNo = pointInfo.pointName;
+				}
+				$("#totalHeatSupply").html("<a class='link' onclick=showPointTrend('"+totalHeatSupplyPointNo+"')>"+totalHeatSupply+"</a>");
+				// $("#totalHeatSupply").html(totalHeatSupply);
+				//高温水补水率--指标
+				var highTempWaterRate = 0;
+				highTempWaterRate = getLastIndicatorValue('SC_GWSBSL',locaNo,'DA');
+				$("#highTempWaterRate").html("<a class='link' onclick=linkIndicatorInfo('SC_GWSBSL','"+objectId+"','DA')>"+highTempWaterRate+"</a>");
+				// $("#highTempWaterRate").html(highTempWaterRate);
+
+			});
+		</script>
+		<script type="text/javascript">
+			function showLocale(objD) {
+				var str, colorhead, colorfoot;
+				var yy = objD.getYear();
+				if (yy < 1900) yy = yy + 1900;
+				var MM = objD.getMonth() + 1;
+				if (MM < 10) MM = '0' + MM;
+				var dd = objD.getDate();
+				if (dd < 10) dd = '0' + dd;
+				var hh = objD.getHours();
+				if (hh < 10) hh = '0' + hh;
+				var mm = objD.getMinutes();
+				if (mm < 10) mm = '0' + mm;
+				var ss = objD.getSeconds();
+				if (ss < 10) ss = '0' + ss;
+				var ww = objD.getDay();
+				if (ww == 0) colorhead = "<font color=\"#000000\">";
+				if (ww > 0 && ww < 6) colorhead = "<font color=\"#000000\">";
+				colorfoot = "</font>"
+				str = yy + "年&nbsp;&nbsp;&nbsp;" + MM + "月" + dd + "日&nbsp;&nbsp;&nbsp;" + hh + ":" + mm + ":" + ss;
+				return (str);
+			}
+
+			function tick() {
+				var today;
+				today = new Date();
+				document.getElementById("localtime").innerHTML = showLocale(today);
+				window.setTimeout("tick()", 1000);
+			}
+
+			tick();
+
+			function getPointValue(tpNo, locaNo) {
+				var requestUrl = url + CALCULATION_URL + "/api/mapCoordinate/getStationPointValue";
+				var value = 0;
+				//查询后台获得数据
+				$.ajax({
+					type: 'POST',
+					url: requestUrl,
+					async: true,
+					data: {
+						tpNo: tpNo,
+						locaNo: locaNo
+					},
+					success: function(response) {
+						if (response.code == 0) { //成功
+							value = response.data;
+						}
+					},
+					error: function() {}
+				});
+				return value;
+			}
+
+			//获取测点名称
+			function getPointName(tpNo, locaNo) {
+				var requestUrl = url + CALCULATION_URL + "/api/mapCoordinate/getStationPointName";
+				var value = "";
+				//查询后台获得数据
+				$.ajax({
+					type: 'POST',
+					url: requestUrl,
+					async: true,
+					data: {
+						tpNo: tpNo,
+						locaNo: locaNo
+					},
+					success: function(response) {
+						if (response.code == 0) { //成功
+							value = response.data;
+						}
+					},
+					error: function() {}
+				});
+				return value;
+			}
+
+			function showUnitTab(objectId, layerType) {
+				var requestUrl = url + CALCULATION_URL + "/api/imObject/getSubTreeList";
+				//查询后台获得数据
+				$.ajax({
+					type: 'GET',
+					url: requestUrl,
+					dataType: 'json',
+					async: true,
+					data: {
+						id: objectId
+					},
+					success: function(response) {
+						if (response.code == 0) { //成功
+
+							var unitTabInfo = "";
+							var data = response.data;
+							var objName = "";
+							var objNo = "";
+							var objId = "";
+							var ele;
+							if (null == data || data.length == 0) {
+								// $("#stationLink").show();
+								$("#yxzt_tr").hide();
+								$("#stationLink").hide();
+								
+								if (null != layerType && undefined != layerType && "111" == layerType) { //供热热源
+																var unitNo_H = ""; //TODO
+																//累计供热量--测点
+																var totalHeatSupplyH = 0;
+																//循环流量--测点 TODO
+																var circulFlowH = 0;
+																//高温水供水温度--测点
+																var highWaterSupplyTempH = 0;
+																//高温水供水温度设定值--标杆 TODO
+																var highWaterSupplySetH = 0;
+																//累计补水量--测点
+																var totalWaterReplenH = 0;
+																//供水温度--测点
+																var waterSupplyTempH = 0;
+																//回水温度--测点
+																var waterReturnTempH = 0;
+																//供水压力--测点
+																var waterSupplyPresH = 0;
+																//回水压力--测点
+																var waterReturnPresH = 0;
+								 
+																	objName = parent.stationName;
+																	objId = parent.objectId;
+																	objNo = parent.stationNo;
+								
+																	//累计供热量--测点
+																	pointInfo = getStationPointInfo("HR_YCWLJGRL",objNo);
+																	var totalHeatSupplyHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		totalHeatSupplyH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		totalHeatSupplyHPointNo = pointInfo.pointName;
+																	}
+																	totalHeatSupplyH = "<a class='link' onclick=showPointTrend('"+totalHeatSupplyHPointNo+"')>"+totalHeatSupplyH+"</a>";
+								
+																	//循环流量--测点
+																	pointInfo = getStationPointInfo("SZ_GWSGSLL(XHLL)",objNo);
+																	var circulFlowHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		circulFlowH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		circulFlowHPointNo = pointInfo.pointName;
+																	}
+																	circulFlowH = "<a class='link' onclick=showPointTrend('"+circulFlowHPointNo+"')>"+circulFlowH+"</a>";
+								
+																	//高温水供水温度--测点
+																	pointInfo = getStationPointInfo("SZ_GWSGSWD",objNo);
+																	var highWaterSupplyTempHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		highWaterSupplyTempH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		highWaterSupplyTempHPointNo = pointInfo.pointName;
+																	}
+																	highWaterSupplyTempH = "<a class='link' onclick=showPointTrend('"+highWaterSupplyTempHPointNo+"')>"+highWaterSupplyTempH+"</a>";
+								
+																	//高温水供水温度设定值--标杆 TODO
+								
+																	//累计补水量--测点
+																	pointInfo = getStationPointInfo("HR_LJBSL",objNo);
+																	var totalWaterReplenHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		totalWaterReplenH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		totalWaterReplenHPointNo = pointInfo.pointName;
+																	}
+																	totalWaterReplenH = "<a class='link' onclick=showPointTrend('"+totalWaterReplenHPointNo+"')>"+totalWaterReplenH+"</a>";
+																	
+																	//供水温度--测点
+																	pointInfo = getStationPointInfo("HR_YCWGSWD",objNo);
+																	var waterSupplyTempHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		waterSupplyTempH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		waterSupplyTempHPointNo = pointInfo.pointName;
+																	}
+																	waterSupplyTempH = "<a class='link' onclick=showPointTrend('"+waterSupplyTempHPointNo+"')>"+waterSupplyTempH+"</a>";
+																	
+																	//回水温度--测点
+																	pointInfo = getStationPointInfo("HR_YCWHSWD",objNo);
+																	var waterReturnTempHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		waterReturnTempH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		waterReturnTempHPointNo = pointInfo.pointName;
+																	}
+																	waterReturnTempH = "<a class='link' onclick=showPointTrend('"+waterReturnTempHPointNo+"')>"+waterReturnTempH+"</a>";
+																	//供水压力--测点
+																	pointInfo = getStationPointInfo("HR_YCWGSYL",objNo);
+																	var waterSupplyPresHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		waterSupplyPresH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		waterSupplyPresHPointNo = pointInfo.pointName;
+																	}
+																	waterSupplyPresH = "<a class='link' onclick=showPointTrend('"+waterSupplyPresHPointNo+"')>"+waterSupplyPresH+"</a>";
+																	//回水压力--测点
+																	pointInfo = getStationPointInfo("HR_YCWHSYL",objNo);
+																	var waterReturnPresHPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		waterReturnPresH = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		waterReturnPresHPointNo = pointInfo.pointName;
+																	}
+																	waterReturnPresH = "<a class='link' onclick=showPointTrend('"+waterReturnPresHPointNo+"')>"+waterReturnPresH+"</a>";
+								
+																	//tab页拼接
+																	ele = document.createElement("li");
+																	ele.innerHTML = '<span>' + objName + '</span>';
+																	document.getElementById('tabInfo').appendChild(ele);
+								
+																	//tab页详情拼接
+																	ele = document.createElement("li");
+																	ele.innerHTML = '<a class="link" onclick=linkConfig(\"'+objNo+'\",\"'+objId+'\")>' +objName +'原理图</a>' +
+																		<!--box-- >
+																		'<div class="box"><div class="box-content"><table><tr><td style="width:100px;">运行状态：</td>' +
+																		'<td style="width:80px; text-align:left;">运行中</td><td style="width:100px; text-align:right;"></td>' +
+																		'<td></td></tr></table></div></div>' +
+																		<!--box over-- >
+																		'<div class="box box2"><p class="box-tit"></p><div class="box-content"><table><tr>' +
+																		'<td style="width:180px;">累计供热量：</td><td style="width:50px;">' +
+																		totalHeatSupplyH + '</td>' +
+																		'<td style="width:40px;">GJ</td><td style="width:50px;"></td><td></td></tr>' +
+																		'<tr><td>循环流量：</td><td>' + circulFlowH +
+																		'</td><td>t/h</td><td></td><td></td></tr>' +
+																		'<tr><td>高温水供水温度：</td><td>' + highWaterSupplyTempH +
+																		'</td><td>℃</td><td></td><td></td></tr>' +
+																		'<tr><td>高温水供水温度设定值：</td><td>' + highWaterSupplySetH +
+																		'</td><td>℃</td><td></td><td></td></tr>' +
+																		'<tr><td>累计补水量：</td><td>' + totalWaterReplenH +
+																		'</td><td>t</td><td></td><td></td></tr>' +
+																		'<tr><td>供水温度：</td><td>' + waterSupplyTempH +
+																		'</td><td>℃</td><td></td><td></td></tr>' +
+																		'<tr><td>回水温度：</td><td>' + waterReturnTempH +
+																		'</td><td>℃</td><td></td><td></td></tr>' +
+																		'<tr><td>供水压力：</td><td>' + waterSupplyPresH +
+																		'</td><td>MPa</td><td></td><td></td></tr>' +
+																		'<tr><td>回水压力：</td><td>' + waterReturnPresH +
+																		'</td><td>MPa</td><td></td><td></td></tr>' +
+																		'</table> </div></div>'; 
+																		<!--box over-- >
+																	document.getElementById('detailInfo').appendChild(ele);
+								
+																 
+															} else { //蒸汽
+																//蒸汽流量--测点
+																var totalSteamHeatS = 0;
+																//累计蒸汽热量--测点 
+																var steamFlowS = 0;
+																//蒸汽温度--测点 
+																var steamTempS = 0;
+																//蒸汽压力--测点
+																var steamPresS = 0;
+															 
+																	objName = parent.stationName;
+																	objId = parent.objectId;
+																	objNo = parent.stationNo;
+								
+																	//蒸汽流量--测点 
+																	pointInfo = getStationPointInfo("SZ_ZQLL",objNo);
+																	var totalSteamHeatSPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		totalSteamHeatS = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		totalSteamHeatSPointNo = pointInfo.pointName;
+																	}
+																	totalSteamHeatS = "<a class='link' onclick=showPointTrend('"+totalSteamHeatSPointNo+"')>"+totalSteamHeatS+"</a>";
+																	
+																	//累计蒸汽热量--测点
+																	pointInfo = getStationPointInfo("MZ_LJZQRL",objNo);
+																	var steamFlowSPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		steamFlowS = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		steamFlowSPointNo = pointInfo.pointName;
+																	}
+																	steamFlowS = "<a class='link' onclick=showPointTrend('"+steamFlowSPointNo+"')>"+steamFlowS+"</a>";
+																	
+																	//蒸汽温度--测点 
+																	pointInfo = getStationPointInfo("SZ_ZQWD",objNo);
+																	var steamTempSPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		steamTempS = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		steamTempSPointNo = pointInfo.pointName;
+																	}
+																	steamTempS = "<a class='link' onclick=showPointTrend('"+steamTempSPointNo+"')>"+steamTempS+"</a>";
+																	
+																	//蒸汽压力--测点
+																	pointInfo = getStationPointInfo("SZ_ZQYL",objNo);
+																	var steamPresSPointNo = "";
+																	if(null != pointInfo && null != pointInfo.pointValue){
+																		steamPresS = pointInfo.pointValue;
+																	}
+																	if(null != pointInfo && null != pointInfo.pointName){
+																		steamPresSPointNo = pointInfo.pointName;
+																	}
+																	steamPresS = "<a class='link' onclick=showPointTrend('"+steamPresSPointNo+"')>"+steamPresS+"</a>";
+																	 
+																	//tab页拼接
+																	ele = document.createElement("li");
+																	ele.innerHTML = '<span>' + objName + '</span>';
+																	document.getElementById('tabInfo').appendChild(ele);
+								
+																	//tab页详情拼接
+																	ele = document.createElement("li");
+																	ele.innerHTML = '<a class="link" onclick=linkConfig(\"'+objNo+'\",\"'+objId+'\")>' + objName + '原理图</a>' +
+																		<!--box-- >
+																		'<div class="box"><div class="box-content"><table><tr><td style="width:100px;">运行状态：</td>' +
+																		'<td style="width:80px; text-align:left;">运行中</td><td style="width:100px; text-align:right;"></td>' +
+																		'<td></td></tr></table></div></div>' +
+																		<!--box over-- >
+																		'<div class="box box2"><p class="box-tit"></p><div class="box-content"><table><tr>' +
+																		'<td style="width:130px;">累计蒸汽热量：</td><td style="width:50px;">' +
+																		totalSteamHeatS + '</td>' +
+																		'<td style="width:40px;">GJ</td><td style="width:50px;"></td><td></td></tr>' +
+																		'<tr><td>蒸汽流量：</td><td>' + steamFlowS +
+																		'</td><td>t/h</td><td></td><td></td></tr>' +
+																		'<tr><td>蒸汽温度：</td><td>' + steamTempS +
+																		'</td><td>℃</td><td></td><td></td></tr>' +
+																		'<tr><td>蒸汽压力：</td><td>' + steamPresS +
+																		'</td><td>MPa</td><td></td><td></td></tr>' +
+																		'</table> </div></div>'; 
+																		<!--box over-- >
+																	document.getElementById('detailInfo').appendChild(ele);
+															}
+								
+							} else {
+								$("#stationLink").hide();
+								$("#stationLink").hide();
+							}
+
+							if (null != layerType && undefined != layerType && "111" == layerType) { //供热热源
+								var unitNo_H = ""; //TODO
+								//累计供热量--测点
+								var totalHeatSupplyH = 0;
+								//循环流量--测点 TODO
+								var circulFlowH = 0;
+								//高温水供水温度--测点
+								var highWaterSupplyTempH = 0;
+								//高温水供水温度设定值--标杆 TODO
+								var highWaterSupplySetH = 0;
+								//累计补水量--测点
+								var totalWaterReplenH = 0;
+								//供水温度--测点
+								var waterSupplyTempH = 0;
+								//回水温度--测点
+								var waterReturnTempH = 0;
+								//供水压力--测点
+								var waterSupplyPresH = 0;
+								//回水压力--测点
+								var waterReturnPresH = 0;
+
+								for (var i = 0; i < data.length; i++) {
+									objName = data[i].data.objectName;
+									objId = data[i].data.objectId;
+									objNo = data[i].data.objectNo;
+
+									//累计供热量--测点
+									pointInfo = getStationPointInfo("HR_YCWLJGRL",objNo);
+									var totalHeatSupplyHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										totalHeatSupplyH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										totalHeatSupplyHPointNo = pointInfo.pointName;
+									}
+									totalHeatSupplyH = "<a class='link' onclick=showPointTrend('"+totalHeatSupplyHPointNo+"')>"+totalHeatSupplyH+"</a>";
+
+									//循环流量--测点
+									pointInfo = getStationPointInfo("SZ_GWSGSLL(XHLL)",objNo);
+									var circulFlowHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										circulFlowH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										circulFlowHPointNo = pointInfo.pointName;
+									}
+									circulFlowH = "<a class='link' onclick=showPointTrend('"+circulFlowHPointNo+"')>"+circulFlowH+"</a>";
+
+									//高温水供水温度--测点
+									pointInfo = getStationPointInfo("SZ_GWSGSWD",objNo);
+									var highWaterSupplyTempHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										highWaterSupplyTempH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										highWaterSupplyTempHPointNo = pointInfo.pointName;
+									}
+									highWaterSupplyTempH = "<a class='link' onclick=showPointTrend('"+highWaterSupplyTempHPointNo+"')>"+highWaterSupplyTempH+"</a>";
+
+									//高温水供水温度设定值--标杆 TODO
+
+									//累计补水量--测点
+									pointInfo = getStationPointInfo("HR_LJBSL",objNo);
+									var totalWaterReplenHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										totalWaterReplenH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										totalWaterReplenHPointNo = pointInfo.pointName;
+									}
+									totalWaterReplenH = "<a class='link' onclick=showPointTrend('"+totalWaterReplenHPointNo+"')>"+totalWaterReplenH+"</a>";
+									
+									//供水温度--测点
+									pointInfo = getStationPointInfo("HR_YCWGSWD",objNo);
+									var waterSupplyTempHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										waterSupplyTempH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										waterSupplyTempHPointNo = pointInfo.pointName;
+									}
+									waterSupplyTempH = "<a class='link' onclick=showPointTrend('"+waterSupplyTempHPointNo+"')>"+waterSupplyTempH+"</a>";
+									
+									//回水温度--测点
+									pointInfo = getStationPointInfo("HR_YCWHSWD",objNo);
+									var waterReturnTempHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										waterReturnTempH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										waterReturnTempHPointNo = pointInfo.pointName;
+									}
+									waterReturnTempH = "<a class='link' onclick=showPointTrend('"+waterReturnTempHPointNo+"')>"+waterReturnTempH+"</a>";
+									//供水压力--测点
+									pointInfo = getStationPointInfo("HR_YCWGSYL",objNo);
+									var waterSupplyPresHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										waterSupplyPresH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										waterSupplyPresHPointNo = pointInfo.pointName;
+									}
+									waterSupplyPresH = "<a class='link' onclick=showPointTrend('"+waterSupplyPresHPointNo+"')>"+waterSupplyPresH+"</a>";
+									//回水压力--测点
+									pointInfo = getStationPointInfo("HR_YCWHSYL",objNo);
+									var waterReturnPresHPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										waterReturnPresH = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										waterReturnPresHPointNo = pointInfo.pointName;
+									}
+									waterReturnPresH = "<a class='link' onclick=showPointTrend('"+waterReturnPresHPointNo+"')>"+waterReturnPresH+"</a>";
+
+									//tab页拼接
+									ele = document.createElement("li");
+									ele.innerHTML = '<span>' + objName + '</span>';
+									document.getElementById('tabInfo').appendChild(ele);
+
+									//tab页详情拼接
+									ele = document.createElement("li");
+									ele.innerHTML = '<a class="link" onclick=linkConfig(\"'+objNo+'\",\"'+objId+'\")>' +objName +'原理图</a>' +
+										<!--box-- >
+										'<div class="box"><div class="box-content"><table><tr><td style="width:100px;">运行状态：</td>' +
+										'<td style="width:80px; text-align:left;">运行中</td><td style="width:100px; text-align:right;"></td>' +
+										'<td></td></tr></table></div></div>' +
+										<!--box over-- >
+										'<div class="box box2"><p class="box-tit"></p><div class="box-content"><table><tr>' +
+										'<td style="width:130px;">累计供热量：</td><td style="width:50px;">' +
+										totalHeatSupplyH + '</td>' +
+										'<td style="width:40px;">GJ</td><td style="width:50px;"></td><td></td></tr>' +
+										'<tr><td>循环流量：</td><td>' + circulFlowH +
+										'</td><td>t/h</td><td></td><td></td></tr>' +
+										'<tr><td>高温水供水温度：</td><td>' + highWaterSupplyTempH +
+										'</td><td>℃</td><td></td><td></td></tr>' +
+										'<tr><td>高温水供水温度设定值：</td><td>' + highWaterSupplySetH +
+										'</td><td>℃</td><td></td><td></td></tr>' +
+										'<tr><td>累计补水量：</td><td>' + totalWaterReplenH +
+										'</td><td>t</td><td></td><td></td></tr>' +
+										'<tr><td>供水温度：</td><td>' + waterSupplyTempH +
+										'</td><td>℃</td><td></td><td></td></tr>' +
+										'<tr><td>回水温度：</td><td>' + waterReturnTempH +
+										'</td><td>℃</td><td></td><td></td></tr>' +
+										'<tr><td>供水压力：</td><td>' + waterSupplyPresH +
+										'</td><td>MPa</td><td></td><td></td></tr>' +
+										'<tr><td>回水压力：</td><td>' + waterReturnPresH +
+										'</td><td>MPa</td><td></td><td></td></tr>' +
+										'</table> </div></div>'; 
+										<!--box over-- >
+									document.getElementById('detailInfo').appendChild(ele);
+
+								}
+							} else { //蒸汽
+								//蒸汽流量--测点
+								var totalSteamHeatS = 0;
+								//累计蒸汽热量--测点 
+								var steamFlowS = 0;
+								//蒸汽温度--测点 
+								var steamTempS = 0;
+								//蒸汽压力--测点
+								var steamPresS = 0;
+								
+								for (var i = 0; i < data.length; i++) {
+									objName = data[i].data.objectName;
+									objId = data[i].data.objectId;
+									objNo = data[i].data.objectNo;
+
+									//蒸汽流量--测点 
+									pointInfo = getStationPointInfo("SZ_ZQLL",objNo);
+									var totalSteamHeatSPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										totalSteamHeatS = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										totalSteamHeatSPointNo = pointInfo.pointName;
+									}
+									totalSteamHeatS = "<a class='link' onclick=showPointTrend('"+totalSteamHeatSPointNo+"')>"+totalSteamHeatS+"</a>";
+									
+									//累计蒸汽热量--测点
+									pointInfo = getStationPointInfo("MZ_LJZQRL",objNo);
+									var steamFlowSPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										steamFlowS = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										steamFlowSPointNo = pointInfo.pointName;
+									}
+									steamFlowS = "<a class='link' onclick=showPointTrend('"+steamFlowSPointNo+"')>"+steamFlowS+"</a>";
+									
+									//蒸汽温度--测点 
+									pointInfo = getStationPointInfo("SZ_ZQWD",objNo);
+									var steamTempSPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										steamTempS = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										steamTempSPointNo = pointInfo.pointName;
+									}
+									steamTempS = "<a class='link' onclick=showPointTrend('"+steamTempSPointNo+"')>"+steamTempS+"</a>";
+									
+									//蒸汽压力--测点
+									pointInfo = getStationPointInfo("SZ_ZQYL",objNo);
+									var steamPresSPointNo = "";
+									if(null != pointInfo && null != pointInfo.pointValue){
+										steamPresS = pointInfo.pointValue;
+									}
+									if(null != pointInfo && null != pointInfo.pointName){
+										steamPresSPointNo = pointInfo.pointName;
+									}
+									steamPresS = "<a class='link' onclick=showPointTrend('"+steamPresSPointNo+"')>"+steamPresS+"</a>";
+									 
+									//tab页拼接
+									ele = document.createElement("li");
+									ele.innerHTML = '<span>' + objName + '</span>';
+									document.getElementById('tabInfo').appendChild(ele);
+
+									//tab页详情拼接
+									ele = document.createElement("li");
+									ele.innerHTML = '<a class="link" onclick=linkConfig(\"'+objNo+'\",\"'+objId+'\")>' + objName + '原理图</a>' +
+										<!--box-- >
+										'<div class="box"><div class="box-content"><table><tr><td style="width:100px;">运行状态：</td>' +
+										'<td style="width:80px; text-align:left;">运行中</td><td style="width:100px; text-align:right;"></td>' +
+										'<td></td></tr></table></div></div>' +
+										<!--box over-- >
+										'<div class="box box2"><p class="box-tit"></p><div class="box-content"><table><tr>' +
+										'<td style="width:130px;">累计蒸汽热量：</td><td style="width:50px;">' +
+										totalSteamHeatS + '</td>' +
+										'<td style="width:40px;">GJ</td><td style="width:50px;"></td><td></td></tr>' +
+										'<tr><td>蒸汽流量：</td><td>' + steamFlowS +
+										'</td><td>t/h</td><td></td><td></td></tr>' +
+										'<tr><td>蒸汽温度：</td><td>' + steamTempS +
+										'</td><td>℃</td><td></td><td></td></tr>' +
+										'<tr><td>蒸汽压力：</td><td>' + steamPresS +
+										'</td><td>MPa</td><td></td><td></td></tr>' +
+										'</table> </div></div>'; 
+										<!--box over-- >
+									document.getElementById('detailInfo').appendChild(ele);
+
+								}
+							}
+
+							tabs(".tab-hd", "active", ".tab-bd");
+						}
+					},
+					error: function() {}
+				});
+			}
+		</script>
+	</body>
+</html>

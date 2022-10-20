@@ -1,0 +1,573 @@
+/***************table*******************/
+
+.vxe-table .vxe-header--column.col--ellipsis {
+    background: #f9f9f9;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.vxe-table .vxe-body--column.col--ellipsis,
+.vxe-table.vxe-editable .vxe-body--column {
+    background: #fff;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.el-table--border td {
+    border: 1px solid #e6e6e6;
+    border-left: none;
+    border-top: none;
+}
+
+.page-compact .el-table--border tbody td {
+    border: 1px solid #e6e6e6;
+    border-right: none;
+    border-bottom: none;
+}
+
+.el-table::before,
+.el-table--border::after,
+.el-table__fixed::before {
+    display: none;
+}
+
+.el-table th.is-leaf {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 0;
+}
+
+.el-table--border th {
+    border-right: 1px solid #e6e6e6
+}
+
+.el-table__header th {
+    background: #f9f9f9;
+    color: #999;
+    font-size: 14px;
+}
+
+.el-table .el-table__body {
+    color: #555;
+}
+
+.el-table .delete-row {
+    display: none;
+}
+
+.wrap .el-table .cell {
+    height: 40px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.el-table {
+    color: #606266;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+    background: #fff;
+}
+
+.vxe-table {
+    width: 100%;
+    float: left;
+}
+
+.el-table--mini,
+.el-table--small,
+.el-table__expand-icon {
+    font-size: 14px;
+}
+
+.work-area {
+    width: 100%;
+    height: 24px ;
+    float: left;
+    padding: 0 16px;
+    box-sizing: border-box;
+    margin-top: 8px;
+}
+
+.work-area .el-button {
+    font-size: 14px;
+    padding: 9px 5px;
+}
+
+.work-area .el-link {
+    color: #409eff;
+    margin-right: 10px;
+}
+
+.work-area .el-link:hover {
+    color: #5faeff;
+}
+
+.work-area .el-link.disabled,
+.work-area .el-link.disabled:hover {
+    color: #999;
+    cursor: not-allowed;
+}
+
+.work-area .vxe-button--dropdown {
+    margin-right: 10px;
+}
+
+.work-area .el-link.is-underline:hover:after {
+    border-bottom: none;
+}
+
+#app .el-table .cell,
+.el-dialog__wrapper .el-table .cell {
+    line-height: 28px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+#app .el-table .cell a {
+    display: block;
+    float: left;
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+#app .el-table .el-table__header .cell {
+    line-height: 40px;
+}
+
+#app .el-table--border td,
+#app .el-table--border th,
+#app .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+    border-right: 1px solid #e6e6e6;
+}
+
+#app .el-table td,
+#app .el-table th.is-leaf {
+    border-bottom: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+}
+
+#app .wrap .el-table tr:last-of-type td,
+#app .addtable .el-table tr:last-of-type td {
+    border-bottom: none;
+}
+
+#app .el-table th:last-of-type,
+#app .el-table td:last-of-type {
+    border-right: none !important;
+}
+
+#app .el-table--border,
+#app .el-table--group {
+    border: 1px solid #e6e6e6;
+}
+
+#app .el-table th.is-leaf:nth-last-child(2) {
+    border-right: none;
+}
+
+#app .el-table--border,
+#app .el-table--group {
+    border: 1px solid #e6e6e6;
+}
+
+.wrap .el-table {
+    border: 1px solid #e6e6e6;
+}
+
+#app .el-table thead {
+    color: #606266;
+}
+
+#app .el-table--mini {
+    font-size: 14px;
+}
+
+.el-dialog .el-table .cell {
+    text-align: left;
+}
+
+.wrap .el-table th:first-of-type .el-button--text .el-icon-plus,
+.wrap .el-table td:first-of-type .el-button--text .el-icon-plus,
+.addtable .el-table th:first-of-type .el-icon-plus,
+.addtable .el-table td:first-of-type .el-icon-plus {
+    color: rgba(255, 255, 255, 0);
+    background: url(../images/cpImg/add.png) center no-repeat;
+    background-size: 14px;
+    opacity: 0.6;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.wrap .el-table th:first-of-type .el-button--text .el-icon-minus,
+.wrap .el-table td:first-of-type .el-button--text .el-icon-minus,
+.addtable .el-table th:first-of-type .el-icon-minus,
+.addtable .el-table td:first-of-type .el-icon-minus {
+    color: rgba(255, 255, 255, 0);
+    background: url(../images/cpImg/delete.png) center no-repeat;
+    background-size: 14px;
+    opacity: 0.6;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.wrap .el-table th:first-of-type .el-button--text .el-icon-plus:hover,
+.wrap .el-table td:first-of-type .el-button--text .el-icon-plus:hover,
+.wrap .el-table th:first-of-type .el-button--text .el-icon-minus:hover,
+.wrap .el-table td:first-of-type .el-button--text .el-icon-minus:hover {
+    opacity: 1;
+}
+
+#sac-duty-log .log-table .header.log-style .icon-c,
+.wrap .addtable .el-table__header tr th:first-of-type .el-button {
+    display: block;
+    width: 14px;
+    height: 40px;
+    margin: 0 auto;
+    font-size: 0;
+    background: url(../images/cpImg/add.png) center no-repeat;
+    background-size: 14px;
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+#sac-duty-log .log-table .log-table-body.log-style .icon-c,
+.wrap .addtable .el-table__body tr td:first-of-type .el-button {
+    display: block;
+    width: 14px;
+    height: 40px;
+    margin: 0 8px;
+    float: left;
+    font-size: 0;
+    background: url(../images/cpImg/delete.png) center no-repeat;
+    background-size: 14px;
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+#app #sac-duty-log .log-table .log-style>div.delete-icon div .edit-btn {
+    background: url(../images/cpImg/edit-ico.png) center no-repeat;
+    background-size: 18px;
+    float: left;
+    margin: 0 8px;
+    display: block;
+    width: 16px;
+    height: 40px;
+    font-size: 0;
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+#app #sac-duty-log .log-table .log-style>div.delete-icon div .edit-btn:hover {
+    opacity: 1;
+}
+
+#sac-duty-log .log-table .header.log-style .icon-c:hover,
+#sac-duty-log .log-table .log-table-body.log-style .icon-c:hover {
+    opacity: 1;
+}
+
+.addtable .el-table th:first-of-type .el-icon-plus:hover,
+.addtable .el-table td:first-of-type .el-icon-plus:hover,
+.addtable .el-table th:first-of-type .el-icon-minus:hover,
+.addtable .el-table td:first-of-type .el-icon-minus:hover {
+    opacity: 1;
+}
+
+.addtable .el-table th:first-of-type .cell a {
+    font-size: 0;
+    background: url(../images/cpImg/add.png) center no-repeat;
+    background-size: 14px;
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+.addtable .el-table td:first-of-type .cell a {
+    background: url(../images/cpImg/delete.png) center no-repeat;
+    background-size: 14px;
+    opacity: 0.6;
+    transition: all 0.3s;
+}
+
+.addtable .el-table th:first-of-type .cell a span,
+.addtable .el-table td:first-of-type .cell a span {
+    font-size: 0;
+    padding: 9px;
+}
+
+.addtable .el-table th:first-of-type .cell a:hover,
+.addtable .el-table td:first-of-type .cell a:hover {
+    opacity: 1;
+}
+
+.wrap .addtable .el-table__body tr td:first-of-type .el-button,
+.wrap .addtable .el-table__header tr th:first-of-type .el-button {
+    margin: 0 14px;
+}
+
+.wrap .sys-table.el-table {
+    padding-bottom: 0;
+}
+
+.wrap .sys-table.el-table .el-input__inner {
+    padding-left: 0 !important;
+}
+
+.wrap .sys-table.el-table td .cell>.el-input {
+    margin: 0;
+}
+
+
+/***************tree*******************/
+
+.d2-layout-header-aside-group .d2-layout-header-aside-content .d2-theme-container .d2-theme-container-main .d2-theme-container-main-body .container-component .d2-container-full .d2-container-full__body {
+    background: none;
+    padding: 0;
+}
+
+.d2-layout-header-aside-group .d2-layout-header-aside-content .d2-theme-container .d2-theme-container-main .d2-theme-container-main-body .container-component .d2-container-full {
+    right: 0;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.wrap {
+    padding: 8px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    background: none;
+    background: #fff;
+}
+
+.contant {
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.el-aside {
+    overflow: hidden;
+}
+
+.tree-box {
+    background: #fff;
+    margin: 0;
+    float: left;
+    height: 100%;
+    position: relative;
+    padding: 8px;
+}
+
+.tree-box .fold-btn {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    width: 10px;
+    height: 40px;
+    border: none;
+    background: url(../images/cpImg/fold-btn.png) center no-repeat #4b9ff0;
+    background-size: 8px;
+    padding: 0;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    opacity: 0.72;
+    transition: all 0.3s;
+}
+
+.tree-box .fold-btn:focus {
+    outline: 0;
+}
+
+.tree-box .fold-btn:hover {
+    opacity: 1;
+}
+
+.tree-box .el-tree {
+    padding: 8px;
+    height: calc(100% - 40px);
+    box-sizing: border-box;
+    border: 1px solid #e6e6e6;
+    border-top: none;
+    overflow: auto;
+}
+
+.tree-box p.tree-tit {
+    font-size: 14px;
+    color: #333;
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0 8px;
+    background: #eee;
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+}
+
+.t-content {
+    width: calc(85.2% - 16px);
+    float: right;
+    background: #fff;
+    height: 100%;
+    padding: 8px;
+}
+
+.fold-btn {
+    float: right;
+}
+
+.el-container .vxe-grid {
+    width: 100%;
+}
+
+.el-tree-node>.el-tree-node__children {
+    width: 100%;
+    float: left;
+}
+
+.search .el-input--small .el-input__inner {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 8px;
+}
+
+.leftTree .treeHeader i.fa,
+.compressTree i.fa {
+    width: 16px;
+    height: 16px;
+    opacity: 0.72;
+    transition: all 0.3s;
+}
+
+.leftTree .treeHeader i.fa:hover,
+.compressTree i.fa:hover {
+    opacity: 1;
+}
+
+.leftTree .treeHeader i.fa-angle-double-left {
+    background: url(../images/cpImg/left.png) center no-repeat;
+    background-size: cover;
+}
+
+.compressTree i.fa-angle-double-right {
+    background: url(../images/cpImg/right.png) center no-repeat;
+    background-size: cover;
+}
+
+.el-tree-node {
+    clear: both;
+}
+
+.leftTree .el-tree-node>.el-tree-node__children {
+    overflow: inherit;
+}
+
+.curd .curd-table {
+    padding: 0 !important;
+}
+
+.table-wrap {
+    background: #f5f5f5;
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+.table-wrap .curd {
+    width: calc(100% - 205px) !important;
+}
+
+#app .curd {
+    height: calc(100% - 50px);
+}
+
+#app .ibps-toolbar .header {
+    background: #fff;
+}
+
+.template-tree-list .ibps-layout_west {
+    /*padding: 16px 0 16px 16px;*/
+    box-sizing: border-box;
+}
+
+.el-dialog__wrapper .template-tree-list .ibps-layout_west {
+    padding: 0;
+}
+
+
+/************** 页脚 *************/
+
+.vxe-grid--pager-wrapper {
+    width: 100%;
+    float: left;
+}
+
+.d2-crud-footer {
+    background: #fff;
+    padding: 0 8px;
+}
+
+@media screen and (max-width: 1440px) {
+    .vxe-form .vxe-form--item {
+        padding: 8px 4px;
+    }
+    .vxe-button.type--button:not(.is--circle) {
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .el-table__header th {
+        font-size: 13px;
+    }
+    .el-table--mini,
+    .el-table--small,
+    .el-table__expand-icon {
+        font-size: 13px;
+    }
+    .work-area .el-button,
+    .tree-box p.tree-tit {
+        font-size: 13px;
+    }
+    #app .el-table--mini {
+        font-size: 13px;
+    }
+    #app .el-table .el-table__header .cell {
+        line-height: 32px;
+    }
+    #app .el-table .cell {
+        line-height: 20px;
+    }
+    .d2-crud-x .d2-crud-footer .d2-crud-pagination {
+        padding: 8px 0;
+    }
+    #app .d2-crud-x .d2-crud-body {
+        padding-bottom: 48px !important;
+    }
+    .el-pagination__sizes .el-input .el-input__inner {
+        font-size: 12px;
+    }
+    .d2-crud-x .d2-crud-footer .el-pagination button,
+    .d2-crud-x .d2-crud-footer .el-pagination span:not([class*="suffix"]) {
+        font-size: 12px;
+    }
+    .d2-crud-footer .el-pagination button,
+    .d2-crud-footer .el-pagination span:not([class*="suffix"]),
+    .d2-crud-footer .el-pager li {
+        height: 24px;
+        line-height: 24px;
+    }
+    .d2-crud-footer .el-input--mini .el-input__inner {
+        height: 24px;
+        line-height: 24px;
+    }
+    .d2-crud-footer .el-pagination__editor.el-input .el-input__inner {
+        height: 24px;
+        line-height: 24px;
+    }
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>覆盖物鼠标事件</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <style>
+    body,
+    html,
+    #container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+
+    /**********去掉百度地图logo start******/
+    .BMap_cpyCtrl,.anchorBL {
+        display: none;
+    }
+    /**********去掉百度地图logo end******/
+    </style>
+    <script src="//api.map.baidu.com/api?v=2.0&ak=RjA7rCVGGsLkzbqs2x7DBjE1Bx3U9WEC"></script>
+    <script src="jquery.js"></script>
+</head>
+<body>
+ 
+	<div id="container"></div>
+	 
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+    var map = new BMap.Map("container",{enableMapClick:false});//构造底图时，关闭底图可点功能
+    //var point = new BMap.Point(114.300572, 25.148539);//中心点设置为 华电韶关热电有限公司
+    var point = new BMap.Point(114.302511025674, 25.1420617842671);//中心点设置为 6号疏水器
+    map.centerAndZoom(point, 17);
+    map.enableScrollWheelZoom(true);
+
+    var menu = new BMap.ContextMenu();
+    var txtMenuItem = [
+        {
+            text: '放大一级',
+            callback: function () {
+                map.zoomIn();
+            }
+        }, {
+            text: '缩小一级',
+            callback: function () {
+                map.zoomOut();
+            }
+        }
+    ];
+    for (var i = 0; i < txtMenuItem.length; i++) {
+        menu.addItem(new BMap.MenuItem(txtMenuItem[i].text, txtMenuItem[i].callback, 100));
+    }
+    map.addContextMenu(menu);
+
+    // var polyline = new BMap.Polyline([
+	// 	new BMap.Point(114.302792, 25.147982),
+	// 	new BMap.Point(114.301684, 25.148533),
+	// 	new BMap.Point(114.301594, 25.151627),
+	// 	new BMap.Point(114.300572, 25.148539)
+	// ], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});
+    // map.addOverlay(polyline);
+
+    var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT,offset:new BMap.Size(60,65)});// 左上角，添加比例尺
+	var top_left_navigation = new BMap.NavigationControl({offset:new BMap.Size(10,60)});  //左上角，添加默认缩放平移控件
+	var top_right_navigation = new BMap.NavigationControl({anchor: BMAP_ANCHOR_TOP_RIGHT ,offset:new BMap.Size(20,20), type: BMAP_NAVIGATION_CONTROL_SMALL}); //右上角，仅包含平移和缩放按钮
+	/*缩放控件type有四种类型:
+	BMAP_NAVIGATION_CONTROL_SMALL：仅包含平移和缩放按钮；BMAP_NAVIGATION_CONTROL_PAN:仅包含平移按钮；BMAP_NAVIGATION_CONTROL_ZOOM：仅包含缩放按钮*/
+	//添加控件和比例尺
+	add_control();
+	//添加控件和比例尺
+	function add_control(){
+		map.addControl(top_left_control);        
+		map.addControl(top_left_navigation);     
+		map.addControl(top_right_navigation);    
+    }
+
+    var myIcon = new BMap.Icon("camera.png", new BMap.Size(60,60));
+ 
+    showAreaPointMarker();
+
+    //给地图加点market图标和拆线
+    function showAreaPointMarker(array){
+        // var array = new Array();
+        // array[0]={areaX: "114.301594",areaY: "25.151627", areaZ: "", areaId: "1348881691354517506", areaNo: "顶级区域011202-01", areaName: "顶级区域011202-01",
+        //     cameraList:[{id: null, locaId: null, locaNo: null, locaName: null, cameraId: "e39851c3454a4bda82525328aa74000d",cameraName:"test01摄像机"},
+        //                 {id: null, locaId: null, locaNo: null, locaName: null, cameraId: "f4a8ac12fb5e4e8180dbf6a2d496dcae",cameraName:"摄像机2 4G"}],
+        //     sensorDataList:[{locaName:"设备位置1",dataName:"温度1",dataValue:"19.2",isAlarm:0,deviceAddr:"21029075"},
+        //                     {locaName:"设备位置2",dataName:"噪音1",dataValue:"46.5",isAlarm:1,deviceAddr:"21027868"}]
+        // };
+
+        var polylineArr =  new Array();
+        for (var i = 0; i < array.length; i++) {
+            //给地图加点和market图标
+            var marker = addAreaPointMarker(array[i]);
+
+            let point = new BMap.Point(array[i].areaX,array[i].areaY);
+            polylineArr.push(point);
+            
+            //给地图点加摄像头数据
+            addCamera(marker,point,array[i]);
+        }
+
+        //给地图加管道拆线
+        var polyline = new BMap.Polyline(polylineArr,{strokeColor:"blue", strokeWeight:5, strokeOpacity:0.5});
+        map.addOverlay(polyline);
+    }
+
+    //给地图点加摄像头数据
+    function addCamera(marker,point,area){
+        var cameraList = area.cameraList;
+        
+            var opts = {
+                width: 200, // 信息窗口宽度
+                height: 100, // 信息窗口高度
+                title: '<div style="box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5); border: none;border-radius: 4px;">视频('+area.areaName+')</div>', // 信息窗口标题
+                //enableMessage: true, //设置允许信息窗发送短息
+                message: ""
+            }
+            var cameraHt = '<div class="dvalue" style="width: 100%;box-sizing: border-box;box-shadow: none;height: 70px;overflow: auto;">';
+            if(cameraList!=null && cameraList.length>0){    
+                for(var j=0;j<cameraList.length;j++){
+                    var camera = cameraList[j];
+                    cameraHt += '<div style="font-size:16px; color:#4b9ff0;">';
+                    cameraHt += '<span style="cursor: pointer;" onClick="window.parent.onOpenCamera(\''+camera.cameraId+'\');">'+camera.cameraName+'</span>';
+                    cameraHt += '<span onClick="window.parent.onPlayCamera(\''+camera.cameraId+'\');" style="margin-left:10px;font-size:12px;cursor: pointer;">视频回放</span>';
+                    cameraHt += '</div>';  
+                }
+            }
+            cameraHt += '</div>';    
+
+            var infoWindow = new BMap.InfoWindow(cameraHt, opts); // 创建信息窗口对象 
+            //map.openInfoWindow(infoWindow, point); //开启信息窗口
+
+             marker.addEventListener('click', function () {
+                this.openInfoWindow(infoWindow);
+                //marker.getLabel().setStyle({display: 'block'})
+                $("#"+area.areaId).css("display","block");
+             });
+        
+    }
+
+     //给地图加点market图标
+    function addAreaPointMarker(area){
+        var lng = area.areaX;
+        var lat = area.areaY;
+        var areaId = area.areaId;
+        var areaName = area.areaName;
+     
+        var point = new BMap.Point(lng, lat);
+      
+		var marker = new BMap.Marker(point,{icon:myIcon});
+		// marker.addEventListener("click",function(e){
+		// 	var areaId = e.currentTarget.customData.areaId;
+		// 	window.parent.openCamera(areaId);
+		// });
+        map.addOverlay(marker);
+
+          //给地图点加传感器数据
+        addSensor(marker,area.areaId,area.areaName,area.sensorDataList);
+
+        return marker;
+		//marker.customData = {'areaId': areaId};
+    }
+
+    //给地图点加传感器数据
+    function addSensor(marker,areaId,areaName,sensorDataList){
+        var opts = {
+            position: point, // 指定文本标注所在的地理位置
+            offset: new BMap.Size(35, -50) // 设置文本偏移量
+        };
+        //var label = new BMap.Label(areaName,{offset:new BMap.Size(50,-10)});
+
+        if(sensorDataList!=null && sensorDataList.length>0){
+            var sensorHt = '<div class="dvalue" id="'+areaId+'">';
+            sensorHt+= '<div style="font-size:16px;float:left;width:100%;margin-top:6px;">传感器('+areaName+')：</div><div style="position: absolute;right: 8px;cursor: pointer;"><img src="sensor_close.gif" style="" onClick="test(\''+areaId+'\');"/></div>';
+            for(var i =0;i<sensorDataList.length;i++){
+                var sensorData = sensorDataList[i];
+                sensorHt+= '<div class="valueli">';
+                sensorHt+= '<span>'+sensorData.deviceName+'&nbsp;&nbsp;</span>';
+                sensorHt+= '<span>'+sensorData.dataName+'</span>';
+                if(1==sensorData.isAlarm){
+                    sensorHt+= '<span style="color:red;font-weight: bold;cursor: pointer;" onClick="window.parent.onViewInspEchart('+sensorData.deviceAddr+');">'+sensorData.dataValue+'</span>';
+                }else{
+                    sensorHt+= '<span style="cursor: pointer;" onClick="window.parent.onViewInspEchart(\''+sensorData.deviceAddr+'\');">'+sensorData.dataValue+'</span>';
+                }
+                sensorHt+= '</div>';
+            }
+            sensorHt+= '</div>';
+
+            var label = new BMap.Label(sensorHt, opts);
+            marker.setLabel(label);
+        }
+    }
+
+    function test(areaId){
+        $("#"+areaId).css("display","none");
+    }
+    /**地图转换代码如下
+    function showAreaPointMarker(array){
+        var data = array;
+        var pointArr = [];
+        var pointLabelArr = [];
+        var pointId = [];
+        var count=0;
+        for (var i = 0;  i< data.length; i++) {
+            if(count == 0){
+                pointArr = [];
+                pointLabelArr = [];
+                pointId = [];
+            }
+            count = count+1;
+            var point = new BMap.Point(data[i].lng,data[i].lat);
+            var label = new BMap.Label(data[i].areaName,{offset:new BMap.Size(20,-10)});
+            pointArr.push(point);
+            pointLabelArr.push(label);
+            pointId.push(data[i].areaId);
+            
+            if(10 == count || i==data.length-1){
+                count=0;
+                setTimeout(function(param1){
+                        var convertor = new BMap.Convertor();
+                        convertor.translate(param1, 1, 5, translateCallback);
+                }, 1000, pointArr);
+                
+                    //坐标转换完之后的回调函数
+                translateCallback = function (data){
+                    if(data.status === 0) {
+                    for (var i = 0; i < data.points.length; i++) {
+                        addStationPointMarker(data.points[i],pointLabelArr[i],pointId[i]);
+                    }
+                    }
+                }
+            }
+        }
+    }
+
+    // 增g供热站加点
+	function addStationPointMarker(point,label,id){
+         //var myIcon = new BMap.Icon("../FixCS-cpeam/images/heatStation.png", new BMap.Size(30,30));
+		var marker = new BMap.Marker(point,{icon:myIcon});
+		//var marker = new BMap.Marker(point);
+		marker.addEventListener("click",function(e){
+			var id = e.currentTarget.customData.areaId;
+			window.parent.postMessage(id);
+		});
+		map.addOverlay(marker);
+		marker.setLabel(label);
+		marker.customData = {'areaId': id};
+    }
+    **/
+</script>
+<style>
+    .BMapLabel{ border: none !important;}
+    .dvalue{box-shadow: 0 2px 6px 0 rgba(27, 142, 236, 0.5); border: none; padding:10px; border-radius: 4px;float:left;}
+    .valueli{ margin:4px 0; font-size: 14px;width:100%;float:left;}
+    .valueli span:nth-of-type(2n){ margin-right: 16px;}
+    .valueli span:last-of-type{ margin-right: 0;}
+</style>

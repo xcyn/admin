@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sac-tree-select 匹配初始快照 1`] = `
+<div class="el-select select el-select--medium">
+  <!---->
+  <div class="el-input el-input--medium el-input--suffix">
+    <!----><input type="text" readonly="readonly" autocomplete="off" placeholder="请选择" class="el-input__inner">
+    <!----><span class="el-input__suffix"><span class="el-input__suffix-inner"><i class="el-select__caret el-input__icon el-icon-arrow-up"></i><!----><!----><!----><!----><!----></span>
+    <!----></span>
+    <!---->
+    <!---->
+  </div>
+  <div class="el-select-dropdown el-popper" style="display: none;">
+    <div class="el-scrollbar" style="display: none;">
+      <div class="el-select-dropdown__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+        <ul class="el-scrollbar__view el-select-dropdown__list">
+          <!---->
+          <li class="el-select-dropdown__item">
+            <div role="tree" class="el-tree tree">
+              <div class="el-tree__empty-block"><span class="el-tree__empty-text">暂无数据</span></div>
+              <div class="el-tree__drop-indicator" style="display: none;"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="el-scrollbar__bar is-horizontal">
+        <div class="el-scrollbar__thumb" style="width: 0px; transform: translateX(0%); webkit-transform: translateX(0%);"></div>
+      </div>
+      <div class="el-scrollbar__bar is-vertical">
+        <div class="el-scrollbar__thumb" style="height: 0px; transform: translateY(0%); webkit-transform: translateY(0%);"></div>
+      </div>
+    </div>
+    <p class="el-select-dropdown__empty">
+      无数据
+    </p>
+  </div>
+</div>
+`;

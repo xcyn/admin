@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sac-system-command-bar 匹配默认快照 1`] = `
+<div class="container clearfix">
+  <!---->
+  <form class="el-form action-form el-form--inline">
+    <div class="el-form-item">
+      <!---->
+      <div class="el-form-item__content">
+        <div class="search-box el-input el-input--small">
+          <!----><input type="text" autocomplete="off" placeholder="请输入过滤内容" class="el-input__inner">
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item">
+      <!---->
+      <div class="el-form-item__content"><button disabled="disabled" type="button" class="el-button search-btn el-button--primary el-button--small is-disabled">
+          <!---->
+          <!----><span>
+        搜索
+      </span></button>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item">
+      <!---->
+      <div class="el-form-item__content"><button type="button" class="el-button add-btn el-button--text el-button--small">
+          <!----><i class="el-icon-plus"></i><span>
+        添加
+      </span></button>
+        <!---->
+      </div>
+    </div>
+    <div class="el-form-item">
+      <!---->
+      <div class="el-form-item__content"><button type="button" class="el-button refresh-btn el-button--text el-button--small">
+          <!----><i class="el-icon-refresh-right"></i><span>
+        刷新
+      </span></button>
+        <!---->
+      </div>
+    </div>
+  </form>
+</div>
+`;

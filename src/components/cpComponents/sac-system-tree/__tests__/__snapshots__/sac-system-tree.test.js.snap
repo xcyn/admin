@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sac-system-tree 匹配默认快照 1`] = `
+<div class="container">
+  <!---->
+  <div role="tree" class="el-tree tree">
+    <div class="el-tree__empty-block"><span class="el-tree__empty-text">暂无数据</span></div>
+    <div class="el-tree__drop-indicator" style="display: none;"></div>
+  </div>
+</div>
+`;

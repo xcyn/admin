@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{width:100%;height:100%;}
+		#r-result{width:100%;margin-top:5px;}
+		p{margin:5px; font-size:14px;}
+	</style>
+	<script type="text/javascript" src="./baidumap_offline_v2_load.js"></script>
+	<!-- <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=RjA7rCVGGsLkzbqs2x7DBjE1Bx3U9WEC"></script> -->
+	<script type="text/javascript" src="./tools/DrawingManager_min.js"></script> 
+	<script type="text/javascript" src="./js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="./js/stationAndPropMap.js"></script>
+ 	<link rel="stylesheet" href="./css/DrawingManager_min.css" />
+	<!-- <script type="text/javascript" src="./plugins/zTree/js/jquery-1.4.4.min.js" ></script> -->
+	<link rel="stylesheet" href="./plugins/zTree/css/metroStyle/metroStyle.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="./plugins/zTree/js/jquery.ztree.all.min.js" ></script>
+	
+	<title>添加/删除工具条、比例尺控件</title>
+	<style>
+	.layui-inline{position: fixed;top: 20px;left:100px;z-index: 1000;}
+	.layui-inline-select{position: fixed;top: 20px;left:500px;z-index: 1000;}
+	.layui-input-inline select{border: 1px solid #1863c3; height: 30px;width: 100px;}
+	.layui-inline input{width:100px;}
+	.BMap_cpyCtrl{display:none;}
+	.anchorBL{display: none;}
+	.treeBox{
+	　　height: 0px;
+	　　position: relative;
+	　　top: 0px;
+		background-color: #FFFFFF;
+	}
+	.treeBox>ul{
+	　　display: none;
+	　　overflow-y: auto;
+	　　height: 250px;
+	　　width: 100%;
+	　　z-index: 9;
+	　　top: 2px;
+	　　border-radius: 4px;
+		position: relative;
+	　　border: 1px solid #7B9DD4;
+	　　background-color: #FFFFFF;
+	}
+	
+	#zoomBtn {
+		position: absolute;
+		left: 10px;
+		top: 20px;
+		z-index: 4;
+		padding: 5px;
+		width: 28px;
+		background-color: #999d9c;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 15px;
+		border-radius: 5px;
+		padding-top: 5px;
+	}
+	
+	#zoomBtn>div:nth-child(-n + 2) {
+		border-bottom: 1px solid #ccc;
+	}
+	
+	#zoomBtn>div:nth-child(odd) {
+		cursor: pointer;
+		user-select: none;
+	}
+	</style>
+</head>
+<body>
+	<div class="layui-inline">
+		 <input placeholder="热源、站" id="searchPoint"></input><button onclick = "searchPoint()">搜索</button>
+	</div>
+	<div id="heatNetTree_div" class="layui-inline-select">
+		<input type="text" class="form-control" id="selectTree" style="" readonly onclick="showSelectTree()" placeholder="显示图层"/> 
+		<div class="treeBox">
+			<ul id="heatNetTree" class="ztree"></ul>
+		</div>
+	</div> 
+	<div id="allmap"></div>
+	<div id="zoomBtn">
+		<div onclick="addZoom()">+</div>
+		<div class="wrap_show">11</div>
+		<div onclick="delZoom()">-</div>
+	</div>
+ 
+</body>
+</html>
+<script type="text/javascript">
+	 
+</script>

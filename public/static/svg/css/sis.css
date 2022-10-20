@@ -1,0 +1,13 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	overflow:hidden;
+}
+#svgContainer{
+	position : absolute;
+	transform-origin:left top;
+	-ms-transform-origin:left top; 		/* IE 9 */
+	-webkit-transform-origin:left top;	/* Safari ºÍ Chrome */
+	-moz-transform-origin:left top;		/* Firefox */
+	-o-transform-origin:left top;		/* Opera */
+}

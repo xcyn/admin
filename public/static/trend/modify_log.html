@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>测点修改日志</title>
+    <link href="plugins/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.3/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5.3/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="./css/basic-grey.css" />
+    <script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="js/extendjQuery.js"></script>
+    <script type="text/javascript" src="js/highstock.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.5.3/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-1.5.3/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="modify_log.js"></script>
+    <script type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="plugins/layui/layui.js"></script>
+    <style type="text/css">
+        .bls {
+            background-color: red;
+        }
+
+        li:active {
+            background-color: blue;
+        }
+
+        .btd {
+            border: solid 1px;
+            text-align: center;
+            width: 10%;
+            position: relative;
+            height: 30px;
+        }
+
+        .std {
+            border: solid 1px;
+            text-align: center;
+            width: 10%;
+        }
+
+        .ltd {
+            border: solid 1px;
+            text-align: center;
+            height: 30px;
+            background-color: #DDDDEE;
+        }
+
+        #dtab {
+            width: 100%;
+            font-family: '微软雅黑', '黑体', '文泉驿正黑';
+            text-align: center;
+        }
+
+        #tab_real_time {
+            width: 100%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tr_title {
+            background-color: #fafafa;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body class="easyui-layout" style="height:100%;">
+
+        <div class='easyui-layout' style='width:100%;height:100%;'>
+        <div data-options="region:'north',title:'查询条件',split:true" style='height:100px;'>
+        <div style='margin-top:10px;'>
+        <span style='margin-left:10px;'>组态图文件名:</span><input id='fileName' class="easyui-textbox"  style="width:200px">
+        <span style='margin-left:10px;'>文件测点id:</span><input id='pointId' class="easyui-textbox" style="width:200px">
+        <!-- <a id="sbtn" href="#" class="easyui-linkbutton" style='margin-left:10px;' onclick='initPGrid()' data-options="iconCls:'icon-search'">查询</a>
+        <a id="cbtn" href="#" class="easyui-linkbutton" style='margin-left:10px;' onclick='clearData()' data-options="iconCls:'icon-clear'">清空</a> -->
+       <!--  <button id="sbtn" onclick='initPGrid()'>查询</button>
+        <button id="cbtn" onclick='clearData()'>清空</button> -->
+        </div>
+        </div>
+        <div data-options="region:'center',title:'测点修改日志信息',split:true" style='width:100%;'>
+        <table id='ptab' class='easyui-datagrid'>
+        </table>
+        </div>
+       
+        </div>
+<!-- 
+
+    <div>
+        <TABLE class=ui-table-A width="100%">
+            <TBODY>
+                <tr style="height: 0px; border: 0px;">
+                    <td class="title-r" style="width: 11%; border-bottom: 0px;padding:0px;"></td>
+                    <td style="width: 23%; border: 0px;padding:0px;"></td>
+                    <td class="title-r" style="width: 11%; border-bottom: 0px;padding:0px;"></td>
+                    <td style="width: 23%; border: 0px;padding:0px;"></td>
+                    <td class="title-r" style="width: 11%; border-bottom: 0px;padding:0px;"></td>
+                    <td style="width: 23%; border: 0px;padding:0px;"></td>
+                </tr>
+                <TR>
+                    <TD class="title-r"><kbd>组态图文件名</kbd><SPAN class="cpeam-required">*</SPAN></TD>
+                    <TD colspan="1"><input id="input_0" type="text" readonly="readonly">
+                    <TD class="title-r"><kbd>当前测点名</kbd></TD>
+                    <TD><input id="input_1" type="text" readonly="readonly">
+                    <td class="title-r">当前测点描述</td>
+                    <td><input id="input_3" type="text">
+                </TR>
+            </TBODY>
+        </TABLE>
+
+    </div>
+</TABLE>
+<table class="ui-table-Detail" id="table_SVG_POINT_LOG_DETAIL">
+    <thead>
+        <tr>
+            <td></td>
+            <td style='display:none;'>主键ID</td>
+            <td style='width:15%;'>当前测点名</td>
+            <td style='width:15%;'>当前测点描述</td>
+            <td style='width:15%;'>上次修改测点名</td>
+            <td style='width:15%;'>修改前测点描述</td>
+            <td style='width:15%;'>修改时间</td>
+            <td style='width:9%;'>修改人</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    </tbody> -->
+</body>
+
+</html>

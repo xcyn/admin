@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link href="plugins/layui/css/layui.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="plugins/layui/layui.js"></script>
+        <script>
+		layui.use(['layer', 'element'], function(){
+		  var layer = layui.layer
+		  ,element = layui.element();
+		});
+		</script>
+
+    </head>
+    <body>
+
+<div class="layui-tab layui-tab-brief" lay-filter="demo">
+  <ul class="layui-tab-title">
+    <li class="layui-this">产品介绍</li>
+    <li>组态图颜色说明</li>
+    <li>关于</li>
+  </ul>
+  <div class="layui-tab-content" style="padding: 10px;">
+    <div class="layui-tab-item layui-show">
+	       该产品是基于SVG技术开发的，支持IE10+、Chrome、FireFox及所有现代浏览器。
+    </div>
+    <div class="layui-tab-item">
+    	1、<span style="background-color:yellow">黄色背景</span>，则表示无值(实时数据库中无值)<br/><br/>
+    	2、<span style="background-color:red">红色背景且显示为失去连接</span>，则表示后台服务器被停了或连不上服务器<br/><br/>
+    	3、<span style="background-color:red">红色背景且标示为无效测点</span>，则表示该测点不存在<br/><br/>
+    	4、<span style="color:red">字体为红色</span>，则表示测点出现告警
+    </div>
+    <div class="layui-tab-item">
+    	
+    </div>
+  </div>
+</div>
+
+		
+    </body>
+</html>

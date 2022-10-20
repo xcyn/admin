@@ -1,0 +1,65 @@
+
+.#{$prefix}-fieldset{
+  border: 1px  #ddd ;
+  margin: 5px; 
+
+  &.#{$prefix}-fieldset--none{
+    border-style: none;
+  }
+  &.#{$prefix}-fieldset--dashed{
+    border-style: dashed;
+  }
+  &.#{$prefix}-fieldset--solid{
+    border-style: solid;
+  }
+  &.#{$prefix}-fieldset--groove{
+    border-style: groove;
+  }
+  &.#{$prefix}-fieldset--ridge{
+    border-style: ridge;
+  }
+  &.#{$prefix}-fieldset--inset{
+    border-style: inset;
+  }
+  &.#{$prefix}-fieldset--outset{
+    border-style: outset;
+  }
+  
+  legend{
+    padding: 5px; 
+  }
+
+  .#{$prefix}-fieldset--desc{
+    display: block;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #909399;
+  }
+
+   .#{$prefix}-fieldset--center {
+    text-align: center !important;
+  }
+  .#{$prefix}-fieldset--right {
+    text-align: right !important;
+  }
+  .#{$prefix}-fieldset--left {
+    text-align: left;
+  }
+
+  .#{$prefix}-fieldset--primary{
+    color: $--color-primary;
+   }
+  .#{$prefix}-fieldset--success{
+    color: $--color-success;
+   }
+  .#{$prefix}-fieldset--info{
+    color: $--color-info;
+   }
+   .#{$prefix}-fieldset--warning{
+    color: $--color-warning;
+   }
+   .#{$prefix}-fieldset--danger{
+    color: $--color-danger;
+   }
+}
