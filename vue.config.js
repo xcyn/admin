@@ -8,20 +8,100 @@ const GenerateAssetPlugin = require('generate-asset-webpack-plugin')
 let createConfig = function (compilation) {
   let cfgJson = {
     VUE_APP_BASE_API: 'http://112.4.136.182:8086/ibps',
+    ENV: {
+      // 页面 title 前缀
+      VUE_APP_TITLE: '南京促普软件技术有限公司1231231',
+      VUE_APP_COMPANY: 'common.companyP',
+      // # 是否启用CDN
+      VUE_APP_CDN: true,
+      // # 是否启用gz压缩
+      VUE_APP_GZ: true,
+      // # element 颜色
+      VUE_APP_ELEMENT_COLOR: '#409EFF',
+      // # ---语言配置
+      VUE_APP_LOCALE: 'zh-CN',
+      // # ---促普
+      VUE_APP_IMG: '@/assets/images/login/logoP.jpg',
+      VUE_APP_LOGIN_IMG: '@/assets/images/login/logoP.jpg',
+      VUE_APP_ICON: 'faviconP.ico',
+      VUE_APP_LOGIN_BACKGROUND_IMG: '@/assets/images/login/login.png',
+      VUE_APP_SUBSCRIPT: '2016-2022©南京促普软件技术有限公司',
+      // # ---是否开启国际化语言切换
+      VUE_APP_IS_LOCALE: true,
+      // # ---两票是否开启安全交底功能
+      VUE_APP_IS_TICKETS_SAFTY: false,
+      // # ---巡检任务执行开具工作票
+      VUE_APP_IS_INSP_WT: true,
+      // # ---巡检任务PC端是否可执行
+      VUE_APP_IS_PC_INSP: true,
+      // # ---巡检任务巡检方式   true-现场   false-远程
+      VUE_APP_IS_SCENE_LONGRANGE: true,
+      // # ---管控模式 0-扫码 1-手动选择 2-物联设备
+      VUE_APP_IS_SCANHAND: '2',
+      // # ---跳转设备台账  是华能还是黄陵
+      VUE_APP_EQUIPMENT_ACCOUNT: true,
+      // # SSO单点登录配置(黄陵单点登录)
+      // # on 开启单点登录  off 关闭单点登录
+      VUE_APP_CAS_OPEN: 'off',
+      // # ---当前服务器的地址(客户端)
+      VUE_APP_CAS_CLIENT_HOST_URL: 'oauth2/v3/user/openSSO',
+      // # --- 当前cas 登录
+      VUE_APP_CAS_SERVER_LOGIN_ON: 'http://192.168.66.247:17020/frontend/login',
+      VUE_APP_CAS_SERVER_LOGIN_OUT: 'http://192.168.66.247:17020/frontend/login',
+      // # 单点跳转默认选中处理
+      // #头部点击切换开关默认选中开关 open 启动  close 关闭
+      VUE_APP_MODULE_HEADER_ENABLED: 'close',
+      // # 两票管理
+      VUE_APP_MODULE_LPGL_HEADER: '902593377957052416',
+      // # ---两票附票是否开启关联IOT
+      VUE_APP_AT_TICKETS_IS_HAS_IOT: false,
+      // # 默认打开的菜单目录
+      VUE_APP_MODULE_LPGL_PATH: '/lpgl/gzp',
+      // # 默认打开的列表页面(路由)
+      VUE_APP_MODULE_LPGL_OPEN: '/lpgl/gzp/wtWorkTktInv2',
+      // # 设备管理
+      VUE_APP_MODULE_SBGL_HEADER: '788445928913633280',
+      VUE_APP_MODULE_SBGL_PATH: '/sbgl/sbtzglll',
+      // # 巡点检系统
+      VUE_APP_MODULE_SBGL_OPEN: '/sbgl/sbtzglll/eqAccountList',
+      VUE_APP_MODULE_XDJGL_HEADER: '781957002686365696',
+      VUE_APP_MODULE_XDJGL_PATH: '/xhjc/xjqygl',
+      VUE_APP_MODULE_XDJGL_OPEN: '/xhjc/inspTourCheckPlanMgt',
+      // # 缺陷管理
+      VUE_APP_MODULE_QXGL_HEADER: '778286022499762176',
+      VUE_APP_MODULE_QXGL_PATH: '/sbqxlcgl/defectFireMgtList',
+      VUE_APP_MODULE_QXGL_OPEN: '/sbqxlcgl/defectFireMgtList',
+      // # 用户管理
+      VUE_APP_MODULE_YHGL_HEADER: '847474415145844736',
+      VUE_APP_MODULE_YHGL_PATH: '/xhjc/inspTourCheckPlanMgt',
+      VUE_APP_MODULE_YHGL_OPEN: '/xtgl/yggl',
+      // # 告警信息跳转配置
+      VUE_APP_MODULE_GJXX_HEADER: '',
+      VUE_APP_MODULE_GJXX_PATH: '',
+      VUE_APP_MODULE_GJXX_OPEN: '/platform/pendingExtend',
+
+      // 业务单独配置 (业务层)
+      VUE_APP_PUBLIC_PATH: '/',
+      port: '',
+      npm_config_port: '',
+      NODE_ENV: 'development'
+    }
   }
   return JSON.stringify(cfgJson)
 }
+const ENV = JSON.parse(createConfig()).ENV
+console.log('ENV111', ENV)
 const { set, each, compact, map, keys } = require("lodash")
 const path = require("path")
 const resolve = dir => path.join(__dirname, dir)
 // 增加环境变量
 process.env.VUE_APP_VERSION = require("./package.json").version
 process.env.VUE_APP_BUILD_TIME = require("dayjs")().format("YYYY-M-D HH:mm:ss")
-const elementColor = process.env.VUE_APP_ELEMENT_COLOR // element-ui的基础色系
-const publicPath = process.env.VUE_APP_PUBLIC_PATH || "/" // 基础路径 注意发布之前要先修改这里
-const port = process.env.port || process.env.npm_config_port || 9528 // 端口
-const enableGzip = process.env.VUE_APP_GZ === true // 是否启动Gzip
-const enableCDN = process.env.VUE_APP_CDN === true // 是否启动CDN
+const elementColor = ENV.VUE_APP_ELEMENT_COLOR // element-ui的基础色系
+const publicPath = ENV.VUE_APP_PUBLIC_PATH || "/" // 基础路径 注意发布之前要先修改这里
+const port = ENV.port || ENV.npm_config_port || 9528 // 端口
+const enableGzip = ENV.VUE_APP_GZ === true // 是否启动Gzip
+const enableCDN = ENV.VUE_APP_CDN === true // 是否启动CDN
 const TimeStamp = new Date().getTime() // 时间戳
 // 为多个页面构建配置
 const pages = {
@@ -93,7 +173,7 @@ module.exports = {
         }),
       ],
     }
-    if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
+    if (ENV.NODE_ENV === "production" || ENV.NODE_ENV === "development") {
       externals["./cptable"] = "var cptable"
       configNew.externals = externals
       configNew.output = {
@@ -187,7 +267,7 @@ module.exports = {
           css: compact(map(packages, "css")),
           js: compact(map(packages, "js"))
         }
-        set(options, "[0].cdn", process.env.NODE_ENV === "production" ? setting : [])
+        set(options, "[0].cdn", ENV.NODE_ENV === "production" ? setting : [])
         return options
       })
     })
@@ -209,7 +289,7 @@ module.exports = {
         changeSelector: forElementUI.changeSelector
       }
     ])
-    config.when(process.env.NODE_ENV === "development", son => son.devtool("cheap-source-map")) // 开发环境 sourcemap 不包含列信息
+    config.when(ENV.NODE_ENV === "development", son => son.devtool("cheap-source-map")) // 开发环境 sourcemap 不包含列信息
     // markdown
     config.module.rule("md").test(/\.md$/).use("text-loader").loader("text-loader").end()
     // svg
@@ -236,6 +316,14 @@ module.exports = {
     if (process.env.npm_config_report) {
       config.plugin("webpack-bundle-analyzer").use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin)
     }
+    config.plugin('define').tap(args => {
+      console.log('eeeeee',ENV)
+      Object.keys(ENV).map(key => {
+        let val = ENV[key];
+        args[0]['process.env'][key] = JSON.stringify(val)
+      })
+      return args
+    })
   },
   productionSourceMap: false, // 不输出 map 文件
   pluginOptions: {
